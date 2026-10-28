@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jadwal & Sparring — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span><span class="brand-name">Arenaku</span><span class="brand-tag">Sport Academy OS</span></span>
+    </a>
+    <div class="acad-switch">
+      <span class="acad-logo">BC</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Arenaku Badminton</div>
+        <div class="acad-meta">4 akademi · Super Admin</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+    <div class="nav-group-label">Menu utama</div>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="akademi.html" class="nav-link"><i data-lucide="building-2"></i> Akademi &amp; Lokasi</a>
+    <a href="member.html" class="nav-link"><i data-lucide="users"></i> Member <span class="nav-count">248</span></a>
+    <a href="jadwal.html" class="nav-link active"><i data-lucide="calendar-days"></i> Jadwal &amp; Sparring</a>
+    <a href="absensi.html" class="nav-link"><i data-lucide="clipboard-check"></i> Absensi</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <a href="pembayaran.html" class="nav-link"><i data-lucide="receipt-text"></i> Pembayaran</a>
+    <a href="reminder-wa.html" class="nav-link"><i data-lucide="message-circle"></i> Pengingat WhatsApp <span class="nav-count">8</span></a>
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="akademi.html#skill" class="nav-link"><i data-lucide="list-checks"></i> Template Skill</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar avatar-violet">RK</span>
+        <div><div class="user-mini-name">Rina Kartika</div><div class="user-mini-role">Super Admin</div></div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Jadwal &amp; Sparring</div>
+        <div class="topbar-sub">Arenaku Badminton Club · Minggu ke-2 November</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search"><i data-lucide="search"></i><input type="text" placeholder="Cari jadwal, GOR, lawan…" /></div>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar avatar-violet">RK</span>
+    </header>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Jadwal latihan</h1>
+          <p class="page-sub">Atur latihan rutin, sparring, dan event — lengkap dengan lokasi &amp; lawan.</p>
+        </div>
+        <div class="page-actions">
+          <select class="select" style="width:auto;">
+            <option>Semua lokasi</option>
+            <option>GOR Ciracas</option>
+            <option>GOR Cibubur</option>
+          </select>
+          <button class="btn btn-primary" data-modal-open="modalSchedule"><i data-lucide="plus"></i> Buat Jadwal</button>
+        </div>
+      </div>
+
+      <!-- Week strip -->
+      <div class="card" style="margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:8px;padding:14px 16px;flex-wrap:wrap;">
+          <button class="icon-btn" data-demo><i data-lucide="chevron-left"></i></button>
+          <div style="flex:1;display:grid;grid-template-columns:repeat(7,1fr);gap:6px;">
+            <button style="border:1px solid transparent;background:transparent;border-radius:11px;padding:8px 4px;cursor:pointer;">
+              <div style="font-size:9.5px;color:#94a3b8;font-weight:700;">SEN</div>
+              <div style="font-size:15px;font-weight:800;margin-top:2px;">9</div>
+              <div style="font-size:9px;color:#64748b;margin-top:2px;">3 sesi</div>
+            </button>
+            <button style="border:1px solid transparent;background:transparent;border-radius:11px;padding:8px 4px;cursor:pointer;">
+              <div style="font-size:9.5px;color:#94a3b8;font-weight:700;">SEL</div>
+              <div style="font-size:15px;font-weight:800;margin-top:2px;">10</div>
+              <div style="font-size:9px;color:#64748b;margin-top:2px;">2 sesi</div>
+            </button>
+            <button style="border:1px solid transparent;background:transparent;border-radius:11px;padding:8px 4px;cursor:pointer;">
+              <div style="font-size:9.5px;color:#94a3b8;font-weight:700;">RAB</div>
+              <div style="font-size:15px;font-weight:800;margin-top:2px;">11</div>
+              <div style="font-size:9px;color:#64748b;margin-top:2px;">3 sesi</div>
+            </button>
+            <button style="border:1px solid #0b1220;background:#0b1220;border-radius:11px;padding:8px 4px;cursor:pointer;color:#fff;">
+              <div style="font-size:9.5px;color:#c9f24d;font-weight:700;">KAM</div>
+              <div style="font-size:15px;font-weight:800;margin-top:2px;">12</div>
+              <div style="font-size:9px;color:#9fb0c8;margin-top:2px;">4 sesi</div>
+            </button>
+            <button style="border:1px solid transparent;background:transparent;border-radius:11px;padding:8px 4px;cursor:pointer;">
+              <div style="font-size:9.5px;color:#94a3b8;font-weight:700;">JUM</div>
+              <div style="font-size:15px;font-weight:800;margin-top:2px;">13</div>
+              <div style="font-size:9px;color:#64748b;margin-top:2px;">1 sesi</div>
+            </button>
+            <button style="border:1px solid transparent;background:transparent;border-radius:11px;padding:8px 4px;cursor:pointer;">
+              <div style="font-size:9.5px;color:#94a3b8;font-weight:700;">SAB</div>
+              <div style="font-size:15px;font-weight:800;margin-top:2px;">14</div>
+              <div style="font-size:9px;color:#be123c;font-weight:700;margin-top:2px;">Sparring</div>
+            </button>
+            <button style="border:1px solid transparent;background:transparent;border-radius:11px;padding:8px 4px;cursor:pointer;">
+              <div style="font-size:9.5px;color:#94a3b8;font-weight:700;">MIN</div>
+              <div style="font-size:15px;font-weight:800;margin-top:2px;">15</div>
+              <div style="font-size:9px;color:#64748b;margin-top:2px;">—</div>
+            </button>
+          </div>
+          <button class="icon-btn" data-demo><i data-lucide="chevron-right"></i></button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1.6fr 1fr;align-items:start;">
+        <!-- Day sessions -->
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Kamis, 12 November 2026</div>
+              <div class="card-sub">4 sesi · 64 peserta terdaftar</div>
+            </div>
+            <div style="display:flex;gap:5px;">
+              <span class="badge badge-outline">Latihan 3</span>
+              <span class="badge badge-violet">Sparring 1</span>
+            </div>
+          </div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:10px;">
+
+            <div style="display:flex;gap:12px;padding:12px;border:1px solid #eef1f6;border-radius:12px;background:#fff;">
+              <div style="width:64px;flex:0 0 auto;text-align:center;padding-top:2px;">
+                <div style="font-size:12px;font-weight:800;">15.30</div>
+                <div style="font-size:9.5px;color:#94a3b8;">17.00</div>
+                <div style="width:1px;height:26px;background:#e6eaf1;margin:7px auto 0;"></div>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
+                  <span style="font-size:12.5px;font-weight:700;">Beginner A · Latihan Rutin</span>
+                  <span class="badge badge-green"><span class="dot"></span>Selesai</span>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:5px;flex-wrap:wrap;font-size:10.5px;color:#64748b;">
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="user" style="width:11px;height:11px;"></i> Coach Adi</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> GOR Ciracas · Lap. 2</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="users" style="width:11px;height:11px;"></i> 20 member</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <a href="absensi.html" class="btn btn-white btn-sm">Rekap</a>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;padding:12px;border:1px solid #fef4e2;border-radius:12px;background:#fffdf9;">
+              <div style="width:64px;flex:0 0 auto;text-align:center;padding-top:2px;">
+                <div style="font-size:12px;font-weight:800;">16.00</div>
+                <div style="font-size:9.5px;color:#94a3b8;">17.30</div>
+                <div style="width:1px;height:26px;background:#f3e3c6;margin:7px auto 0;"></div>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
+                  <span style="font-size:12.5px;font-weight:700;">Intermediate B · Latihan Rutin</span>
+                  <span class="badge badge-amber"><span class="dot"></span>Belum diabsen</span>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:5px;flex-wrap:wrap;font-size:10.5px;color:#64748b;">
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="user" style="width:11px;height:11px;"></i> Coach Sari</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> GOR Cibubur · Lap. 1</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="users" style="width:11px;height:11px;"></i> 18 member</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <a href="absensi.html" class="btn btn-primary btn-sm">Absensi</a>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;padding:12px;border:1px solid #e6f6fe;border-radius:12px;background:#fbfeff;">
+              <div style="width:64px;flex:0 0 auto;text-align:center;padding-top:2px;">
+                <div style="font-size:12px;font-weight:800;">17.00</div>
+                <div style="font-size:9.5px;color:#94a3b8;">18.30</div>
+                <div style="width:1px;height:26px;background:#d8eef8;margin:7px auto 0;"></div>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
+                  <span style="font-size:12.5px;font-weight:700;">Advanced · Latihan Rutin</span>
+                  <span class="badge badge-sky"><span class="dot"></span>Berlangsung</span>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:5px;flex-wrap:wrap;font-size:10.5px;color:#64748b;">
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="user" style="width:11px;height:11px;"></i> Coach Bagus</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> GOR Ciracas · Lap. 1</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="users" style="width:11px;height:11px;"></i> 14 member</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <a href="absensi.html" class="btn btn-white btn-sm">Buka</a>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:12px;padding:12px;border:1px solid #f0edff;border-radius:12px;background:#fdfcff;">
+              <div style="width:64px;flex:0 0 auto;text-align:center;padding-top:2px;">
+                <div style="font-size:12px;font-weight:800;">18.30</div>
+                <div style="font-size:9.5px;color:#94a3b8;">20.00</div>
+                <div style="width:1px;height:26px;background:#e7e1fb;margin:7px auto 0;"></div>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
+                  <span style="font-size:12.5px;font-weight:700;">Sparring vs PB Jaya Raya</span>
+                  <span class="badge badge-violet"><span class="dot"></span>Terbit</span>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:5px;flex-wrap:wrap;font-size:10.5px;color:#64748b;">
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="swords" style="width:11px;height:11px;"></i> Lawan: PB Jaya Raya</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="map-pin" style="width:11px;height:11px;"></i> GOR Ciracas</span>
+                  <span style="display:flex;align-items:center;gap:4px;"><i data-lucide="users" style="width:11px;height:11px;"></i> 12 member</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <button class="btn btn-white btn-sm" data-demo>Detail</button>
+              </div>
+            </div>
+
+            <div style="border:1px dashed #d5dde9;border-radius:12px;padding:12px;display:flex;align-items:center;gap:8px;font-size:11px;color:#64748b;">
+              <i data-lucide="info" style="width:14px;height:14px;"></i>
+              Jadwal rutin berulang otomatis setiap Selasa &amp; Kamis. Perubahan dikirim ke orang tua lewat WhatsApp.
+            </div>
+          </div>
+        </div>
+
+        <!-- Sparring card -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Sparring terdekat</div>
+                <div class="card-sub">Sabtu, 14 Nov 2026 · 08.00</div>
+              </div>
+              <span class="badge badge-violet">H-2</span>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;align-items:center;gap:10px;padding:11px;border:1px solid #eef1f6;border-radius:11px;background:#f8fafc;">
+                <span class="sport-badge" style="background:#0b1220;color:#c9f24d;width:36px;height:36px;border-radius:10px;font-size:10px;">ABC</span>
+                <span style="font-size:11px;font-weight:800;color:#94a3b8;">VS</span>
+                <span class="sport-badge" style="background:#e6f6fe;color:#0369a1;width:36px;height:36px;border-radius:10px;font-size:10px;">PJR</span>
+                <div style="flex:1;min-width:0;">
+                  <div style="font-size:11.5px;font-weight:700;">Arenaku BC vs PB Jaya Raya</div>
+                  <div style="font-size:10px;color:#64748b;">Uji tanding persahabatan · 12 member</div>
+                </div>
+              </div>
+
+              <div class="map-mock" style="margin-top:12px;">
+                <div class="map-road" style="left:0;right:0;top:52%;height:12px;opacity:0.9;"></div>
+                <div class="map-road" style="top:0;bottom:0;left:38%;width:10px;opacity:0.9;"></div>
+                <div class="map-road" style="top:0;bottom:0;left:72%;width:6px;opacity:0.7;"></div>
+                <div class="map-pin">
+                  <span class="pulse"></span>
+                  <span class="head"></span>
+                </div>
+                <div class="map-tag"><i data-lucide="map-pin"></i> GOR Ciracas · Lapangan 1</div>
+                <a href="https://www.google.com/maps/search/?api=1&query=-6.3245,106.8765" target="_blank" class="btn btn-white btn-sm" style="position:absolute;right:10px;top:10px;">Buka Maps <i data-lucide="arrow-up-right"></i></a>
+              </div>
+
+              <div style="margin-top:12px;">
+                <div class="kv"><span class="k">Alamat</span><span class="v" style="max-width:190px;font-weight:500;">Jl. Raya Ciracas No. 1, Jakarta Timur</span></div>
+                <div class="kv"><span class="k">Pelatih</span><span class="v">Coach Adi</span></div>
+                <div class="kv"><span class="k">Format</span><span class="v">3 partai ganda · best of 3</span></div>
+                <div class="kv"><span class="k">Pengingat</span><span class="v" style="color:#047857;">H-1 aktif</span></div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
+                <button class="btn btn-white btn-sm" data-demo>Kelola peserta</button>
+                <a href="reminder-wa.html" class="btn btn-primary btn-sm">Kirim pengingat</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-pad">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
+              <i data-lucide="trophy" style="width:15px;height:15px;color:#b45309;"></i>
+              <div style="font-size:12px;font-weight:700;">Event berikutnya</div>
+            </div>
+            <div style="font-size:11px;color:#64748b;line-height:1.65;">
+              <strong style="color:#0b1220;">Kejuaraan Antar Klub 2026</strong><br />
+              22–23 November · GOR Bulungan<br />
+              <span class="badge badge-amber" style="margin-top:5px;">Pendaftaran dibuka</span>
+            </div>
+            <button class="btn btn-white btn-sm btn-block" style="margin-top:9px;" data-demo>Kelola event</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming table -->
+      <div class="card" style="margin-top:16px;">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Sparring &amp; event mendatang</div>
+            <div class="card-sub">November–Desember 2026</div>
+          </div>
+          <button class="btn btn-white btn-sm" data-demo>Ekspor kalender</button>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Tanggal</th><th>Agenda</th><th>Lawan / Penyelenggara</th><th>Lokasi</th><th>Peserta</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="cell-main">Sab, 14 Nov</div><div class="cell-sub">08.00–11.00</div></td>
+                <td class="cell-main">Sparring persahabatan</td>
+                <td>PB Jaya Raya</td>
+                <td>GOR Ciracas</td>
+                <td>12</td>
+                <td><span class="badge badge-violet">Terbit</span></td>
+                <td class="table-actions"><button class="btn btn-white btn-sm" data-demo>Detail</button></td>
+              </tr>
+              <tr>
+                <td><div class="cell-main">Sab, 22 Nov</div><div class="cell-sub">07.00–17.00</div></td>
+                <td class="cell-main">Kejuaraan Antar Klub</td>
+                <td>Penyelenggara: PBSI Jakarta</td>
+                <td>GOR Bulungan</td>
+                <td>18</td>
+                <td><span class="badge badge-amber">Pendaftaran</span></td>
+                <td class="table-actions"><button class="btn btn-white btn-sm" data-demo>Detail</button></td>
+              </tr>
+              <tr>
+                <td><div class="cell-main">Sab, 29 Nov</div><div class="cell-sub">09.00–12.00</div></td>
+                <td class="cell-main">Sparring uji tanding</td>
+                <td>PB Tangkas</td>
+                <td>GOR Cibubur</td>
+                <td>10</td>
+                <td><span class="badge badge-outline">Draft</span></td>
+                <td class="table-actions"><button class="btn btn-white btn-sm" data-demo>Detail</button></td>
+              </tr>
+              <tr>
+                <td><div class="cell-main">Min, 6 Des</div><div class="cell-sub">08.00–13.00</div></td>
+                <td class="cell-main">Internal Games &amp; rapor</td>
+                <td>Internal akademi</td>
+                <td>GOR Ciracas</td>
+                <td>48</td>
+                <td><span class="badge badge-sky">Direncanakan</span></td>
+                <td class="table-actions"><button class="btn btn-white btn-sm" data-demo>Detail</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal buat jadwal -->
+<div class="modal" id="modalSchedule" hidden>
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" style="width:min(720px,100%);">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Buat jadwal</div>
+        <div class="modal-sub">Latihan rutin, sparring, atau event akademi.</div>
+      </div>
+      <button class="modal-close" data-modal-close><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div>
+          <label class="label">Jenis jadwal</label>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+            <button type="button" class="btn btn-primary btn-sm" style="height:38px;">Latihan Rutin</button>
+            <button type="button" class="btn btn-white btn-sm" style="height:38px;" data-demo>Sparring</button>
+            <button type="button" class="btn btn-white btn-sm" style="height:38px;" data-demo>Event</button>
+          </div>
+        </div>
+        <div>
+          <label class="label">Judul sesi <span class="req">*</span></label>
+          <input class="input" type="text" value="Beginner A · Latihan Rutin" />
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Tanggal <span class="req">*</span></label>
+            <input class="input" type="date" value="2026-11-14" />
+          </div>
+          <div>
+            <label class="label">Ulangi setiap minggu</label>
+            <select class="select"><option>Tidak berulang</option><option>Setiap Selasa &amp; Kamis</option><option>Setiap Sabtu</option></select>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr 1fr;">
+          <div>
+            <label class="label">Mulai <span class="req">*</span></label>
+            <input class="input" type="time" value="16:00" />
+          </div>
+          <div>
+            <label class="label">Selesai <span class="req">*</span></label>
+            <input class="input" type="time" value="17:30" />
+          </div>
+          <div>
+            <label class="label">Kelas</label>
+            <select class="select"><option>Beginner A</option><option>Intermediate B</option><option>Advanced</option></select>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Pelatih</label>
+            <select class="select"><option>Coach Adi</option><option>Coach Sari</option><option>Coach Bagus</option></select>
+          </div>
+          <div>
+            <label class="label">Lokasi / GOR <span class="req">*</span></label>
+            <select class="select"><option>GOR Ciracas · Lapangan 2</option><option>GOR Cibubur · Lapangan 1</option></select>
+          </div>
+        </div>
+        <div>
+          <label class="label">Alamat lengkap</label>
+          <input class="input" type="text" value="Jl. Raya Ciracas No. 1, Jakarta Timur" />
+        </div>
+
+        <div style="border:1px solid #eef1f6;border-radius:11px;padding:11px;background:#f8fafc;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;">Titik lokasi (untuk peta)</div>
+            <button class="btn btn-white btn-sm" data-demo><i data-lucide="locate-fixed"></i> Pilih di peta</button>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:8px;">
+            <input class="input" type="text" value="-6.3245" />
+            <input class="input" type="text" value="106.8765" />
+          </div>
+          <div class="hint">Koordinat dipakai untuk tombol “Buka Google Maps” di portal orang tua.</div>
+        </div>
+
+        <div style="border:1px solid #f0edff;border-radius:11px;padding:12px;background:#fdfcff;">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;">
+            <i data-lucide="swords" style="width:14px;height:14px;color:#5b3fd6;"></i>
+            <div style="font-size:11.5px;font-weight:700;">Khusus sparring</div>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr;">
+            <div>
+              <label class="label">Nama lawan</label>
+              <input class="input" type="text" placeholder="PB Jaya Raya" />
+            </div>
+            <div>
+              <label class="label">Jumlah peserta</label>
+              <input class="input" type="text" placeholder="12" />
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#f8fafc;border:1px solid #eef1f6;border-radius:11px;padding:12px;display:flex;flex-direction:column;gap:9px;">
+          <label class="check"><input type="checkbox" checked /> Terbitkan ke portal orang tua</label>
+          <label class="check"><input type="checkbox" checked /> Kirim pengingat WhatsApp H-1</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-white" data-modal-close>Batal</button>
+      <button class="btn btn-white" data-modal-close onclick="toast('Jadwal disimpan sebagai draft')">Simpan draft</button>
+      <button class="btn btn-primary" data-modal-close onclick="toast('Jadwal diterbitkan & pengingat dijadwalkan')">Terbitkan Jadwal</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+</script>
+</body>
+</html>

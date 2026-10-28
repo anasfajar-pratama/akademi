@@ -1,0 +1,12 @@
+{"p":"/login","t":1792987158376}
+{"p":"/logout","t":1792987165911}
+{"p":"/login","t":1792987169145}
+{"p":"kamu bisa baca design dan implementasi.md ?","t":1792989643462}
+{"p":"/model","t":1792989656437}
+{"p":"kamu bisa baca design dan implementasi.md ? aku mau membuat nya jadi sebuah sistem yang proper. tentu saja yang siap di gunakan dengan integrasi dari masing masing fitur. sebenarnya aku sudah buatkan prototype nya di dalam folder prototype.  tinggal bagaimana kamu membuat jadi sistem yang ringan, praktis dan proper. apa kamu bisa mencoba membuatnya?","t":1792989804768}
+{"p":"powershell ku tidak bisa menjalankan php artisan serve, tolong fix ya","t":1792999344856}
+{"p":"men ketika berhasil hold jadwal pada http://127.0.0.1:8000/bookings kemana user harus melakukan pembayaran? soalny jadwal yang sudah ter hold tidak bisa di klik. kemudian di pengaturan lapangan, lapangan 1 harga nya > 30000 tapi ketika booking kenapa harganya 30rb ya.. apa belum sesuaikah datanya. coba tolong cek ya","t":1793000775596}
+{"p":"form pembayaran saat hold masih error, sistem tidak bisa input pembayaran.","t":1793002703348}
+{"p":"ada bugs lagi, ketika sewa lapangan tanpa mengisi nominal bayar , bayar 0, dan langusng klik konfirmasi pembayaran, maka jadwal langsung confirm. padalah tidak di hold dan belum ditandai sebagai terbayar karena nominal 0","t":1793003179375}
+{"p":"/usage","t":1793158144537}
+{"p":"aku mau kamu bantu buat kan design dan implementasi sistem akademi atau pelatihan badminton, dan bisa untuk beberapa akademi , misal renang, taekwondo, sepak bola juga. sistem nya bisa untuk beberapa akademi sekaligus diatur oleh admin untuk create akademi nya. didalam akademi bisa menyimpan profile member, nama orang tua, hp orang tua, pekerjaan dan alamat , usia , pendidikan kelas, level (beginer,middle, advance) dll sarankan yang belum ada. sistem juga menyimpan progress perkembangan member dan terpantai perkembangan skill nya dari awal masuk sampai saat ini dengan daftar skill dan score nya. lengkap dengan foto member. orang tua juga bisa akses dan melihat perkembangan anak nya. pelatih juga bisa melakukan absensi terhadap maisng masing member yang hadir, bisa set jadwal latihan dan sparing, alamat gor serta lawan nya juga bisa di set, lengkap dengan maps nya. skill nya bisa di masukan manual dari pelatih dan admin. serta bisa di beri nilai untuk masing masing member. bisa rekap pembayaran bulanan member juga. ada fitur pengingat ke whatsapp. unutk pembayaran dan untuk pelatihan. sarankan jika kamu punya ide lain ya","t":1793158643840}

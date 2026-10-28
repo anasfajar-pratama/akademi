@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Absensi — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span><span class="brand-name">Arenaku</span><span class="brand-tag">Sport Academy OS</span></span>
+    </a>
+    <div class="acad-switch">
+      <span class="acad-logo">BC</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Arenaku Badminton</div>
+        <div class="acad-meta">Coach Adi · Pelatih</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+    <div class="nav-group-label">Menu pelatih</div>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="jadwal.html" class="nav-link"><i data-lucide="calendar-days"></i> Jadwal Saya</a>
+    <a href="absensi.html" class="nav-link active"><i data-lucide="clipboard-check"></i> Absensi Sesi</a>
+    <a href="member.html" class="nav-link"><i data-lucide="users"></i> Member Saya</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar avatar-emerald">AD</span>
+        <div><div class="user-mini-name">Coach Adi</div><div class="user-mini-role">Pelatih · 4 kelas</div></div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Absensi sesi</div>
+        <div class="topbar-sub">Kamis, 12 November 2026 · 16.00–17.30</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search"><i data-lucide="search"></i><input type="text" placeholder="Cari member di kelas ini…" data-filter="#attTable" /></div>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar avatar-emerald">AD</span>
+    </header>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Absensi Beginner A</h1>
+          <p class="page-sub">Tandai kehadiran dengan satu klik. Data langsung tersimpan ke rekap orang tua.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-white" data-demo><i data-lucide="qr-code"></i> Scan QR</button>
+          <button class="btn btn-primary" data-modal-open="modalClose"><i data-lucide="check-check"></i> Tutup Sesi</button>
+        </div>
+      </div>
+
+      <!-- Session info -->
+      <div class="card card-pad" style="margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <span style="width:46px;height:46px;border-radius:13px;background:#0b1220;display:grid;place-items:center;">
+            <i data-lucide="activity" style="width:21px;height:21px;color:#c9f24d;"></i>
+          </span>
+          <div style="flex:1;min-width:220px;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <span style="font-size:15px;font-weight:800;letter-spacing:-0.02em;">Latihan Rutin · Beginner A</span>
+              <span class="badge badge-sky"><span class="dot"></span>Berlangsung</span>
+            </div>
+            <div style="display:flex;gap:16px;margin-top:6px;flex-wrap:wrap;font-size:11px;color:#64748b;">
+              <span style="display:flex;align-items:center;gap:5px;"><i data-lucide="calendar" style="width:12px;height:12px;"></i> Kamis, 12 Nov 2026</span>
+              <span style="display:flex;align-items:center;gap:5px;"><i data-lucide="clock" style="width:12px;height:12px;"></i> 16.00–17.30</span>
+              <span style="display:flex;align-items:center;gap:5px;"><i data-lucide="map-pin" style="width:12px;height:12px;"></i> GOR Ciracas · Lapangan 2</span>
+              <span style="display:flex;align-items:center;gap:5px;"><i data-lucide="user" style="width:12px;height:12px;"></i> Coach Adi</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:22px;">
+            <div style="text-align:right;">
+              <div style="font-size:10px;color:#94a3b8;font-weight:600;">Tercatat hadir</div>
+              <div style="font-size:20px;font-weight:800;letter-spacing:-0.03em;"><span data-count="attended">0</span><span style="font-size:12px;color:#64748b;font-weight:600;"> / <span data-count="total">0</span></span></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:10px;color:#94a3b8;font-weight:600;">Durasi tersisa</div>
+              <div style="font-size:20px;font-weight:800;letter-spacing:-0.03em;">42<span style="font-size:12px;color:#64748b;font-weight:600;"> mnt</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:2fr 1fr;align-items:start;">
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Daftar member · 12 anak</div>
+              <div class="card-sub">Kelas Beginner A · 8 sesi/bulan</div>
+            </div>
+            <button class="btn btn-white btn-sm" data-att-all><i data-lucide="check-check"></i> Semua hadir</button>
+          </div>
+          <div class="card-body" data-attendance id="attTable">
+
+            <div class="att-row">
+              <span class="avatar avatar-rose">AA</span>
+              <div class="att-name"><strong>Aisyah Azzahra</strong><span>9 th · Beginner · wali: Ibu Sari</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-lime">RP</span>
+              <div class="att-name"><strong>Rafi Pratama</strong><span>10 th · Trial · wali: Bapak Andi</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-emerald">KN</span>
+              <div class="att-name"><strong>Kanaya Nur</strong><span>7 th · Trial · wali: Ibu Sari</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-sky">FR</span>
+              <div class="att-name"><strong>Fikri Ramadhan</strong><span>9 th · Beginner · wali: Bapak Hendra</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-rose">ZA</span>
+              <div class="att-name"><strong>Zahra Aulia</strong><span>8 th · Beginner · wali: Ibu Lestari</span></div>
+              <div class="att-btns">
+                <button class="att-btn" data-status="present" aria-pressed="false">Hadir</button>
+                <button class="att-btn is-on" data-status="late" aria-pressed="true">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-violet">DR</span>
+              <div class="att-name"><strong>Daffa Ramadhan</strong><span>10 th · Beginner · wali: Bapak Yusuf</span></div>
+              <div class="att-btns">
+                <button class="att-btn" data-status="present" aria-pressed="false">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn is-on" data-status="permitted" aria-pressed="true">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-amber">SA</span>
+              <div class="att-name"><strong>Syifa Aulia</strong><span>8 th · Beginner · wali: Ibu Nuri</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-sky">RK</span>
+              <div class="att-name"><strong>Raka Pratama</strong><span>9 th · Beginner · wali: Bapak Dedi</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-violet">NA</span>
+              <div class="att-name"><strong>Nadia Amani</strong><span>11 th · Beginner · wali: Ibu Rina</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-emerald">YK</span>
+              <div class="att-name"><strong>Yusuf Kurnia</strong><span>10 th · Beginner · wali: Bapak Arif</span></div>
+              <div class="att-btns">
+                <button class="att-btn" data-status="present" aria-pressed="false">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn is-on" data-status="absent" aria-pressed="true">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-amber">KP</span>
+              <div class="att-name"><strong>Kirana Putri</strong><span>7 th · Beginner · wali: Ibu Maya</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+            <div class="att-row">
+              <span class="avatar avatar-lime">MF</span>
+              <div class="att-name"><strong>Muhammad Fadel</strong><span>11 th · Beginner · wali: Bapak Andi</span></div>
+              <div class="att-btns">
+                <button class="att-btn is-on" data-status="present" aria-pressed="true">Hadir</button>
+                <button class="att-btn" data-status="late" aria-pressed="false">Telat</button>
+                <button class="att-btn" data-status="permitted" aria-pressed="false">Izin</button>
+                <button class="att-btn" data-status="sick" aria-pressed="false">Sakit</button>
+                <button class="att-btn" data-status="absent" aria-pressed="false">Alpa</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="position:sticky;top:82px;display:flex;flex-direction:column;gap:14px;">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Ringkasan sesi</div>
+                <div class="card-sub">Otomatis dari pilihan di samping</div>
+              </div>
+              <span class="badge badge-sky">Live</span>
+            </div>
+            <div class="card-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="border:1px solid #e7f8f1;background:#f4fdf9;border-radius:10px;padding:9px 10px;">
+                  <div style="font-size:10px;color:#047857;font-weight:700;">Hadir</div>
+                  <div style="font-size:18px;font-weight:800;" data-count="present">0</div>
+                </div>
+                <div style="border:1px solid #fef4e2;background:#fffbf3;border-radius:10px;padding:9px 10px;">
+                  <div style="font-size:10px;color:#b45309;font-weight:700;">Terlambat</div>
+                  <div style="font-size:18px;font-weight:800;" data-count="late">0</div>
+                </div>
+                <div style="border:1px solid #e6f6fe;background:#f6fcff;border-radius:10px;padding:9px 10px;">
+                  <div style="font-size:10px;color:#0369a1;font-weight:700;">Izin</div>
+                  <div style="font-size:18px;font-weight:800;" data-count="permitted">0</div>
+                </div>
+                <div style="border:1px solid #f0edff;background:#faf9ff;border-radius:10px;padding:9px 10px;">
+                  <div style="font-size:10px;color:#5b3fd6;font-weight:700;">Sakit</div>
+                  <div style="font-size:18px;font-weight:800;" data-count="sick">0</div>
+                </div>
+                <div style="border:1px solid #feebee;background:#fff7f8;border-radius:10px;padding:9px 10px;grid-column:span 2;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <div style="font-size:10px;color:#be123c;font-weight:700;">Alpa</div>
+                    <div style="font-size:18px;font-weight:800;" data-count="absent">0</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:12px;">
+                <div style="display:flex;justify-content:space-between;font-size:10.5px;color:#64748b;margin-bottom:4px;">
+                  <span>Tercatat hadir</span><span style="font-weight:700;"><span data-count="attended">0</span> / <span data-count="total">0</span></span>
+                </div>
+                <div class="progress"><span data-att-progress style="width:0%;background:#10b981;"></span></div>
+              </div>
+
+              <div style="margin-top:14px;">
+                <label class="label">Catatan sesi (opsional)</label>
+                <textarea class="textarea" rows="3" placeholder="Fokus latihan hari ini, kondisi anak, dsb.">Fokus: footwork depan-belakang & pola servis. Aisyah dan Fikri menunjukkan peningkatan.</textarea>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:6px;margin-top:12px;">
+                <a href="member-detail.html" class="btn btn-primary btn-block"><i data-lucide="activity"></i> Lanjut input penilaian</a>
+                <button class="btn btn-white btn-block" data-demo>Simpan draft</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-pad">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <i data-lucide="calendar-clock" style="width:15px;height:15px;color:#64748b;"></i>
+              <div style="font-size:12px;font-weight:700;">Sesi berikutnya</div>
+            </div>
+            <div style="font-size:11px;color:#64748b;line-height:1.6;">
+              <strong style="color:#0b1220;">Sabtu, 14 Nov · 08.00–09.30</strong><br />
+              Beginner A · GOR Ciracas<br />
+              <span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;">
+                <i data-lucide="users" style="width:11px;height:11px;"></i> 12 member · pengingat H-1 aktif
+              </span>
+            </div>
+            <a href="jadwal.html" class="btn btn-white btn-sm btn-block" style="margin-top:9px;">Lihat jadwal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal tutup sesi -->
+<div class="modal" id="modalClose" hidden>
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" style="width:min(460px,100%);">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Tutup sesi latihan?</div>
+        <div class="modal-sub">Absensi akan dikunci setelah ditutup.</div>
+      </div>
+      <button class="modal-close" data-modal-close><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;gap:10px;padding:11px;border-radius:10px;background:#f8fafc;border:1px solid #eef1f6;font-size:11.5px;color:#475569;line-height:1.6;">
+        <i data-lucide="info" style="width:15px;height:15px;color:#64748b;flex:0 0 auto;margin-top:1px;"></i>
+        Setelah ditutup, perubahan hanya bisa dilakukan admin dan tercatat di audit log. Orang tua akan melihat rekap ini di portal.
+      </div>
+      <label class="check" style="margin-top:12px;"><input type="checkbox" checked /> Kirim notifikasi rekap ke orang tua yang tidak hadir</label>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-white" data-modal-close>Batal</button>
+      <button class="btn btn-primary" data-modal-close onclick="toast('Sesi ditutup · 12 absensi tersimpan')">Tutup Sesi</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+</script>
+</body>
+</html>

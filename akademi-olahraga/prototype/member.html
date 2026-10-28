@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Member — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span><span class="brand-name">Arenaku</span><span class="brand-tag">Sport Academy OS</span></span>
+    </a>
+    <div class="acad-switch">
+      <span class="acad-logo">BC</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Arenaku Badminton</div>
+        <div class="acad-meta">4 akademi · Super Admin</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+    <div class="nav-group-label">Menu utama</div>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="akademi.html" class="nav-link"><i data-lucide="building-2"></i> Akademi &amp; Lokasi</a>
+    <a href="member.html" class="nav-link active"><i data-lucide="users"></i> Member <span class="nav-count">248</span></a>
+    <a href="jadwal.html" class="nav-link"><i data-lucide="calendar-days"></i> Jadwal &amp; Sparring</a>
+    <a href="absensi.html" class="nav-link"><i data-lucide="clipboard-check"></i> Absensi</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <a href="pembayaran.html" class="nav-link"><i data-lucide="receipt-text"></i> Pembayaran</a>
+    <a href="reminder-wa.html" class="nav-link"><i data-lucide="message-circle"></i> Pengingat WhatsApp <span class="nav-count">8</span></a>
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="akademi.html#skill" class="nav-link"><i data-lucide="list-checks"></i> Template Skill</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar avatar-violet">RK</span>
+        <div><div class="user-mini-name">Rina Kartika</div><div class="user-mini-role">Super Admin</div></div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Member</div>
+        <div class="topbar-sub">Arenaku Badminton Club · 248 member</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Cari nama atau kode member…" />
+      </div>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar avatar-violet">RK</span>
+    </header>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Member &amp; orang tua</h1>
+          <p class="page-sub">Data anak, wali, level, dan status pembayaran dalam satu tabel.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-white" data-demo><i data-lucide="upload"></i> Import Excel</button>
+          <button class="btn btn-primary" data-modal-open="modalMember"><i data-lucide="user-plus"></i> Tambah Member</button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="card card-pad">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="stat-label">Total member</div>
+            <span class="stat-icon" style="background:#f1f5f9;color:#475569;"><i data-lucide="users"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">248</div>
+          <div class="stat-delta up" style="margin-top:6px;"><i data-lucide="arrow-up-right"></i> +12 bulan ini</div>
+        </div>
+        <div class="card card-pad">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="stat-label">Aktif</div>
+            <span class="stat-icon" style="background:#e7f8f1;color:#047857;"><i data-lucide="user-check"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">214</div>
+          <div class="stat-delta muted" style="margin-top:6px;">86% dari total</div>
+        </div>
+        <div class="card card-pad">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="stat-label">Trial</div>
+            <span class="stat-icon" style="background:#fef4e2;color:#b45309;"><i data-lucide="sparkles"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">18</div>
+          <div class="stat-delta muted" style="margin-top:6px;">6 perlu follow-up</div>
+        </div>
+        <div class="card card-pad">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+            <div class="stat-label">Perlu perhatian</div>
+            <span class="stat-icon" style="background:#feebee;color:#be123c;"><i data-lucide="triangle-alert"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">12</div>
+          <div class="stat-delta down" style="margin-top:6px;">Kehadiran &lt; 70% / nunggak</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-head" style="flex-wrap:wrap;">
+          <div>
+            <div class="card-title">Daftar member</div>
+            <div class="card-sub">Menampilkan 1–9 dari 248</div>
+          </div>
+          <div class="filter-bar">
+            <div class="search" style="width:210px;height:35px;background:#f8fafc;border-color:#e6eaf1;">
+              <i data-lucide="search" style="width:14px;height:14px;"></i>
+              <input type="text" placeholder="Cari nama / kode…" data-filter="#memberTable" />
+            </div>
+            <select class="select">
+              <option>Semua level</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+            <select class="select">
+              <option>Semua status</option>
+              <option>Aktif</option>
+              <option>Trial</option>
+              <option>Non-aktif</option>
+            </select>
+            <select class="select">
+              <option>Semua lokasi</option>
+              <option>GOR Ciracas</option>
+              <option>GOR Cibubur</option>
+            </select>
+            <button class="btn btn-white btn-sm" data-demo><i data-lucide="sliders-horizontal"></i> Filter</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table" id="memberTable">
+            <thead>
+              <tr>
+                <th style="width:34px;"><input type="checkbox" data-check-all style="accent-color:#0b1220;" /></th>
+                <th>Member</th>
+                <th>Usia</th>
+                <th>Level</th>
+                <th>Paket / Kelas</th>
+                <th>Wali</th>
+                <th>Tagihan</th>
+                <th>Status</th>
+                <th style="width:34px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-rose">AA</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Aisyah Azzahra</span>
+                      <span class="cell-sub">BAD-2024-0182 · Perempuan</span>
+                    </span>
+                  </a>
+                </td>
+                <td>9 th</td>
+                <td><span class="badge badge-lime">Beginner</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Beginner A</div><div class="cell-sub">Rp 450.000 / bulan</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Ibu Sari Dewi</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0812-3456-7890</div>
+                </td>
+                <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                <td><span class="badge badge-green">Aktif</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-sky">MF</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Muhammad Fadel</span>
+                      <span class="cell-sub">BAD-2023-0117 · Laki-laki</span>
+                    </span>
+                  </a>
+                </td>
+                <td>11 th</td>
+                <td><span class="badge badge-sky">Intermediate</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Intermediate B</div><div class="cell-sub">Rp 550.000 / bulan</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Bapak Andi</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0813-2211-4455</div>
+                </td>
+                <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                <td><span class="badge badge-green">Aktif</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-amber">NR</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Naura Rania</span>
+                      <span class="cell-sub">BAD-2022-0064 · Perempuan</span>
+                    </span>
+                  </a>
+                </td>
+                <td>14 th</td>
+                <td><span class="badge badge-violet">Advanced</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Advanced</div><div class="cell-sub">Rp 650.000 / bulan</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Ibu Ratna</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0857-8899-1122</div>
+                </td>
+                <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                <td><span class="badge badge-green">Aktif</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-lime">RP</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Rafi Pratama</span>
+                      <span class="cell-sub">BAD-2026-0247 · Laki-laki</span>
+                    </span>
+                  </a>
+                </td>
+                <td>10 th</td>
+                <td><span class="badge badge-lime">Beginner</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Trial · 2 sesi</div><div class="cell-sub">Gratis</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Bapak Andi</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0813-2211-4455</div>
+                </td>
+                <td><span class="badge badge-outline">Trial</span></td>
+                <td><span class="badge badge-amber">Trial</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-emerald">KN</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Kanaya Nur</span>
+                      <span class="cell-sub">BAD-2026-0246 · Perempuan</span>
+                    </span>
+                  </a>
+                </td>
+                <td>7 th</td>
+                <td><span class="badge badge-lime">Beginner</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Trial · 2 sesi</div><div class="cell-sub">Gratis</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Ibu Sari Dewi</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0812-3456-7890</div>
+                </td>
+                <td><span class="badge badge-outline">Trial</span></td>
+                <td><span class="badge badge-amber">Trial</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-violet">BS</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Bima Saputra</span>
+                      <span class="cell-sub">BAD-2023-0098 · Laki-laki</span>
+                    </span>
+                  </a>
+                </td>
+                <td>12 th</td>
+                <td><span class="badge badge-sky">Intermediate</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Intermediate B</div><div class="cell-sub">Rp 550.000 / bulan</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Bapak Joko</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0821-3344-7788</div>
+                </td>
+                <td><span class="badge badge-rose js-pay-status"><span class="dot"></span>Terlambat</span></td>
+                <td><span class="badge badge-green">Aktif</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-rose">ZA</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Zahra Aulia</span>
+                      <span class="cell-sub">BAD-2025-0203 · Perempuan</span>
+                    </span>
+                  </a>
+                </td>
+                <td>8 th</td>
+                <td><span class="badge badge-lime">Beginner</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Beginner A</div><div class="cell-sub">Rp 450.000 / bulan</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Ibu Lestari</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0838-1122-3344</div>
+                </td>
+                <td><span class="badge badge-amber js-pay-status"><span class="dot"></span>Belum bayar</span></td>
+                <td><span class="badge badge-green">Aktif</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar avatar-sky">FR</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Fikri Ramadhan</span>
+                      <span class="cell-sub">BAD-2024-0155 · Laki-laki</span>
+                    </span>
+                  </a>
+                </td>
+                <td>9 th</td>
+                <td><span class="badge badge-lime">Beginner</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Beginner A</div><div class="cell-sub">Rp 450.000 / bulan</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Bapak Hendra</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0819-5566-7788</div>
+                </td>
+                <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                <td><span class="badge badge-green">Aktif</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                <td>
+                  <a href="member-detail.html" style="display:flex;align-items:center;gap:9px;">
+                    <span class="avatar">AP</span>
+                    <span>
+                      <span class="cell-main" style="display:block;">Alifah Putri</span>
+                      <span class="cell-sub">BAD-2021-0021 · Perempuan</span>
+                    </span>
+                  </a>
+                </td>
+                <td>16 th</td>
+                <td><span class="badge badge-violet">Advanced</span></td>
+                <td><div class="cell-main" style="font-weight:600;">Advanced</div><div class="cell-sub">Berhenti Okt 2026</div></td>
+                <td>
+                  <div class="cell-main" style="font-weight:600;">Ibu Maya</div>
+                  <div class="cell-sub" style="display:flex;align-items:center;gap:4px;"><i data-lucide="phone" style="width:10px;height:10px;"></i> 0812-9090-1212</div>
+                </td>
+                <td><span class="badge badge-outline">—</span></td>
+                <td><span class="badge badge-outline">Non-aktif</span></td>
+                <td><a href="member-detail.html" class="chev"><i data-lucide="chevron-right"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-foot" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <div style="font-size:11px;color:#64748b;">Menampilkan <strong>1–9</strong> dari <strong>248</strong> member</div>
+          <div style="display:flex;gap:4px;">
+            <button class="btn btn-white btn-sm" data-demo>Sebelumnya</button>
+            <button class="btn btn-primary btn-sm">1</button>
+            <button class="btn btn-white btn-sm" data-demo>2</button>
+            <button class="btn btn-white btn-sm" data-demo>3</button>
+            <button class="btn btn-white btn-sm" data-demo>…</button>
+            <button class="btn btn-white btn-sm" data-demo>28</button>
+            <button class="btn btn-white btn-sm" data-demo>Berikutnya</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:16px;">
+        <div class="card card-pad" style="display:flex;gap:12px;align-items:flex-start;">
+          <span class="stat-icon" style="background:#e6f6fe;color:#0369a1;"><i data-lucide="scan-line"></i></span>
+          <div>
+            <div style="font-size:12.5px;font-weight:700;">Check-in QR (opsional)</div>
+            <p style="font-size:11px;color:#64748b;margin-top:3px;line-height:1.55;">Cetak kartu member dengan QR. Orang tua scan di pintu masuk GOR, kehadiran langsung tercatat.</p>
+          </div>
+          <span class="badge badge-sky" style="margin-left:auto;">Fase 2</span>
+        </div>
+        <div class="card card-pad" style="display:flex;gap:12px;align-items:flex-start;">
+          <span class="stat-icon" style="background:#effbcb;color:#3f6212;"><i data-lucide="file-spreadsheet"></i></span>
+          <div>
+            <div style="font-size:12.5px;font-weight:700;">Import dari Excel</div>
+            <p style="font-size:11px;color:#64748b;margin-top:3px;line-height:1.55;">Unduh template, isi data anak &amp; wali, unggah. Sistem memvalidasi nomor HP dan duplikat.</p>
+          </div>
+          <button class="btn btn-white btn-sm" style="margin-left:auto;" data-demo>Template</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal tambah member -->
+<div class="modal" id="modalMember" hidden>
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" style="width:min(760px,100%);">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Tambah member baru</div>
+        <div class="modal-sub">Data anak, orang tua, dan paket latihan.</div>
+      </div>
+      <button class="modal-close" data-modal-close><i data-lucide="x"></i></button>
+    </div>
+
+    <div class="modal-body">
+      <div style="display:flex;gap:6px;margin-bottom:18px;">
+        <div style="flex:1;padding:8px 10px;border-radius:9px;background:#0b1220;color:#fff;font-size:10.5px;font-weight:700;">1 · Data anak</div>
+        <div style="flex:1;padding:8px 10px;border-radius:9px;background:#f1f5f9;color:#64748b;font-size:10.5px;font-weight:700;">2 · Orang tua</div>
+        <div style="flex:1;padding:8px 10px;border-radius:9px;background:#f1f5f9;color:#64748b;font-size:10.5px;font-weight:700;">3 · Paket &amp; jadwal</div>
+      </div>
+
+      <div style="display:flex;gap:14px;align-items:center;padding:13px;border:1px dashed #d5dde9;border-radius:12px;background:#f8fafc;margin-bottom:16px;">
+        <span class="avatar avatar-lg avatar-lime">?</span>
+        <div style="flex:1;">
+          <div style="font-size:12px;font-weight:700;">Foto member</div>
+          <div style="font-size:10.5px;color:#64748b;">JPG/PNG maks 2 MB. Akan dipotong persegi otomatis.</div>
+        </div>
+        <button class="btn btn-white btn-sm" data-demo><i data-lucide="upload"></i> Pilih foto</button>
+      </div>
+
+      <div class="form-grid">
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Nama lengkap <span class="req">*</span></label>
+            <input class="input" type="text" placeholder="Nama sesuai akta" />
+          </div>
+          <div>
+            <label class="label">Nama panggilan</label>
+            <input class="input" type="text" placeholder="Nama di lapangan" />
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Jenis kelamin <span class="req">*</span></label>
+            <select class="select"><option>Perempuan</option><option>Laki-laki</option></select>
+          </div>
+          <div>
+            <label class="label">Tanggal lahir <span class="req">*</span></label>
+            <input class="input" type="date" value="2017-04-18" />
+            <div class="hint">Usia dihitung otomatis: 9 tahun.</div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1.4fr 1fr 0.7fr;">
+          <div>
+            <label class="label">Sekolah</label>
+            <input class="input" type="text" placeholder="SD Negeri 01 Ciracas" />
+          </div>
+          <div>
+            <label class="label">Jenjang</label>
+            <select class="select"><option>SD</option><option>TK</option><option>SMP</option><option>SMA</option><option>Kuliah</option><option>Umum</option></select>
+          </div>
+          <div>
+            <label class="label">Kelas</label>
+            <input class="input" type="text" placeholder="4A" />
+          </div>
+        </div>
+        <div>
+          <label class="label">Alamat</label>
+          <textarea class="textarea" rows="2" placeholder="Jalan, nomor, RT/RW, kelurahan, kota"></textarea>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Catatan kesehatan</label>
+            <input class="input" type="text" placeholder="Asma, alergi, riwayat cedera…" />
+          </div>
+          <div>
+            <label class="label">Sumber pendaftaran</label>
+            <select class="select"><option>Instagram</option><option>Referral</option><option>Walk-in</option><option>Website</option></select>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div style="font-size:12px;font-weight:800;">Data orang tua / wali</div>
+        <div class="grid" style="grid-template-columns:1.2fr 1fr;">
+          <div>
+            <label class="label">Nama wali <span class="req">*</span></label>
+            <input class="input" type="text" placeholder="Ibu Sari Dewi" />
+          </div>
+          <div>
+            <label class="label">Hubungan</label>
+            <select class="select"><option>Ibu</option><option>Ayah</option><option>Wali</option></select>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Pekerjaan</label>
+            <input class="input" type="text" placeholder="Karyawan swasta" />
+          </div>
+          <div>
+            <label class="label">No. WhatsApp <span class="req">*</span></label>
+            <input class="input" type="tel" placeholder="0812 3456 7890" />
+            <div class="hint">Dipakai untuk pengingat tagihan &amp; jadwal.</div>
+          </div>
+        </div>
+        <div>
+          <label class="label">Email wali (untuk akun portal)</label>
+          <input class="input" type="email" placeholder="sari@email.com" />
+        </div>
+
+        <div class="divider"></div>
+        <div style="font-size:12px;font-weight:800;">Paket &amp; jadwal</div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Paket</label>
+            <select class="select"><option>Beginner A · Rp 450.000</option><option>Intermediate B · Rp 550.000</option><option>Advanced · Rp 650.000</option></select>
+          </div>
+          <div>
+            <label class="label">Lokasi latihan</label>
+            <select class="select"><option>GOR Ciracas</option><option>GOR Cibubur</option></select>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr 1fr;">
+          <div>
+            <label class="label">Level awal</label>
+            <select class="select"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select>
+          </div>
+          <div>
+            <label class="label">Pelatih utama</label>
+            <select class="select"><option>Coach Adi</option><option>Coach Sari</option><option>Coach Bagus</option></select>
+          </div>
+          <div>
+            <label class="label">Status</label>
+            <select class="select"><option>Trial</option><option>Aktif</option></select>
+          </div>
+        </div>
+
+        <label class="check" style="background:#f8fafc;border:1px solid #eef1f6;border-radius:10px;padding:11px;">
+          <input type="checkbox" checked />
+          <span>Orang tua menyetujui pengelolaan data anak untuk keperluan akademi (UU PDP).</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="modal-foot">
+      <button class="btn btn-white" data-modal-close>Batal</button>
+      <button class="btn btn-white" data-modal-close onclick="toast('Disimpan sebagai draft')">Simpan draft</button>
+      <button class="btn btn-primary" data-modal-close onclick="toast('Member berhasil ditambahkan & tagihan dibuat')">Simpan Member</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+</script>
+</body>
+</html>

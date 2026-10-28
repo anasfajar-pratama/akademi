@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aisyah Azzahra — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span><span class="brand-name">Arenaku</span><span class="brand-tag">Sport Academy OS</span></span>
+    </a>
+    <div class="acad-switch">
+      <span class="acad-logo">BC</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Arenaku Badminton</div>
+        <div class="acad-meta">4 akademi · Super Admin</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+    <div class="nav-group-label">Menu utama</div>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="akademi.html" class="nav-link"><i data-lucide="building-2"></i> Akademi &amp; Lokasi</a>
+    <a href="member.html" class="nav-link active"><i data-lucide="users"></i> Member <span class="nav-count">248</span></a>
+    <a href="jadwal.html" class="nav-link"><i data-lucide="calendar-days"></i> Jadwal &amp; Sparring</a>
+    <a href="absensi.html" class="nav-link"><i data-lucide="clipboard-check"></i> Absensi</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <a href="pembayaran.html" class="nav-link"><i data-lucide="receipt-text"></i> Pembayaran</a>
+    <a href="reminder-wa.html" class="nav-link"><i data-lucide="message-circle"></i> Pengingat WhatsApp <span class="nav-count">8</span></a>
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="akademi.html#skill" class="nav-link"><i data-lucide="list-checks"></i> Template Skill</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar avatar-violet">RK</span>
+        <div><div class="user-mini-name">Rina Kartika</div><div class="user-mini-role">Super Admin</div></div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Profil member</div>
+        <div class="topbar-sub">Arenaku Badminton Club · BAD-2024-0182</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Cari di halaman ini…" />
+      </div>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar avatar-violet">RK</span>
+    </header>
+
+    <div class="content">
+      <div class="breadcrumb">
+        <a href="dashboard.html">Dashboard</a>
+        <i data-lucide="chevron-right"></i>
+        <a href="member.html">Member</a>
+        <i data-lucide="chevron-right"></i>
+        <span style="color:#0b1220;font-weight:600;">Aisyah Azzahra</span>
+      </div>
+
+      <!-- Profile header -->
+      <div class="card card-pad" style="margin-bottom:16px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+          <span class="avatar avatar-xl avatar-rose">AA</span>
+          <div style="flex:1;min-width:220px;">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <h1 style="font-size:22px;font-weight:800;letter-spacing:-0.03em;">Aisyah Azzahra</h1>
+              <span class="badge badge-lime badge-lg">Beginner</span>
+              <span class="badge badge-green badge-lg"><span class="dot"></span>Aktif</span>
+            </div>
+            <div style="font-size:11.5px;color:#64748b;margin-top:4px;">BAD-2024-0182 · Perempuan · 9 tahun</div>
+
+            <div style="display:flex;gap:22px;margin-top:14px;flex-wrap:wrap;">
+              <div>
+                <div style="font-size:10px;color:#94a3b8;font-weight:600;">Jenjang / kelas</div>
+                <div style="font-size:12px;font-weight:700;margin-top:1px;">SD · Kelas 4A</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#94a3b8;font-weight:600;">Lokasi latihan</div>
+                <div style="font-size:12px;font-weight:700;margin-top:1px;">GOR Ciracas</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#94a3b8;font-weight:600;">Pelatih utama</div>
+                <div style="font-size:12px;font-weight:700;margin-top:1px;">Coach Adi</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#94a3b8;font-weight:600;">Bergabung</div>
+                <div style="font-size:12px;font-weight:700;margin-top:1px;">12 Mar 2024</div>
+              </div>
+              <div>
+                <div style="font-size:10px;color:#94a3b8;font-weight:600;">Sekolah</div>
+                <div style="font-size:12px;font-weight:700;margin-top:1px;">SD Negeri 01 Ciracas</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:7px;flex-wrap:wrap;">
+            <button class="btn btn-white" data-demo><i data-lucide="pencil"></i> Edit</button>
+            <a href="reminder-wa.html" class="btn btn-white"><i data-lucide="message-circle"></i> WA Wali</a>
+            <button class="btn btn-primary" data-modal-open="modalAssessment"><i data-lucide="activity"></i> Input Penilaian</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:2fr 1fr;align-items:start;">
+
+        <!-- Left: tabs -->
+        <div class="card tabbed">
+          <div style="padding:0 20px;">
+            <div class="tabs" data-tabs>
+              <button class="tab is-active" data-tab="ringkasan">Ringkasan</button>
+              <button class="tab" data-tab="skill">Skill &amp; Progress</button>
+              <button class="tab" data-tab="absensi">Absensi</button>
+              <button class="tab" data-tab="pembayaran">Pembayaran</button>
+              <button class="tab" data-tab="catatan">Catatan</button>
+            </div>
+          </div>
+
+          <div class="card-body">
+
+            <!-- RINGKASAN -->
+            <div data-panel="ringkasan" class="is-active">
+              <div class="grid" style="grid-template-columns:1fr 1fr;gap:14px;">
+                <div style="border:1px solid #eef1f6;border-radius:13px;padding:12px;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <div style="font-size:12px;font-weight:700;">Radar skill</div>
+                    <span class="badge badge-lime">Nov 2026</span>
+                  </div>
+                  <svg viewBox="-24 0 288 220" style="width:100%;max-width:280px;display:block;margin:6px auto 0;">
+                    <polygon points="110,32 177.55,71 177.55,149 110,188 42.45,149 42.45,71" fill="#f8fafc" stroke="#e6eaf1" />
+                    <polygon points="110,51.5 160.66,80.75 160.66,139.25 110,168.5 59.34,139.25 59.34,80.75" fill="none" stroke="#eef1f6" />
+                    <polygon points="110,71 143.77,90.5 143.77,129.5 110,149 76.23,129.5 76.23,90.5" fill="none" stroke="#eef1f6" />
+                    <polygon points="110,90.5 126.89,100.25 126.89,119.75 110,129.5 93.11,119.75 93.11,100.25" fill="none" stroke="#eef1f6" />
+                    <line x1="110" y1="110" x2="110" y2="32" stroke="#e6eaf1" />
+                    <line x1="110" y1="110" x2="177.55" y2="71" stroke="#e6eaf1" />
+                    <line x1="110" y1="110" x2="177.55" y2="149" stroke="#e6eaf1" />
+                    <line x1="110" y1="110" x2="110" y2="188" stroke="#e6eaf1" />
+                    <line x1="110" y1="110" x2="42.45" y2="149" stroke="#e6eaf1" />
+                    <line x1="110" y1="110" x2="42.45" y2="71" stroke="#e6eaf1" />
+
+                    <polygon points="110,49.16 158.63,81.92 153.91,135.35 110,150.56 64.07,136.52 54.61,78.02"
+                             fill="rgba(148,163,184,0.14)" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3" />
+                    <polygon points="110,43.7 164.04,78.8 158.63,138.08 110,156.8 59.34,139.25 49.21,74.9"
+                             fill="rgba(16,185,129,0.18)" stroke="#10b981" stroke-width="1.8" />
+
+                    <circle cx="110" cy="43.7" r="2.6" fill="#10b981" />
+                    <circle cx="164.04" cy="78.8" r="2.6" fill="#10b981" />
+                    <circle cx="158.63" cy="138.08" r="2.6" fill="#10b981" />
+                    <circle cx="110" cy="156.8" r="2.6" fill="#10b981" />
+                    <circle cx="59.34" cy="139.25" r="2.6" fill="#10b981" />
+                    <circle cx="49.21" cy="74.9" r="2.6" fill="#10b981" />
+
+                    <text x="110" y="20" text-anchor="middle" font-size="9.5" fill="#64748b" font-family="Plus Jakarta Sans, sans-serif">Teknik</text>
+                    <text x="192" y="67" text-anchor="start" font-size="9.5" fill="#64748b" font-family="Plus Jakarta Sans, sans-serif">Pukulan</text>
+                    <text x="192" y="159" text-anchor="start" font-size="9.5" fill="#64748b" font-family="Plus Jakarta Sans, sans-serif">Footwork</text>
+                    <text x="110" y="206" text-anchor="middle" font-size="9.5" fill="#64748b" font-family="Plus Jakarta Sans, sans-serif">Strategi</text>
+                    <text x="28" y="159" text-anchor="end" font-size="9.5" fill="#64748b" font-family="Plus Jakarta Sans, sans-serif">Fisik</text>
+                    <text x="28" y="67" text-anchor="end" font-size="9.5" fill="#64748b" font-family="Plus Jakarta Sans, sans-serif">Mental</text>
+                  </svg>
+                  <div class="legend" style="justify-content:center;margin-top:2px;">
+                    <span><i style="background:#10b981;"></i> Nov 2026</span>
+                    <span><i style="background:#94a3b8;"></i> Okt 2026</span>
+                  </div>
+                </div>
+
+                <div style="border:1px solid #eef1f6;border-radius:13px;padding:12px;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <div style="font-size:12px;font-weight:700;">Skor per kategori</div>
+                    <div style="text-align:right;">
+                      <div style="font-size:16px;font-weight:800;letter-spacing:-0.02em;">3,9<span style="font-size:10px;color:#64748b;font-weight:600;"> / 5,0</span></div>
+                      <div style="font-size:9.5px;color:#047857;font-weight:700;">+0,4 vs Okt</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:9px;margin-top:12px;">
+                    <div>
+                      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Teknik Dasar</span><span style="font-weight:700;">4,2</span></div>
+                      <div class="progress progress-sm progress-emerald"><span style="width:84%;"></span></div>
+                    </div>
+                    <div>
+                      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Pukulan</span><span style="font-weight:700;">4,0</span></div>
+                      <div class="progress progress-sm progress-emerald"><span style="width:80%;"></span></div>
+                    </div>
+                    <div>
+                      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Footwork &amp; Gerak</span><span style="font-weight:700;">3,6</span></div>
+                      <div class="progress progress-sm progress-lime"><span style="width:72%;"></span></div>
+                    </div>
+                    <div>
+                      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Strategi</span><span style="font-weight:700;">3,0</span></div>
+                      <div class="progress progress-sm progress-amber"><span style="width:60%;"></span></div>
+                    </div>
+                    <div>
+                      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Fisik</span><span style="font-weight:700;">3,8</span></div>
+                      <div class="progress progress-sm progress-lime"><span style="width:76%;"></span></div>
+                    </div>
+                    <div>
+                      <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Mental &amp; Disiplin</span><span style="font-weight:700;">4,5</span></div>
+                      <div class="progress progress-sm progress-emerald"><span style="width:90%;"></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;">
+                <div style="border:1px solid #eef1f6;border-radius:12px;padding:12px;">
+                  <div style="font-size:10.5px;color:#64748b;font-weight:600;">Kehadiran November</div>
+                  <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-top:2px;">92%</div>
+                  <div class="progress progress-sm progress-emerald" style="margin-top:7px;"><span style="width:92%;"></span></div>
+                </div>
+                <div style="border:1px solid #eef1f6;border-radius:12px;padding:12px;">
+                  <div style="font-size:10.5px;color:#64748b;font-weight:600;">Sesi diikuti</div>
+                  <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-top:2px;">22 <span style="font-size:11px;color:#64748b;font-weight:600;">/ 24</span></div>
+                  <div style="font-size:10px;color:#047857;font-weight:700;margin-top:6px;">+3 dari bulan lalu</div>
+                </div>
+                <div style="border:1px solid #eef1f6;border-radius:12px;padding:12px;">
+                  <div style="font-size:10.5px;color:#64748b;font-weight:600;">Tagihan</div>
+                  <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;margin-top:2px;color:#047857;">Lunas</div>
+                  <div style="font-size:10px;color:#64748b;margin-top:6px;">Periode November 2026</div>
+                </div>
+              </div>
+
+              <div style="margin-top:14px;padding:13px;border-radius:12px;background:#f8fafc;border:1px solid #eef1f6;display:flex;gap:10px;">
+                <span class="stat-icon" style="background:#effbcb;color:#3f6212;width:30px;height:30px;border-radius:9px;"><i data-lucide="quote" style="width:14px;height:14px;"></i></span>
+                <div>
+                  <div style="font-size:11.5px;font-weight:700;">Catatan pelatih · Coach Adi, 8 Nov 2026</div>
+                  <p style="font-size:11.5px;color:#475569;margin-top:3px;line-height:1.6;">"Footwork sudah jauh lebih rapi. Smash mulai konsisten, tinggal jaga posisi recovery setelah pukulan. Aisyah disiplin dan cepat menangkap koreksi."</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- SKILL -->
+            <div data-panel="skill">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+                <div>
+                  <div style="font-size:13px;font-weight:800;">Penilaian periode November 2026</div>
+                  <div style="font-size:11px;color:#64748b;">Dibandingkan dengan Oktober 2026 · skala 1–5</div>
+                </div>
+                <div style="display:flex;gap:6px;">
+                  <select class="select" style="width:auto;height:34px;font-size:11.5px;">
+                    <option>November 2026</option>
+                    <option>Oktober 2026</option>
+                    <option>September 2026</option>
+                  </select>
+                  <button class="btn btn-primary btn-sm" data-modal-open="modalAssessment"><i data-lucide="plus"></i> Nilai</button>
+                </div>
+              </div>
+
+              <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Skill</th>
+                      <th style="width:110px;">Skor</th>
+                      <th style="width:100px;">Perubahan</th>
+                      <th>Catatan pelatih</th>
+                      <th style="width:90px;">Dinilai</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-static style="background:#f8fafc;"><td colspan="5" style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;">Teknik Dasar · bobot 1.2</td></tr>
+                    <tr><td class="cell-main">Grip</td><td><span class="badge badge-green">4,5</span></td><td><span class="stat-delta up">▲ +0,3</span></td><td class="muted">Konsisten, mampu mengubah grip sesuai kebutuhan.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Stance</td><td><span class="badge badge-green">4,0</span></td><td><span class="stat-delta up">▲ +0,2</span></td><td class="muted">Seimbang saat menerima servis.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Servis</td><td><span class="badge badge-green">4,2</span></td><td><span class="stat-delta up">▲ +0,4</span></td><td class="muted">Servis pendek sudah rapi, servis tinggi perlu latihan.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Footwork dasar</td><td><span class="badge badge-lime">3,8</span></td><td><span class="stat-delta up">▲ +0,2</span></td><td class="muted">Sudah terbiasa langkah ke depan, belum cepat saat ke belakang.</td><td class="muted">8 Nov</td></tr>
+
+                    <tr data-static style="background:#f8fafc;"><td colspan="5" style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;">Pukulan · bobot 1.5</td></tr>
+                    <tr><td class="cell-main">Clear</td><td><span class="badge badge-green">4,0</span></td><td><span class="stat-delta up">▲ +0,5</span></td><td class="muted">Sudah sampai belakang lapangan.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Drop shot</td><td><span class="badge badge-lime">3,8</span></td><td><span class="stat-delta up">▲ +0,3</span></td><td class="muted">Butuh variasi kecepatan.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Smash</td><td><span class="badge badge-green">4,2</span></td><td><span class="stat-delta up">▲ +0,6</span></td><td class="muted">Pukulan terbaik bulan ini.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Netting &amp; drive</td><td><span class="badge badge-lime">3,5</span></td><td><span class="stat-delta muted">—</span></td><td class="muted">Perlu latihan kontrol pergelangan.</td><td class="muted">8 Nov</td></tr>
+
+                    <tr data-static style="background:#f8fafc;"><td colspan="5" style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;">Footwork &amp; Gerak · bobot 1.3</td></tr>
+                    <tr><td class="cell-main">Kecepatan langkah</td><td><span class="badge badge-lime">3,8</span></td><td><span class="stat-delta up">▲ +0,2</span></td><td class="muted">Bagus di area depan.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Recovery</td><td><span class="badge badge-amber">3,4</span></td><td><span class="stat-delta up">▲ +0,1</span></td><td class="muted">Perlu kembali ke posisi tengah lebih cepat.</td><td class="muted">8 Nov</td></tr>
+
+                    <tr data-static style="background:#f8fafc;"><td colspan="5" style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;">Strategi · bobot 1.0</td></tr>
+                    <tr><td class="cell-main">Pola serangan</td><td><span class="badge badge-amber">3,0</span></td><td><span class="stat-delta up">▲ +0,2</span></td><td class="muted">Mulai memahami kapan harus menyerang.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Pembacaan permainan</td><td><span class="badge badge-amber">3,2</span></td><td><span class="stat-delta up">▲ +0,2</span></td><td class="muted">Masih fokus ke bola, belum ke posisi lawan.</td><td class="muted">8 Nov</td></tr>
+
+                    <tr data-static style="background:#f8fafc;"><td colspan="5" style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;">Mental &amp; Disiplin · bobot 0.8</td></tr>
+                    <tr><td class="cell-main">Fokus</td><td><span class="badge badge-green">4,5</span></td><td><span class="stat-delta up">▲ +0,3</span></td><td class="muted">Tidak mudah terdistraksi.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Sportivitas</td><td><span class="badge badge-green">4,6</span></td><td><span class="stat-delta up">▲ +0,1</span></td><td class="muted">Sangat baik, sering menyemangati teman.</td><td class="muted">8 Nov</td></tr>
+                    <tr><td class="cell-main">Kedisiplinan</td><td><span class="badge badge-green">4,4</span></td><td><span class="stat-delta muted">—</span></td><td class="muted">Datang tepat waktu.</td><td class="muted">8 Nov</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 12px;background:#effbcb;border:1px solid #dff0a8;border-radius:10px;">
+                <i data-lucide="lightbulb" style="width:15px;height:15px;color:#3f6212;"></i>
+                <div style="font-size:11px;color:#3f6212;">
+                  <strong>Rekomendasi sistem:</strong> 82% skill sudah ≥ 4 dan kehadiran 92%. Aisyah memenuhi syarat naik ke <strong>Beginner 2</strong>.
+                </div>
+                <button class="btn btn-white btn-sm" style="margin-left:auto;" data-demo>Naikkan level</button>
+              </div>
+            </div>
+
+            <!-- ABSENSI -->
+            <div data-panel="absensi">
+              <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;">
+                <div style="border:1px solid #eef1f6;border-radius:11px;padding:11px;">
+                  <div style="font-size:10px;color:#64748b;">Hadir</div>
+                  <div style="font-size:18px;font-weight:800;">22</div>
+                </div>
+                <div style="border:1px solid #eef1f6;border-radius:11px;padding:11px;">
+                  <div style="font-size:10px;color:#64748b;">Terlambat</div>
+                  <div style="font-size:18px;font-weight:800;">2</div>
+                </div>
+                <div style="border:1px solid #eef1f6;border-radius:11px;padding:11px;">
+                  <div style="font-size:10px;color:#64748b;">Izin / sakit</div>
+                  <div style="font-size:18px;font-weight:800;">1</div>
+                </div>
+                <div style="border:1px solid #eef1f6;border-radius:11px;padding:11px;">
+                  <div style="font-size:10px;color:#64748b;">Alpa</div>
+                  <div style="font-size:18px;font-weight:800;color:#be123c;">1</div>
+                </div>
+              </div>
+              <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+                <table class="table">
+                  <thead><tr><th>Tanggal</th><th>Sesi</th><th>Pelatih</th><th>Status</th><th>Catatan</th></tr></thead>
+                  <tbody>
+                    <tr><td class="muted">12 Nov 2026</td><td class="cell-main">Beginner A · Latihan rutin</td><td>Coach Adi</td><td><span class="badge badge-green"><span class="dot"></span>Hadir</span></td><td class="muted">—</td></tr>
+                    <tr><td class="muted">9 Nov 2026</td><td class="cell-main">Beginner A · Latihan rutin</td><td>Coach Adi</td><td><span class="badge badge-amber"><span class="dot"></span>Terlambat</span></td><td class="muted">Datang 12 menit setelah pemanasan.</td></tr>
+                    <tr><td class="muted">7 Nov 2026</td><td class="cell-main">Beginner A · Latihan rutin</td><td>Coach Adi</td><td><span class="badge badge-green"><span class="dot"></span>Hadir</span></td><td class="muted">—</td></tr>
+                    <tr><td class="muted">5 Nov 2026</td><td class="cell-main">Sparring internal</td><td>Coach Bagus</td><td><span class="badge badge-green"><span class="dot"></span>Hadir</span></td><td class="muted">Main 2 game.</td></tr>
+                    <tr><td class="muted">2 Nov 2026</td><td class="cell-main">Beginner A · Latihan rutin</td><td>Coach Adi</td><td><span class="badge badge-sky"><span class="dot"></span>Izin</span></td><td class="muted">Acara keluarga.</td></tr>
+                    <tr><td class="muted">29 Okt 2026</td><td class="cell-main">Beginner A · Latihan rutin</td><td>Coach Adi</td><td><span class="badge badge-rose"><span class="dot"></span>Alpa</span></td><td class="muted">Tidak ada konfirmasi.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- PEMBAYARAN -->
+            <div data-panel="pembayaran">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div style="font-size:12.5px;font-weight:700;">Riwayat tagihan</div>
+                <a href="pembayaran.html" class="btn btn-white btn-sm">Rekap keuangan</a>
+              </div>
+              <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+                <table class="table">
+                  <thead><tr><th>Periode</th><th>Paket</th><th>Jumlah</th><th>Jatuh tempo</th><th>Status</th><th></th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td class="cell-main">November 2026</td>
+                      <td>Beginner A · 8 sesi</td>
+                      <td class="num" style="font-weight:700;">Rp 450.000</td>
+                      <td class="muted">10 Nov 2026</td>
+                      <td><span class="badge badge-green"><span class="dot"></span>Lunas</span></td>
+                      <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                    </tr>
+                    <tr>
+                      <td class="cell-main">Oktober 2026</td>
+                      <td>Beginner A · 8 sesi</td>
+                      <td class="num" style="font-weight:700;">Rp 450.000</td>
+                      <td class="muted">10 Okt 2026</td>
+                      <td><span class="badge badge-green"><span class="dot"></span>Lunas</span></td>
+                      <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                    </tr>
+                    <tr>
+                      <td class="cell-main">September 2026</td>
+                      <td>Beginner A · 8 sesi</td>
+                      <td class="num" style="font-weight:700;">Rp 450.000</td>
+                      <td class="muted">10 Sep 2026</td>
+                      <td><span class="badge badge-green"><span class="dot"></span>Lunas</span></td>
+                      <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                    </tr>
+                    <tr>
+                      <td class="cell-main">Agustus 2026</td>
+                      <td>Beginner A · 8 sesi</td>
+                      <td class="num" style="font-weight:700;">Rp 450.000</td>
+                      <td class="muted">10 Agu 2026</td>
+                      <td><span class="badge badge-green"><span class="dot"></span>Lunas</span></td>
+                      <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- CATATAN -->
+            <div data-panel="catatan">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                <div style="font-size:12.5px;font-weight:700;">Catatan perkembangan</div>
+                <button class="btn btn-white btn-sm" data-demo><i data-lucide="plus"></i> Tambah catatan</button>
+              </div>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-date">8 Nov 2026 · Coach Adi · terlihat orang tua</div>
+                  <div class="timeline-text">Footwork sudah jauh lebih rapi. Smash mulai konsisten, tinggal jaga posisi recovery setelah pukulan. Aisyah disiplin dan cepat menangkap koreksi.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">26 Okt 2026 · Coach Adi · internal</div>
+                  <div class="timeline-text">Perlu tambahan latihan netting 10 menit di akhir sesi. Kontrol pergelangan masih kaku saat bola dekat.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">12 Okt 2026 · Admin Rina · terlihat orang tua</div>
+                  <div class="timeline-text">Aisyah ikut sparring internal pertama. Percaya diri, berani mengambil inisiatif serangan.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date">12 Mar 2024 · Admin Rina</div>
+                  <div class="timeline-text">Member bergabung di kelas Beginner A. Baseline skill diisi: rata-rata 2,1 / 5,0.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right column -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Orang tua / wali</div>
+                <div class="card-sub">Kontak utama penerima notifikasi</div>
+              </div>
+              <span class="badge badge-lime">Wali utama</span>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span class="avatar avatar-emerald avatar-lg">SD</span>
+                <div>
+                  <div style="font-size:12.5px;font-weight:700;">Ibu Sari Dewi</div>
+                  <div style="font-size:10.5px;color:#64748b;">Ibu · Karyawan swasta</div>
+                </div>
+              </div>
+              <div class="divider" style="margin:12px 0;"></div>
+              <div class="kv"><span class="k">WhatsApp</span><span class="v">0812-3456-7890</span></div>
+              <div class="kv"><span class="k">Email</span><span class="v" style="font-weight:500;">sari.dewi@email.com</span></div>
+              <div class="kv" style="align-items:flex-start;"><span class="k">Alamat</span><span class="v" style="font-weight:500;max-width:170px;">Jl. Raya Ciracas No. 24, Jakarta Timur</span></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-wa btn-sm" style="justify-content:center;"><i data-lucide="message-circle"></i> WhatsApp</a>
+                <button class="btn btn-white btn-sm" data-demo><i data-lucide="phone"></i> Telepon</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Informasi kesehatan</div>
+                <div class="card-sub">Penting untuk keselamatan latihan</div>
+              </div>
+              <span class="badge badge-amber">Cek berkala</span>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;gap:8px;margin-bottom:10px;">
+                <span class="badge badge-outline">Alergi: tidak ada</span>
+                <span class="badge badge-outline">Gol. darah: O</span>
+              </div>
+              <div style="background:#fffbf3;border:1px solid #fef4e2;border-radius:10px;padding:10px;font-size:11px;color:#92400e;line-height:1.6;">
+                <strong>Riwayat cedera:</strong> pergelangan tangan kanan (Feb 2026). Hindari latihan beban berlebih pada tangan kanan.
+              </div>
+              <div class="kv" style="margin-top:8px;"><span class="k">Kontak darurat</span><span class="v">Ibu Sari · 0812-3456-7890</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Paket &amp; level</div>
+                <div class="card-sub">Beginner A · 8 sesi/bulan</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="kv"><span class="k">Harga</span><span class="v">Rp 450.000 / bulan</span></div>
+              <div class="kv"><span class="k">Jadwal</span><span class="v">Selasa &amp; Kamis</span></div>
+              <div class="kv"><span class="k">Lokasi</span><span class="v">GOR Ciracas</span></div>
+              <div class="kv"><span class="k">Pelatih</span><span class="v">Coach Adi</span></div>
+              <div class="divider" style="margin:10px 0;"></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px;">
+                <span style="color:#64748b;">Menuju Beginner 2</span><span style="font-weight:700;">78%</span>
+              </div>
+              <div class="progress"><span style="width:78%;background:#c9f24d;"></span></div>
+              <div style="font-size:10px;color:#94a3b8;margin-top:5px;">Syarat: 80% skill ≥ 4 &amp; kehadiran ≥ 80%</div>
+            </div>
+          </div>
+
+          <div class="card card-pad" style="background:#0b1220;color:#fff;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <i data-lucide="file-text" style="width:16px;height:16px;color:#c9f24d;"></i>
+              <div style="font-size:12px;font-weight:700;">Rapor perkembangan</div>
+            </div>
+            <p style="font-size:10.5px;color:#9fb0c8;margin-top:5px;line-height:1.55;">Rapor periode Oktober sudah tersedia untuk diunduh orang tua.</p>
+            <button class="btn btn-lime btn-sm btn-block" style="margin-top:10px;" data-demo><i data-lucide="download"></i> Unduh rapor (PDF)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal penilaian -->
+<div class="modal" id="modalAssessment" hidden>
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" style="width:min(620px,100%);">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Input penilaian skill</div>
+        <div class="modal-sub">Aisyah Azzahra · periode November 2026</div>
+      </div>
+      <button class="modal-close" data-modal-close><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;gap:8px;align-items:center;padding:9px 11px;border-radius:10px;background:#f8fafc;border:1px solid #eef1f6;margin-bottom:14px;font-size:10.5px;color:#64748b;">
+        <i data-lucide="info" style="width:14px;height:14px;"></i>
+        1 = belum menguasai · 3 = cukup · 5 = sangat baik. Skor tersimpan sebagai riwayat, bukan menimpa.
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="score-row" data-skill>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+            <span style="font-size:12px;font-weight:700;">Grip</span>
+            <span style="font-size:10px;color:#94a3b8;">Teknik Dasar · skor lalu 4,2</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button type="button" class="score-btn">1</button><button type="button" class="score-btn">2</button><button type="button" class="score-btn">3</button><button type="button" class="score-btn">4</button><button type="button" class="score-btn is-on">5</button>
+          </div>
+        </div>
+        <div class="score-row" data-skill>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+            <span style="font-size:12px;font-weight:700;">Smash</span>
+            <span style="font-size:10px;color:#94a3b8;">Pukulan · skor lalu 3,6</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button type="button" class="score-btn">1</button><button type="button" class="score-btn">2</button><button type="button" class="score-btn">3</button><button type="button" class="score-btn">4</button><button type="button" class="score-btn is-on">5</button>
+          </div>
+        </div>
+        <div class="score-row" data-skill>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+            <span style="font-size:12px;font-weight:700;">Footwork</span>
+            <span style="font-size:10px;color:#94a3b8;">Footwork &amp; Gerak · skor lalu 3,4</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button type="button" class="score-btn">1</button><button type="button" class="score-btn">2</button><button type="button" class="score-btn">3</button><button type="button" class="score-btn is-on">4</button><button type="button" class="score-btn">5</button>
+          </div>
+        </div>
+        <div class="score-row" data-skill>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+            <span style="font-size:12px;font-weight:700;">Strategi</span>
+            <span style="font-size:10px;color:#94a3b8;">Strategi · skor lalu 2,8</span>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <button type="button" class="score-btn">1</button><button type="button" class="score-btn">2</button><button type="button" class="score-btn is-on">3</button><button type="button" class="score-btn">4</button><button type="button" class="score-btn">5</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <label class="label">Catatan pelatih (terlihat orang tua)</label>
+        <textarea class="textarea" rows="2" placeholder="Apa yang membaik, apa yang perlu dilatih…"></textarea>
+      </div>
+
+      <div style="display:flex;gap:14px;margin-top:12px;flex-wrap:wrap;">
+        <label class="check"><input type="checkbox" checked /> Tampilkan ke orang tua</label>
+        <label class="check"><input type="checkbox" /> Tandai sebagai penilaian akhir periode</label>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-white" data-modal-close>Batal</button>
+      <button class="btn btn-primary" data-modal-close onclick="toast('Penilaian tersimpan & tampil di portal orang tua')">Simpan Penilaian</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .score-btn {
+    flex: 1; height: 31px; border-radius: 7px; border: 1px solid #e6eaf1; background: #fff;
+    font-size: 11px; font-weight: 700; color: #64748b; cursor: pointer;
+  }
+  .score-btn:hover { border-color: #cbd5e1; }
+  .score-btn.is-on { background: #0b1220; border-color: #0b1220; color: #fff; }
+</style>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+  document.querySelectorAll(".score-row").forEach(function (row) {
+    row.querySelectorAll(".score-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        row.querySelectorAll(".score-btn").forEach(function (b) { b.classList.remove("is-on"); });
+        btn.classList.add("is-on");
+      });
+    });
+  });
+</script>
+</body>
+</html>

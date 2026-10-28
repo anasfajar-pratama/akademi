@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span>
+        <span class="brand-name">Arenaku</span>
+        <span class="brand-tag">Sport Academy OS</span>
+      </span>
+    </a>
+
+    <div class="acad-switch">
+      <span class="acad-logo">BC</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Arenaku Badminton</div>
+        <div class="acad-meta">4 akademi · Super Admin</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+
+    <div class="nav-group-label">Menu utama</div>
+    <a href="dashboard.html" class="nav-link active"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="akademi.html" class="nav-link"><i data-lucide="building-2"></i> Akademi &amp; Lokasi</a>
+    <a href="member.html" class="nav-link"><i data-lucide="users"></i> Member <span class="nav-count">248</span></a>
+    <a href="jadwal.html" class="nav-link"><i data-lucide="calendar-days"></i> Jadwal &amp; Sparring</a>
+    <a href="absensi.html" class="nav-link"><i data-lucide="clipboard-check"></i> Absensi</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <a href="pembayaran.html" class="nav-link"><i data-lucide="receipt-text"></i> Pembayaran</a>
+    <a href="reminder-wa.html" class="nav-link"><i data-lucide="message-circle"></i> Pengingat WhatsApp <span class="nav-count">8</span></a>
+
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="akademi.html#skill" class="nav-link"><i data-lucide="list-checks"></i> Template Skill</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar avatar-violet">RK</span>
+        <div>
+          <div class="user-mini-name">Rina Kartika</div>
+          <div class="user-mini-role">Super Admin</div>
+        </div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Dashboard</div>
+        <div class="topbar-sub">Arenaku Badminton Club · November 2026</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Cari member, jadwal, tagihan…" />
+      </div>
+      <button class="icon-btn"><i data-lucide="help-circle"></i></button>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar avatar-violet" style="cursor:pointer;">RK</span>
+    </header>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Ringkasan akademi</h1>
+          <p class="page-sub">Semua yang perlu ditindaklanjuti hari ini, dalam satu layar.</p>
+        </div>
+        <div class="page-actions">
+          <select class="select" style="width:auto;height:38px;">
+            <option>November 2026</option>
+            <option>Oktober 2026</option>
+            <option>September 2026</option>
+          </select>
+          <a href="jadwal.html" class="btn btn-primary"><i data-lucide="plus"></i> Buat Jadwal</a>
+        </div>
+      </div>
+
+      <!-- KPI -->
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="card card-pad">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="stat-label">Member aktif</div>
+            <span class="stat-icon" style="background:#e7f8f1;color:#047857;"><i data-lucide="users"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">214</div>
+          <div class="stat-delta up" style="margin-top:6px;">
+            <i data-lucide="arrow-up-right"></i> +12 dari bulan lalu
+          </div>
+        </div>
+        <div class="card card-pad">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="stat-label">Kehadiran bulan ini</div>
+            <span class="stat-icon" style="background:#effbcb;color:#3f6212;"><i data-lucide="calendar-check"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">86%</div>
+          <div class="stat-delta up" style="margin-top:6px;">
+            <i data-lucide="arrow-up-right"></i> +4,2% dibanding Oktober
+          </div>
+        </div>
+        <div class="card card-pad">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="stat-label">Pendapatan November</div>
+            <span class="stat-icon" style="background:#e6f6fe;color:#0369a1;"><i data-lucide="wallet"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">Rp 62,4<span style="font-size:15px;font-weight:600;color:#64748b;">jt</span></div>
+          <div class="stat-delta up" style="margin-top:6px;">
+            <i data-lucide="arrow-up-right"></i> +8,1% · target 78%
+          </div>
+        </div>
+        <div class="card card-pad">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="stat-label">Tagihan tertunggak</div>
+            <span class="stat-icon" style="background:#feebee;color:#be123c;"><i data-lucide="alert-circle"></i></span>
+          </div>
+          <div class="stat-value" style="margin-top:6px;">Rp 9,8<span style="font-size:15px;font-weight:600;color:#64748b;">jt</span></div>
+          <div class="stat-delta down" style="margin-top:6px;">
+            <i data-lucide="arrow-down-right"></i> 18 member perlu diingatkan
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart + attendance -->
+      <div class="grid" style="grid-template-columns:2fr 1fr;margin-top:16px;">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Pendapatan 6 bulan terakhir</div>
+              <div class="card-sub">Tagihan terbayar per bulan · dalam juta rupiah</div>
+            </div>
+            <span class="badge badge-lime"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> Tumbuh 14%</span>
+          </div>
+          <div class="card-body">
+            <div style="display:flex;align-items:flex-end;gap:14px;height:196px;padding:8px 4px 0;position:relative;">
+              <div style="position:absolute;inset:8px 4px 26px;background:repeating-linear-gradient(to top,#f1f4f8 0 1px,transparent 1px 40px);pointer-events:none;"></div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;position:relative;">
+                <span style="font-size:10px;color:#94a3b8;font-weight:600;">42</span>
+                <div style="width:100%;max-width:44px;height:42%;background:#e8edf4;border-radius:6px 6px 2px 2px;"></div>
+                <span style="font-size:10px;color:#94a3b8;">Jun</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;position:relative;">
+                <span style="font-size:10px;color:#94a3b8;font-weight:600;">48</span>
+                <div style="width:100%;max-width:44px;height:51%;background:#e8edf4;border-radius:6px 6px 2px 2px;"></div>
+                <span style="font-size:10px;color:#94a3b8;">Jul</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;position:relative;">
+                <span style="font-size:10px;color:#94a3b8;font-weight:600;">46</span>
+                <div style="width:100%;max-width:44px;height:48%;background:#e8edf4;border-radius:6px 6px 2px 2px;"></div>
+                <span style="font-size:10px;color:#94a3b8;">Agu</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;position:relative;">
+                <span style="font-size:10px;color:#94a3b8;font-weight:600;">55</span>
+                <div style="width:100%;max-width:44px;height:60%;background:#e8edf4;border-radius:6px 6px 2px 2px;"></div>
+                <span style="font-size:10px;color:#94a3b8;">Sep</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;position:relative;">
+                <span style="font-size:10px;color:#94a3b8;font-weight:600;">58</span>
+                <div style="width:100%;max-width:44px;height:65%;background:#e8edf4;border-radius:6px 6px 2px 2px;"></div>
+                <span style="font-size:10px;color:#94a3b8;">Okt</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;position:relative;">
+                <span style="font-size:10px;color:#0b1220;font-weight:800;">62,4</span>
+                <div style="width:100%;max-width:44px;height:82%;background:#0b1220;border-radius:6px 6px 2px 2px;position:relative;">
+                  <span style="position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:7px;height:7px;border-radius:50%;background:#c9f24d;"></span>
+                </div>
+                <span style="font-size:10px;color:#0b1220;font-weight:700;">Nov</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;position:relative;">
+                <span style="font-size:10px;color:#94a3b8;font-weight:600;">—</span>
+                <div style="width:100%;max-width:44px;height:58%;background:#dff0a8;border:1px dashed #a8cb4a;border-radius:6px 6px 2px 2px;"></div>
+                <span style="font-size:10px;color:#94a3b8;">Des</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Kehadiran</div>
+              <div class="card-sub">November · 1.284 catatan</div>
+            </div>
+            <a href="absensi.html" class="btn btn-white btn-sm">Detail</a>
+          </div>
+          <div class="card-body">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div class="ring" style="--v:86;">
+                <div style="text-align:center;">
+                  <div class="ring-value">86%</div>
+                  <div class="ring-label">hadir</div>
+                </div>
+              </div>
+              <div style="flex:1;">
+                <div class="kv"><span class="k">Hadir</span><span class="v">1.061</span></div>
+                <div class="kv"><span class="k">Terlambat</span><span class="v">43</span></div>
+                <div class="kv"><span class="k">Izin / sakit</span><span class="v">118</span></div>
+                <div class="kv"><span class="k">Alpa</span><span class="v" style="color:#be123c;">62</span></div>
+              </div>
+            </div>
+            <div class="divider" style="margin:14px 0;"></div>
+            <div style="font-size:10.5px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px;">Per kelas</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Beginner A</span><span style="font-weight:700;">91%</span></div>
+                <div class="progress progress-sm progress-emerald"><span style="width:91%;"></span></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Intermediate B</span><span style="font-weight:700;">84%</span></div>
+                <div class="progress progress-sm progress-lime"><span style="width:84%;"></span></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px;"><span>Advanced</span><span style="font-weight:700;">79%</span></div>
+                <div class="progress progress-sm progress-amber"><span style="width:79%;"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sessions + actions -->
+      <div class="grid" style="grid-template-columns:2fr 1fr;margin-top:16px;">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Sesi hari ini</div>
+              <div class="card-sub">Kamis, 12 November 2026</div>
+            </div>
+            <a href="jadwal.html" class="btn btn-white btn-sm">Lihat semua <i data-lucide="arrow-right"></i></a>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Waktu</th>
+                  <th>Kelas / Sesi</th>
+                  <th>Pelatih</th>
+                  <th>Lokasi</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="num" style="font-weight:700;">15.30–17.00</td>
+                  <td>
+                    <div class="cell-main">Beginner A</div>
+                    <div class="cell-sub">Latihan rutin · 20 member</div>
+                  </td>
+                  <td>Coach Adi</td>
+                  <td>GOR Ciracas</td>
+                  <td><span class="badge badge-green"><span class="dot"></span>Selesai</span></td>
+                  <td class="table-actions"><a href="absensi.html" class="btn btn-white btn-sm">Rekap</a></td>
+                </tr>
+                <tr>
+                  <td class="num" style="font-weight:700;">16.00–17.30</td>
+                  <td>
+                    <div class="cell-main">Intermediate B</div>
+                    <div class="cell-sub">Latihan rutin · 18 member</div>
+                  </td>
+                  <td>Coach Sari</td>
+                  <td>GOR Cibubur</td>
+                  <td><span class="badge badge-amber"><span class="dot"></span>Belum diabsen</span></td>
+                  <td class="table-actions"><a href="absensi.html" class="btn btn-primary btn-sm">Absensi</a></td>
+                </tr>
+                <tr>
+                  <td class="num" style="font-weight:700;">17.00–18.30</td>
+                  <td>
+                    <div class="cell-main">Advanced</div>
+                    <div class="cell-sub">Latihan rutin · 14 member</div>
+                  </td>
+                  <td>Coach Bagus</td>
+                  <td>GOR Ciracas</td>
+                  <td><span class="badge badge-sky"><span class="dot"></span>Berlangsung</span></td>
+                  <td class="table-actions"><a href="absensi.html" class="btn btn-white btn-sm">Buka</a></td>
+                </tr>
+                <tr>
+                  <td class="num" style="font-weight:700;">18.30–20.00</td>
+                  <td>
+                    <div class="cell-main">Sparring vs PB Jaya Raya</div>
+                    <div class="cell-sub">Uji tanding · 12 member</div>
+                  </td>
+                  <td>Coach Adi</td>
+                  <td>GOR Ciracas</td>
+                  <td><span class="badge badge-violet"><span class="dot"></span>Besok</span></td>
+                  <td class="table-actions"><a href="jadwal.html" class="btn btn-white btn-sm">Detail</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Perlu tindakan</div>
+              <div class="card-sub">4 hal menunggu</div>
+            </div>
+          </div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:10px;">
+            <a href="reminder-wa.html" style="display:flex;gap:10px;padding:11px;border:1px solid #feebee;background:#fff7f8;border-radius:11px;">
+              <span class="stat-icon" style="background:#feebee;color:#be123c;width:30px;height:30px;border-radius:9px;"><i data-lucide="message-circle" style="width:14px;height:14px;"></i></span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">8 tagihan jatuh tempo</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:1px;">Kirim pengingat WhatsApp</div>
+              </div>
+              <i data-lucide="chevron-right" style="width:15px;height:15px;color:#94a3b8;"></i>
+            </a>
+            <a href="member.html" style="display:flex;gap:10px;padding:11px;border:1px solid #fef4e2;background:#fffbf3;border-radius:11px;">
+              <span class="stat-icon" style="background:#fef4e2;color:#b45309;width:30px;height:30px;border-radius:9px;"><i data-lucide="user-round-x" style="width:14px;height:14px;"></i></span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">5 member jarang hadir</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:1px;">Kehadiran &lt; 70% bulan ini</div>
+              </div>
+              <i data-lucide="chevron-right" style="width:15px;height:15px;color:#94a3b8;"></i>
+            </a>
+            <a href="absensi.html" style="display:flex;gap:10px;padding:11px;border:1px solid #e6f6fe;background:#f6fcff;border-radius:11px;">
+              <span class="stat-icon" style="background:#e6f6fe;color:#0369a1;width:30px;height:30px;border-radius:9px;"><i data-lucide="clipboard-x" style="width:14px;height:14px;"></i></span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">2 sesi belum diabsen</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:1px;">Intermediate B &amp; Advanced</div>
+              </div>
+              <i data-lucide="chevron-right" style="width:15px;height:15px;color:#94a3b8;"></i>
+            </a>
+            <a href="member-detail.html" style="display:flex;gap:10px;padding:11px;border:1px solid #f0edff;background:#faf9ff;border-radius:11px;">
+              <span class="stat-icon" style="background:#f0edff;color:#5b3fd6;width:30px;height:30px;border-radius:9px;"><i data-lucide="clipboard-list" style="width:14px;height:14px;"></i></span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">3 penilaian menunggu</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:1px;">Periode November</div>
+              </div>
+              <i data-lucide="chevron-right" style="width:15px;height:15px;color:#94a3b8;"></i>
+            </a>
+            <div class="divider" style="margin:4px 0;"></div>
+            <a href="pembayaran.html" class="btn btn-primary btn-block">Lihat rekap keuangan <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="grid" style="grid-template-columns:1.15fr 1fr;margin-top:16px;">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Member baru minggu ini</div>
+              <div class="card-sub">6 pendaftar · 2 masih trial</div>
+            </div>
+            <a href="member.html" class="btn btn-white btn-sm">Semua member</a>
+          </div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="avatar avatar-rose">AZ</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">Azzahra Putri</div>
+                <div style="font-size:10.5px;color:#64748b;">8 tahun · Beginner · Wali: Ibu Dewi</div>
+              </div>
+              <span class="badge badge-green">Aktif</span>
+              <span style="font-size:10px;color:#94a3b8;">12 Nov</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="avatar avatar-sky">RF</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">Rafi Pratama</div>
+                <div style="font-size:10.5px;color:#64748b;">10 tahun · Beginner · Wali: Bapak Andi</div>
+              </div>
+              <span class="badge badge-amber">Trial</span>
+              <span style="font-size:10px;color:#94a3b8;">11 Nov</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="avatar avatar-lime">KN</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">Kanaya Nur</div>
+                <div style="font-size:10.5px;color:#64748b;">7 tahun · Beginner · Wali: Ibu Sari</div>
+              </div>
+              <span class="badge badge-amber">Trial</span>
+              <span style="font-size:10px;color:#94a3b8;">10 Nov</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="avatar avatar-violet">BS</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">Bima Saputra</div>
+                <div style="font-size:10.5px;color:#64748b;">12 tahun · Intermediate · Wali: Bapak Joko</div>
+              </div>
+              <span class="badge badge-green">Aktif</span>
+              <span style="font-size:10px;color:#94a3b8;">9 Nov</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Progres terbaik bulan ini</div>
+              <div class="card-sub">Kenaikan skor skill keseluruhan</div>
+            </div>
+            <span class="badge badge-lime">Top 3</span>
+          </div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="avatar avatar-emerald">AA</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">Aisyah Azzahra</div>
+                <div style="font-size:10px;color:#64748b;">Beginner A · 3,9 dari 5,0</div>
+                <div class="progress progress-sm progress-emerald" style="margin-top:5px;"><span style="width:78%;"></span></div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:12px;font-weight:800;color:#047857;">+0,6</div>
+                <div style="font-size:9.5px;color:#94a3b8;">vs Okt</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="avatar avatar-sky">MF</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">Muhammad Fadel</div>
+                <div style="font-size:10px;color:#64748b;">Intermediate B · 4,2 dari 5,0</div>
+                <div class="progress progress-sm progress-sky" style="margin-top:5px;"><span style="width:84%;"></span></div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:12px;font-weight:800;color:#047857;">+0,4</div>
+                <div style="font-size:9.5px;color:#94a3b8;">vs Okt</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span class="avatar avatar-amber">NR</span>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:700;">Naura Rania</div>
+                <div style="font-size:10px;color:#64748b;">Advanced · 4,4 dari 5,0</div>
+                <div class="progress progress-sm progress-amber" style="margin-top:5px;"><span style="width:88%;"></span></div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:12px;font-weight:800;color:#047857;">+0,3</div>
+                <div style="font-size:9.5px;color:#94a3b8;">vs Okt</div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#64748b;">
+              <span>Rata-rata akademi</span>
+              <span style="font-weight:800;color:#0b1220;">3,7 / 5,0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+</script>
+</body>
+</html>

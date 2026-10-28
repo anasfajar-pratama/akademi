@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pembayaran — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span><span class="brand-name">Arenaku</span><span class="brand-tag">Sport Academy OS</span></span>
+    </a>
+    <div class="acad-switch">
+      <span class="acad-logo">BC</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Arenaku Badminton</div>
+        <div class="acad-meta">4 akademi · Super Admin</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+    <div class="nav-group-label">Menu utama</div>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="akademi.html" class="nav-link"><i data-lucide="building-2"></i> Akademi &amp; Lokasi</a>
+    <a href="member.html" class="nav-link"><i data-lucide="users"></i> Member <span class="nav-count">248</span></a>
+    <a href="jadwal.html" class="nav-link"><i data-lucide="calendar-days"></i> Jadwal &amp; Sparring</a>
+    <a href="absensi.html" class="nav-link"><i data-lucide="clipboard-check"></i> Absensi</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <a href="pembayaran.html" class="nav-link active"><i data-lucide="receipt-text"></i> Pembayaran</a>
+    <a href="reminder-wa.html" class="nav-link"><i data-lucide="message-circle"></i> Pengingat WhatsApp <span class="nav-count">8</span></a>
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="akademi.html#skill" class="nav-link"><i data-lucide="list-checks"></i> Template Skill</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar avatar-violet">RK</span>
+        <div><div class="user-mini-name">Rina Kartika</div><div class="user-mini-role">Super Admin</div></div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Pembayaran</div>
+        <div class="topbar-sub">Periode November 2026 · Arenaku Badminton Club</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search"><i data-lucide="search"></i><input type="text" placeholder="Cari member atau nomor invoice…" data-filter="#invoiceTable" /></div>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar avatar-violet">RK</span>
+    </header>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Tagihan &amp; pembayaran</h1>
+          <p class="page-sub">Pantau kolektibilitas, kirim pengingat, dan catat pembayaran.</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-white" data-demo><i data-lucide="download"></i> Ekspor</button>
+          <button class="btn btn-primary" data-modal-open="modalInvoice"><i data-lucide="file-plus-2"></i> Generate Tagihan</button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="card card-pad">
+          <div class="stat-label">Total tagihan November</div>
+          <div class="stat-value" style="margin-top:6px;">Rp 67,8<span style="font-size:14px;font-weight:600;color:#64748b;">jt</span></div>
+          <div class="stat-delta muted" style="margin-top:6px;">214 invoice aktif</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Sudah terbayar</div>
+          <div class="stat-value" style="margin-top:6px;color:#047857;">Rp 58,0<span style="font-size:14px;font-weight:600;color:#64748b;">jt</span></div>
+          <div class="stat-delta up" style="margin-top:6px;"><i data-lucide="arrow-up-right"></i> 85,5% kolektibilitas</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Tunggakan</div>
+          <div class="stat-value" style="margin-top:6px;color:#be123c;">Rp 9,8<span style="font-size:14px;font-weight:600;color:#64748b;">jt</span></div>
+          <div class="stat-delta down" style="margin-top:6px;">18 member · 6 jatuh tempo</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Rata-rata per member</div>
+          <div class="stat-value" style="margin-top:6px;">Rp 511<span style="font-size:14px;font-weight:600;color:#64748b;">rb</span></div>
+          <div class="stat-delta muted" style="margin-top:6px;">Periode berjalan</div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1.6fr 1fr;margin-top:16px;">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Status penagihan November</div>
+              <div class="card-sub">Target kolektibilitas 90% · sisa 10 hari</div>
+            </div>
+            <span class="badge badge-lime">85,5%</span>
+          </div>
+          <div class="card-body">
+            <div style="display:flex;height:12px;border-radius:6px;overflow:hidden;background:#edf1f6;">
+              <div style="width:68%;background:#10b981;"></div>
+              <div style="width:17.5%;background:#c9f24d;"></div>
+              <div style="width:14.5%;background:#f43f5e;"></div>
+            </div>
+            <div class="legend" style="margin-top:9px;">
+              <span><i style="background:#10b981;"></i> Lunas 168 member</span>
+              <span><i style="background:#c9f24d;"></i> Sebagian 8 member</span>
+              <span><i style="background:#f43f5e;"></i> Belum bayar 38 member</span>
+            </div>
+
+            <div class="divider" style="margin:16px 0;"></div>
+            <div style="display:flex;align-items:flex-end;gap:12px;height:120px;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end;">
+                <div style="width:100%;height:62%;background:#e8edf4;border-radius:5px 5px 2px 2px;"></div>
+                <span style="font-size:9.5px;color:#94a3b8;">Jul</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end;">
+                <div style="width:100%;height:70%;background:#e8edf4;border-radius:5px 5px 2px 2px;"></div>
+                <span style="font-size:9.5px;color:#94a3b8;">Agu</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end;">
+                <div style="width:100%;height:66%;background:#e8edf4;border-radius:5px 5px 2px 2px;"></div>
+                <span style="font-size:9.5px;color:#94a3b8;">Sep</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end;">
+                <div style="width:100%;height:79%;background:#e8edf4;border-radius:5px 5px 2px 2px;"></div>
+                <span style="font-size:9.5px;color:#94a3b8;">Okt</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end;">
+                <div style="width:100%;height:86%;background:#0b1220;border-radius:5px 5px 2px 2px;"></div>
+                <span style="font-size:9.5px;color:#0b1220;font-weight:700;">Nov</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Rekap per kelas</div>
+              <div class="card-sub">Kolektibilitas November</div>
+            </div>
+          </div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:12px;">
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:4px;">
+                <span style="font-weight:600;">Beginner A · 82 member</span><span style="font-weight:800;">92%</span>
+              </div>
+              <div class="progress progress-sm progress-emerald"><span style="width:92%;"></span></div>
+              <div style="font-size:10px;color:#94a3b8;margin-top:3px;">Rp 36,9jt terkumpul dari Rp 40,1jt</div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:4px;">
+                <span style="font-weight:600;">Beginner B · 48 member</span><span style="font-weight:800;">88%</span>
+              </div>
+              <div class="progress progress-sm progress-lime"><span style="width:88%;"></span></div>
+              <div style="font-size:10px;color:#94a3b8;margin-top:3px;">Rp 18,7jt terkumpul dari Rp 21,2jt</div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:4px;">
+                <span style="font-weight:600;">Intermediate B · 54 member</span><span style="font-weight:800;">81%</span>
+              </div>
+              <div class="progress progress-sm progress-amber"><span style="width:81%;"></span></div>
+              <div style="font-size:10px;color:#94a3b8;margin-top:3px;">Rp 24,1jt terkumpul dari Rp 29,8jt</div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:4px;">
+                <span style="font-weight:600;">Advanced · 30 member</span><span style="font-weight:800;">76%</span>
+              </div>
+              <div class="progress progress-sm progress-rose"><span style="width:76%;"></span></div>
+              <div style="font-size:10px;color:#94a3b8;margin-top:3px;">Rp 14,8jt terkumpul dari Rp 19,5jt</div>
+            </div>
+            <a href="reminder-wa.html" class="btn btn-primary btn-sm btn-block" style="margin-top:2px;"><i data-lucide="message-circle"></i> Kirim pengingat ke 38 member</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs table -->
+      <div class="card tabbed" style="margin-top:16px;">
+        <div style="padding:0 20px;">
+          <div class="tabs" data-tabs>
+            <button class="tab is-active" data-tab="tagihan">Tagihan</button>
+            <button class="tab" data-tab="riwayat">Riwayat pembayaran</button>
+            <button class="tab" data-tab="rekap">Rekap periode</button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div data-panel="tagihan" class="is-active">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px;">
+              <div class="search" style="width:210px;height:34px;background:#f8fafc;border-color:#e6eaf1;">
+                <i data-lucide="search" style="width:14px;height:14px;"></i>
+                <input type="text" placeholder="Cari nama / invoice…" data-filter="#invoiceTable" />
+              </div>
+              <select class="select" style="width:auto;height:34px;font-size:11.5px;"><option>Semua status</option><option>Belum bayar</option><option>Terlambat</option><option>Lunas</option></select>
+              <select class="select" style="width:auto;height:34px;font-size:11.5px;"><option>November 2026</option><option>Oktober 2026</option></select>
+              <button class="btn btn-white btn-sm" data-demo><i data-lucide="filter"></i> Filter</button>
+              <div style="margin-left:auto;font-size:11px;color:#64748b;">Menampilkan 9 dari 214 tagihan</div>
+            </div>
+
+            <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+              <table class="table" id="invoiceTable">
+                <thead>
+                  <tr>
+                    <th style="width:32px;"><input type="checkbox" data-check-all style="accent-color:#0b1220;" /></th>
+                    <th>Member</th>
+                    <th>Periode</th>
+                    <th>Jumlah</th>
+                    <th>Jatuh tempo</th>
+                    <th>Status</th>
+                    <th style="width:180px;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-rose" style="width:30px;height:30px;font-size:9px;">AA</span><div><div class="cell-main">Aisyah Azzahra</div><div class="cell-sub">INV-2026-11-0182</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 450.000</td>
+                    <td class="muted">10 Nov 2026</td>
+                    <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                    <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-sky" style="width:30px;height:30px;font-size:9px;">MF</span><div><div class="cell-main">Muhammad Fadel</div><div class="cell-sub">INV-2026-11-0117</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 550.000</td>
+                    <td class="muted">10 Nov 2026</td>
+                    <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                    <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-amber" style="width:30px;height:30px;font-size:9px;">NR</span><div><div class="cell-main">Naura Rania</div><div class="cell-sub">INV-2026-11-0064</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 650.000</td>
+                    <td class="muted">10 Nov 2026</td>
+                    <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                    <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-violet" style="width:30px;height:30px;font-size:9px;">BS</span><div><div class="cell-main">Bima Saputra</div><div class="cell-sub">INV-2026-11-0098</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 550.000</td>
+                    <td class="muted" style="color:#be123c;font-weight:600;">7 Nov 2026</td>
+                    <td><span class="badge badge-rose js-pay-status"><span class="dot"></span>Terlambat</span></td>
+                    <td class="table-actions">
+                      <a href="https://wa.me/6282133447788?text=Halo%20Bapak%20Joko%2C%20tagihan%20Bima%20Saputra%20periode%20November%202026%20sebesar%20Rp550.000%20telah%20jatuh%20tempo." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="message-circle"></i> WA</a>
+                      <button class="btn btn-white btn-sm" data-mark-paid>Tandai lunas</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-rose" style="width:30px;height:30px;font-size:9px;">ZA</span><div><div class="cell-main">Zahra Aulia</div><div class="cell-sub">INV-2026-11-0203</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 450.000</td>
+                    <td class="muted">10 Nov 2026</td>
+                    <td><span class="badge badge-amber js-pay-status"><span class="dot"></span>Belum bayar</span></td>
+                    <td class="table-actions">
+                      <a href="https://wa.me/6283811223344?text=Halo%20Ibu%20Lestari%2C%20mengingatkan%20tagihan%20Zahra%20Aulia%20periode%20November%202026%20sebesar%20Rp450.000." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="message-circle"></i> WA</a>
+                      <button class="btn btn-white btn-sm" data-mark-paid>Tandai lunas</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-sky" style="width:30px;height:30px;font-size:9px;">FR</span><div><div class="cell-main">Fikri Ramadhan</div><div class="cell-sub">INV-2026-11-0155</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 450.000</td>
+                    <td class="muted">10 Nov 2026</td>
+                    <td><span class="badge badge-green js-pay-status"><span class="dot"></span>Lunas</span></td>
+                    <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Kwitansi</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-violet" style="width:30px;height:30px;font-size:9px;">DR</span><div><div class="cell-main">Daffa Ramadhan</div><div class="cell-sub">INV-2026-11-0177</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 450.000<div class="cell-sub" style="color:#047857;">Dibayar Rp 200.000</div></td>
+                    <td class="muted">10 Nov 2026</td>
+                    <td><span class="badge badge-sky js-pay-status"><span class="dot"></span>Sebagian</span></td>
+                    <td class="table-actions">
+                      <a href="https://wa.me/6281234567891?text=Halo%20Bapak%20Yusuf%2C%20sisa%20tagihan%20Daffa%20Rp250.000." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="message-circle"></i> WA</a>
+                      <button class="btn btn-white btn-sm" data-mark-paid>Tandai lunas</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-lime" style="width:30px;height:30px;font-size:9px;">RP</span><div><div class="cell-main">Rafi Pratama</div><div class="cell-sub">Trial · INV-2026-11-0247</div></div></div></td>
+                    <td>Nov 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 0</td>
+                    <td class="muted">—</td>
+                    <td><span class="badge badge-outline">Trial</span></td>
+                    <td class="table-actions"><button class="btn btn-ghost btn-sm" data-demo>Detail</button></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><span class="avatar avatar-amber" style="width:30px;height:30px;font-size:9px;">SA</span><div><div class="cell-main">Syifa Aulia</div><div class="cell-sub">INV-2026-10-0219</div></div></div></td>
+                    <td>Okt 2026</td>
+                    <td class="num" style="font-weight:700;">Rp 450.000</td>
+                    <td class="muted" style="color:#be123c;font-weight:600;">10 Okt 2026</td>
+                    <td><span class="badge badge-rose js-pay-status"><span class="dot"></span>Terlambat</span></td>
+                    <td class="table-actions">
+                      <a href="https://wa.me/6281234567892?text=Halo%20Ibu%20Nuri%2C%20tagihan%20Syifa%20Aulia%20masih%20tertunggak." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="message-circle"></i> WA</a>
+                      <button class="btn btn-white btn-sm" data-mark-paid>Tandai lunas</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div data-panel="riwayat">
+            <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+              <table class="table">
+                <thead><tr><th>Tanggal</th><th>Member</th><th>Invoice</th><th>Metode</th><th>Jumlah</th><th>Dicatat oleh</th><th>Bukti</th></tr></thead>
+                <tbody>
+                  <tr><td class="muted">12 Nov 2026 · 09.14</td><td class="cell-main">Aisyah Azzahra</td><td class="muted">INV-2026-11-0182</td><td><span class="badge badge-outline">Transfer BCA</span></td><td class="num" style="font-weight:700;">Rp 450.000</td><td>Rina Kartika</td><td><button class="btn btn-ghost btn-sm" data-demo>Lihat</button></td></tr>
+                  <tr><td class="muted">12 Nov 2026 · 08.40</td><td class="cell-main">Muhammad Fadel</td><td class="muted">INV-2026-11-0117</td><td><span class="badge badge-outline">QRIS</span></td><td class="num" style="font-weight:700;">Rp 550.000</td><td>Sistem</td><td><button class="btn btn-ghost btn-sm" data-demo>Lihat</button></td></tr>
+                  <tr><td class="muted">11 Nov 2026 · 16.22</td><td class="cell-main">Naura Rania</td><td class="muted">INV-2026-11-0064</td><td><span class="badge badge-outline">Tunai</span></td><td class="num" style="font-weight:700;">Rp 650.000</td><td>Rina Kartika</td><td><span class="muted">—</span></td></tr>
+                  <tr><td class="muted">11 Nov 2026 · 14.05</td><td class="cell-main">Daffa Ramadhan</td><td class="muted">INV-2026-11-0177</td><td><span class="badge badge-outline">Transfer BRI</span></td><td class="num" style="font-weight:700;">Rp 200.000</td><td>Rina Kartika</td><td><button class="btn btn-ghost btn-sm" data-demo>Lihat</button></td></tr>
+                  <tr><td class="muted">10 Nov 2026 · 19.31</td><td class="cell-main">Fikri Ramadhan</td><td class="muted">INV-2026-11-0155</td><td><span class="badge badge-outline">QRIS</span></td><td class="num" style="font-weight:700;">Rp 450.000</td><td>Sistem</td><td><button class="btn btn-ghost btn-sm" data-demo>Lihat</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div data-panel="rekap">
+            <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+              <table class="table">
+                <thead><tr><th>Kelas</th><th>Member aktif</th><th>Total tagihan</th><th>Terbayar</th><th>Tunggakan</th><th>Kolektibilitas</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td class="cell-main">Beginner A</td><td>82</td><td class="num">Rp 40.100.000</td><td class="num" style="color:#047857;font-weight:700;">Rp 36.900.000</td><td class="num">Rp 3.200.000</td><td><span class="badge badge-green">92%</span></td><td><button class="btn btn-ghost btn-sm" data-demo>Detail</button></td></tr>
+                  <tr><td class="cell-main">Beginner B</td><td>48</td><td class="num">Rp 21.200.000</td><td class="num" style="color:#047857;font-weight:700;">Rp 18.700.000</td><td class="num">Rp 2.500.000</td><td><span class="badge badge-lime">88%</span></td><td><button class="btn btn-ghost btn-sm" data-demo>Detail</button></td></tr>
+                  <tr><td class="cell-main">Intermediate B</td><td>54</td><td class="num">Rp 29.800.000</td><td class="num" style="color:#047857;font-weight:700;">Rp 24.100.000</td><td class="num">Rp 5.700.000</td><td><span class="badge badge-amber">81%</span></td><td><button class="btn btn-ghost btn-sm" data-demo>Detail</button></td></tr>
+                  <tr><td class="cell-main">Advanced</td><td>30</td><td class="num">Rp 19.500.000</td><td class="num" style="color:#047857;font-weight:700;">Rp 14.800.000</td><td class="num">Rp 4.700.000</td><td><span class="badge badge-rose">76%</span></td><td><button class="btn btn-ghost btn-sm" data-demo>Detail</button></td></tr>
+                  <tr data-static style="background:#f8fafc;">
+                    <td style="font-weight:800;">Total</td><td style="font-weight:800;">214</td><td class="num" style="font-weight:800;">Rp 110.600.000</td><td class="num" style="font-weight:800;color:#047857;">Rp 94.500.000</td><td class="num" style="font-weight:800;color:#be123c;">Rp 16.100.000</td><td><span class="badge badge-ink">85,5%</span></td><td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal generate -->
+<div class="modal" id="modalInvoice" hidden>
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" style="width:min(560px,100%);">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Generate tagihan bulanan</div>
+        <div class="modal-sub">Sistem membuat invoice untuk semua member aktif.</div>
+      </div>
+      <button class="modal-close" data-modal-close><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Periode</label>
+            <select class="select"><option>November 2026</option><option>Desember 2026</option></select>
+          </div>
+          <div>
+            <label class="label">Jatuh tempo</label>
+            <input class="input" type="date" value="2026-11-10" />
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Akademi</label>
+            <select class="select"><option>Arenaku Badminton Club</option><option>Aqua Sprint Swimming</option><option>Taekwondo Nusantara</option><option>Garuda Muda FC</option></select>
+          </div>
+          <div>
+            <label class="label">Lokasi</label>
+            <select class="select"><option>Semua lokasi</option><option>GOR Ciracas</option><option>GOR Cibubur</option></select>
+          </div>
+        </div>
+        <div style="background:#f8fafc;border:1px solid #eef1f6;border-radius:11px;padding:12px;">
+          <div style="font-size:11.5px;font-weight:700;margin-bottom:7px;">Estimasi</div>
+          <div class="kv"><span class="k">Member aktif</span><span class="v">214</span></div>
+          <div class="kv"><span class="k">Member baru (prorata)</span><span class="v">6</span></div>
+          <div class="kv"><span class="k">Total tagihan</span><span class="v">Rp 67.800.000</span></div>
+          <div class="kv"><span class="k">Sudah ada invoice</span><span class="v" style="color:#b45309;">Dilewati otomatis</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <label class="check"><input type="checkbox" checked /> Hitung prorata untuk member baru</label>
+          <label class="check"><input type="checkbox" checked /> Terapkan diskon member yang berlaku</label>
+          <label class="check"><input type="checkbox" /> Langsung antrikan pengingat WhatsApp H-7</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-white" data-modal-close>Batal</button>
+      <button class="btn btn-primary" data-modal-close onclick="toast('214 tagihan November berhasil dibuat')">Generate 214 Tagihan</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+</script>
+</body>
+</html>

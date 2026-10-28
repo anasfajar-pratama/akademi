@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Masuk — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body style="background:#fff;">
+
+<div id="loginShell" style="display:grid;grid-template-columns:1.05fr 1fr;min-height:100vh;">
+
+  <!-- Brand panel -->
+  <div id="loginBrand" style="background:linear-gradient(160deg,#0b1220 0%,#0d1a2f 60%,#132a1f 100%);position:relative;overflow:hidden;padding:40px;display:flex;flex-direction:column;color:#fff;">
+    <div style="position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,242,77,0.22),transparent 65%);"></div>
+    <div style="position:absolute;left:-100px;bottom:-140px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(201,242,77,0.18);"></div>
+    <div style="position:absolute;left:80px;bottom:-180px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);"></div>
+
+    <a href="index.html" class="brand" style="position:relative;padding:0;">
+      <span class="brand-mark">A</span>
+      <span>
+        <span class="brand-name">Arenaku</span>
+        <span class="brand-tag">Sport Academy OS</span>
+      </span>
+    </a>
+
+    <div style="position:relative;margin:auto 0;max-width:460px;">
+      <span class="eyebrow" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.14);color:#c9f24d;">
+        <span class="dot" style="background:#c9f24d;"></span> Satu akun, banyak peran
+      </span>
+      <h1 style="font-size:42px;line-height:1.08;letter-spacing:-0.04em;font-weight:800;margin-top:18px;">
+        Latihan fokus.<br />Administrasi <span style="color:#c9f24d;">beres.</span>
+      </h1>
+      <p style="color:#9fb0c8;font-size:14px;line-height:1.7;margin-top:16px;max-width:400px;">
+        Admin mengelola akademi, pelatih mencatat perkembangan, orang tua memantau
+        dari mana saja. Semua dalam satu tempat.
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px;max-width:430px;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px;">
+          <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;">4</div>
+          <div style="font-size:10px;color:#8fa1bb;margin-top:1px;">Cabang olahraga</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px;">
+          <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;">612</div>
+          <div style="font-size:10px;color:#8fa1bb;margin-top:1px;">Member aktif</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:12px;">
+          <div style="font-size:19px;font-weight:800;letter-spacing:-0.03em;">21</div>
+          <div style="font-size:10px;color:#8fa1bb;margin-top:1px;">Pelatih</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;padding:14px 16px;border-left:2px solid #c9f24d;background:rgba(255,255,255,0.03);border-radius:0 10px 10px 0;max-width:420px;">
+        <p style="font-size:12.5px;line-height:1.6;color:#d7e1ef;">"Dulu rekap absensi dan tagihan makan waktu tiap akhir bulan. Sekarang orang tua bisa lihat sendiri."</p>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:10px;">
+          <span class="avatar avatar-lime" style="width:26px;height:26px;font-size:9px;">RK</span>
+          <span style="font-size:10.5px;color:#8fa1bb;">Rina Kartika · Admin Arenaku BC</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:relative;font-size:10.5px;color:#5f718f;">© 2026 Arenaku · Prototype demo</div>
+  </div>
+
+  <!-- Form panel -->
+  <div style="display:flex;align-items:center;justify-content:center;padding:40px 32px;">
+    <div style="width:100%;max-width:390px;">
+
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:#64748b;margin-bottom:26px;">
+        <i data-lucide="arrow-left" style="width:14px;height:14px;"></i> Kembali ke halaman utama
+      </a>
+
+      <h2 style="font-size:26px;font-weight:800;letter-spacing:-0.035em;">Masuk ke Arenaku</h2>
+      <p style="font-size:12.5px;color:#64748b;margin-top:5px;">Pilih peran untuk mencoba tampilan yang berbeda.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:20px;">
+        <button type="button" class="role-btn is-active" data-role="admin" style="height:56px;border-radius:11px;border:1px solid #0b1220;background:#0b1220;color:#fff;font-size:11px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <i data-lucide="shield" style="width:15px;height:15px;"></i> Admin
+        </button>
+        <button type="button" class="role-btn" data-role="coach" style="height:56px;border-radius:11px;border:1px solid #e6eaf1;background:#fff;color:#64748b;font-size:11px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <i data-lucide="dumbbell" style="width:15px;height:15px;"></i> Pelatih
+        </button>
+        <button type="button" class="role-btn" data-role="parent" style="height:56px;border-radius:11px;border:1px solid #e6eaf1;background:#fff;color:#64748b;font-size:11px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <i data-lucide="heart-handshake" style="width:15px;height:15px;"></i> Orang Tua
+        </button>
+      </div>
+
+      <form style="margin-top:20px;" onsubmit="return goToPortal(event);">
+        <div class="form-grid">
+          <div>
+            <label class="label" for="identity">Email atau nomor WhatsApp</label>
+            <input id="identity" class="input" type="text" value="rina@arenaku.id" placeholder="nama@email.com atau 08xx" />
+          </div>
+          <div>
+            <label class="label" for="password">Kata sandi</label>
+            <div style="position:relative;">
+              <input id="password" class="input" type="password" value="password" placeholder="••••••••" style="padding-right:40px;" />
+              <button type="button" onclick="togglePass()" style="position:absolute;right:6px;top:5px;width:28px;height:28px;border:0;background:transparent;cursor:pointer;color:#94a3b8;display:grid;place-items:center;">
+                <i data-lucide="eye" style="width:15px;height:15px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <label class="check"><input type="checkbox" checked /> Ingat saya</label>
+            <a href="#" data-demo style="font-size:11.5px;font-weight:600;color:#0b1220;">Lupa sandi?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" style="height:42px;" id="submitBtn">
+            Masuk sebagai Admin <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+      </form>
+
+      <div style="display:flex;align-items:center;gap:10px;margin:20px 0;">
+        <div style="flex:1;height:1px;background:#eef1f6;"></div>
+        <span style="font-size:10px;color:#94a3b8;font-weight:600;">AKUN DEMO</span>
+        <div style="flex:1;height:1px;background:#eef1f6;"></div>
+      </div>
+
+      <div style="border:1px solid #e6eaf1;border-radius:12px;overflow:hidden;">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #eef1f6;">
+          <span class="avatar" style="width:28px;height:28px;font-size:9px;">SA</span>
+          <div style="flex:1;">
+            <div style="font-size:11.5px;font-weight:700;">Super Admin</div>
+            <div style="font-size:10px;color:#94a3b8;">super@arenaku.id</div>
+          </div>
+          <span class="badge badge-outline" style="height:20px;font-size:9px;">password</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #eef1f6;">
+          <span class="avatar avatar-violet" style="width:28px;height:28px;font-size:9px;">RK</span>
+          <div style="flex:1;">
+            <div style="font-size:11.5px;font-weight:700;">Admin Akademi</div>
+            <div style="font-size:10px;color:#94a3b8;">rina@arenaku.id</div>
+          </div>
+          <span class="badge badge-outline" style="height:20px;font-size:9px;">password</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;">
+          <span class="avatar avatar-emerald" style="width:28px;height:28px;font-size:9px;">BS</span>
+          <div style="flex:1;">
+            <div style="font-size:11.5px;font-weight:700;">Orang Tua</div>
+            <div style="font-size:10px;color:#94a3b8;">bunda.sari@email.com</div>
+          </div>
+          <span class="badge badge-outline" style="height:20px;font-size:9px;">password</span>
+        </div>
+      </div>
+
+      <p style="font-size:10.5px;color:#94a3b8;margin-top:16px;text-align:center;line-height:1.6;">
+        Ini prototype. Tidak ada data sungguhan yang dikirim.<br />
+        <a href="portal-orangtua.html" style="font-weight:700;color:#0b1220;">Coba langsung portal orang tua →</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  function goToPortal(e) {
+    e.preventDefault();
+    const role = document.querySelector(".role-btn.is-active").dataset.role;
+    if (role === "parent") window.location.href = "portal-orangtua.html";
+    else if (role === "coach") window.location.href = "absensi.html";
+    else window.location.href = "dashboard.html";
+    return false;
+  }
+
+  function togglePass() {
+    const input = document.getElementById("password");
+    input.type = input.type === "password" ? "text" : "password";
+  }
+
+  document.querySelectorAll(".role-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".role-btn").forEach(function (b) {
+        b.style.background = "#fff";
+        b.style.color = "#64748b";
+        b.style.borderColor = "#e6eaf1";
+      });
+      btn.style.background = "#0b1220";
+      btn.style.color = "#fff";
+      btn.style.borderColor = "#0b1220";
+      const label = btn.textContent.trim();
+      document.getElementById("submitBtn").innerHTML =
+        "Masuk sebagai " + label + ' <i data-lucide="arrow-right"></i>';
+      if (window.lucide) lucide.createIcons();
+    });
+  });
+</script>
+</body>
+</html>

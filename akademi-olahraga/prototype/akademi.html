@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Akademi & Lokasi — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span>
+        <span class="brand-name">Arenaku</span>
+        <span class="brand-tag">Sport Academy OS</span>
+      </span>
+    </a>
+    <div class="acad-switch">
+      <span class="acad-logo">SA</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Semua Akademi</div>
+        <div class="acad-meta">Super Admin · 4 aktif</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+
+    <div class="nav-group-label">Menu utama</div>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="akademi.html" class="nav-link active"><i data-lucide="building-2"></i> Akademi &amp; Lokasi</a>
+    <a href="member.html" class="nav-link"><i data-lucide="users"></i> Member <span class="nav-count">612</span></a>
+    <a href="jadwal.html" class="nav-link"><i data-lucide="calendar-days"></i> Jadwal &amp; Sparring</a>
+    <a href="absensi.html" class="nav-link"><i data-lucide="clipboard-check"></i> Absensi</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <a href="pembayaran.html" class="nav-link"><i data-lucide="receipt-text"></i> Pembayaran</a>
+    <a href="reminder-wa.html" class="nav-link"><i data-lucide="message-circle"></i> Pengingat WhatsApp</a>
+
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="#skill" class="nav-link"><i data-lucide="list-checks"></i> Template Skill</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar">SA</span>
+        <div>
+          <div class="user-mini-name">Super Admin</div>
+          <div class="user-mini-role">Arenaku Platform</div>
+        </div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Akademi &amp; Lokasi</div>
+        <div class="topbar-sub">Super Admin · Konsolidasi semua akademi</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Cari akademi atau kota…" />
+      </div>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar">SA</span>
+    </header>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Satu platform, banyak akademi</h1>
+          <p class="page-sub">Buat akademi baru, atur lokasi latihan, dan pantau performanya.</p>
+        </div>
+        <div class="page-actions">
+          <a href="#skill" class="btn btn-white"><i data-lucide="list-checks"></i> Template Skill</a>
+          <button class="btn btn-primary" data-modal-open="modalAcademy"><i data-lucide="plus"></i> Buat Akademi</button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="card card-pad">
+          <div class="stat-label">Akademi aktif</div>
+          <div class="stat-value" style="margin-top:6px;">4</div>
+          <div class="stat-delta muted" style="margin-top:6px;">3 cabang olahraga</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Total member</div>
+          <div class="stat-value" style="margin-top:6px;">612</div>
+          <div class="stat-delta up" style="margin-top:6px;"><i data-lucide="arrow-up-right"></i> +34 bulan ini</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Total pelatih</div>
+          <div class="stat-value" style="margin-top:6px;">23</div>
+          <div class="stat-delta muted" style="margin-top:6px;">7 lokasi latihan</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Pendapatan gabungan</div>
+          <div class="stat-value" style="margin-top:6px;">Rp 178<span style="font-size:14px;font-weight:600;color:#64748b;">jt</span></div>
+          <div class="stat-delta up" style="margin-top:6px;"><i data-lucide="arrow-up-right"></i> +11% vs Oktober</div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(2,1fr);margin-top:16px;">
+
+        <!-- Academy 1 -->
+        <div class="card card-hover">
+          <div class="card-body">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span class="sport-badge" style="background:#0b1220;color:#c9f24d;width:46px;height:46px;">BC</span>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                  <span style="font-size:14px;font-weight:800;letter-spacing:-0.02em;">Arenaku Badminton Club</span>
+                  <span class="badge badge-green"><span class="dot"></span>Aktif</span>
+                </div>
+                <div style="font-size:11px;color:#64748b;margin-top:3px;">Badminton · Jakarta Timur · Sejak 2021</div>
+              </div>
+              <button class="icon-btn" style="width:30px;height:30px;" data-demo><i data-lucide="more-horizontal"></i></button>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid #eef1f6;">
+              <div>
+                <div style="font-size:16px;font-weight:800;">248</div>
+                <div style="font-size:10px;color:#64748b;">Member</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">8</div>
+                <div style="font-size:10px;color:#64748b;">Pelatih</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">2</div>
+                <div style="font-size:10px;color:#64748b;">Lokasi</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">Rp 62<span style="font-size:10px;color:#64748b;">jt</span></div>
+                <div style="font-size:10px;color:#64748b;">November</div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span class="badge badge-lime">Portal aktif</span>
+                <span class="badge badge-outline">6 kelas</span>
+              </div>
+              <a href="member.html" class="btn btn-white btn-sm">Kelola <i data-lucide="arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academy 2 -->
+        <div class="card card-hover">
+          <div class="card-body">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span class="sport-badge" style="background:#e6f6fe;color:#0369a1;width:46px;height:46px;">AS</span>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                  <span style="font-size:14px;font-weight:800;letter-spacing:-0.02em;">Aqua Sprint Swimming</span>
+                  <span class="badge badge-green"><span class="dot"></span>Aktif</span>
+                </div>
+                <div style="font-size:11px;color:#64748b;margin-top:3px;">Renang · Depok · Sejak 2022</div>
+              </div>
+              <button class="icon-btn" style="width:30px;height:30px;" data-demo><i data-lucide="more-horizontal"></i></button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid #eef1f6;">
+              <div>
+                <div style="font-size:16px;font-weight:800;">164</div>
+                <div style="font-size:10px;color:#64748b;">Member</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">6</div>
+                <div style="font-size:10px;color:#64748b;">Pelatih</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">2</div>
+                <div style="font-size:10px;color:#64748b;">Lokasi</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">Rp 48<span style="font-size:10px;color:#64748b;">jt</span></div>
+                <div style="font-size:10px;color:#64748b;">November</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span class="badge badge-lime">Portal aktif</span>
+                <span class="badge badge-outline">4 kelas</span>
+              </div>
+              <a href="member.html" class="btn btn-white btn-sm">Kelola <i data-lucide="arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academy 3 -->
+        <div class="card card-hover">
+          <div class="card-body">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span class="sport-badge" style="background:#fef4e2;color:#b45309;width:46px;height:46px;">TN</span>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                  <span style="font-size:14px;font-weight:800;letter-spacing:-0.02em;">Taekwondo Nusantara</span>
+                  <span class="badge badge-green"><span class="dot"></span>Aktif</span>
+                </div>
+                <div style="font-size:11px;color:#64748b;margin-top:3px;">Taekwondo · Bekasi · Sejak 2023</div>
+              </div>
+              <button class="icon-btn" style="width:30px;height:30px;" data-demo><i data-lucide="more-horizontal"></i></button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid #eef1f6;">
+              <div>
+                <div style="font-size:16px;font-weight:800;">96</div>
+                <div style="font-size:10px;color:#64748b;">Member</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">4</div>
+                <div style="font-size:10px;color:#64748b;">Pelatih</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">1</div>
+                <div style="font-size:10px;color:#64748b;">Lokasi</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">Rp 26<span style="font-size:10px;color:#64748b;">jt</span></div>
+                <div style="font-size:10px;color:#64748b;">November</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span class="badge badge-amber">Perlu perhatian</span>
+                <span class="badge badge-outline">3 kelas</span>
+              </div>
+              <a href="member.html" class="btn btn-white btn-sm">Kelola <i data-lucide="arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academy 4 -->
+        <div class="card card-hover">
+          <div class="card-body">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span class="sport-badge" style="background:#f0edff;color:#5b3fd6;width:46px;height:46px;">GM</span>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                  <span style="font-size:14px;font-weight:800;letter-spacing:-0.02em;">Garuda Muda FC</span>
+                  <span class="badge badge-green"><span class="dot"></span>Aktif</span>
+                </div>
+                <div style="font-size:11px;color:#64748b;margin-top:3px;">Sepak Bola · Tangerang · Sejak 2024</div>
+              </div>
+              <button class="icon-btn" style="width:30px;height:30px;" data-demo><i data-lucide="more-horizontal"></i></button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid #eef1f6;">
+              <div>
+                <div style="font-size:16px;font-weight:800;">104</div>
+                <div style="font-size:10px;color:#64748b;">Member</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">5</div>
+                <div style="font-size:10px;color:#64748b;">Pelatih</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">2</div>
+                <div style="font-size:10px;color:#64748b;">Lokasi</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:800;">Rp 42<span style="font-size:10px;color:#64748b;">jt</span></div>
+                <div style="font-size:10px;color:#64748b;">November</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span class="badge badge-lime">Portal aktif</span>
+                <span class="badge badge-outline">5 kelas</span>
+              </div>
+              <a href="member.html" class="btn btn-white btn-sm">Kelola <i data-lucide="arrow-up-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Template skill -->
+      <div class="card tabbed" id="skill" style="margin-top:16px;">
+        <div class="card-head" style="padding-bottom:0;border-bottom:0;flex-wrap:wrap;">
+          <div>
+            <div class="card-title">Template skill per cabang olahraga</div>
+            <div class="card-sub">Diterapkan otomatis saat akademi dibuat, lalu bisa disesuaikan admin.</div>
+          </div>
+          <a href="member-detail.html" class="btn btn-white btn-sm">Contoh penilaian <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div style="padding:0 20px;">
+          <div class="tabs" data-tabs>
+            <button class="tab is-active" data-tab="badminton">Badminton</button>
+            <button class="tab" data-tab="renang">Renang</button>
+            <button class="tab" data-tab="taekwondo">Taekwondo</button>
+            <button class="tab" data-tab="sepakbola">Sepak Bola</button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div data-panel="badminton" class="is-active">
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width:190px;">Kategori</th>
+                    <th style="width:90px;">Bobot</th>
+                    <th>Skill &amp; rubrik</th>
+                    <th style="width:80px;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="cell-main">Teknik Dasar</div><div class="cell-sub">Fondasi gerak</div></td>
+                    <td><span class="badge badge-lime">1.2</span></td>
+                    <td>
+                      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                        <span class="badge badge-outline">Grip</span>
+                        <span class="badge badge-outline">Stance</span>
+                        <span class="badge badge-outline">Servis</span>
+                        <span class="badge badge-outline">Footwork dasar</span>
+                      </div>
+                    </td>
+                    <td><button class="btn btn-ghost btn-sm" data-demo>Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="cell-main">Pukulan</div><div class="cell-sub">Variasi stroke</div></td>
+                    <td><span class="badge badge-lime">1.5</span></td>
+                    <td>
+                      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                        <span class="badge badge-outline">Clear</span>
+                        <span class="badge badge-outline">Drop shot</span>
+                        <span class="badge badge-outline">Smash</span>
+                        <span class="badge badge-outline">Netting</span>
+                        <span class="badge badge-outline">Drive</span>
+                        <span class="badge badge-outline">Backhand</span>
+                      </div>
+                    </td>
+                    <td><button class="btn btn-ghost btn-sm" data-demo>Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="cell-main">Footwork &amp; Gerak</div><div class="cell-sub">Kecepatan &amp; recovery</div></td>
+                    <td><span class="badge badge-lime">1.3</span></td>
+                    <td>
+                      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                        <span class="badge badge-outline">Kecepatan langkah</span>
+                        <span class="badge badge-outline">Recovery</span>
+                        <span class="badge badge-outline">Kelincahan</span>
+                      </div>
+                    </td>
+                    <td><button class="btn btn-ghost btn-sm" data-demo>Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="cell-main">Strategi</div><div class="cell-sub">Pola permainan</div></td>
+                    <td><span class="badge badge-lime">1.0</span></td>
+                    <td>
+                      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                        <span class="badge badge-outline">Pola serangan</span>
+                        <span class="badge badge-outline">Pertahanan</span>
+                        <span class="badge badge-outline">Pembacaan permainan</span>
+                      </div>
+                    </td>
+                    <td><button class="btn btn-ghost btn-sm" data-demo>Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="cell-main">Fisik</div><div class="cell-sub">Kondisi tubuh</div></td>
+                    <td><span class="badge badge-lime">0.9</span></td>
+                    <td>
+                      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                        <span class="badge badge-outline">Stamina</span>
+                        <span class="badge badge-outline">Kekuatan</span>
+                        <span class="badge badge-outline">Fleksibilitas</span>
+                      </div>
+                    </td>
+                    <td><button class="btn btn-ghost btn-sm" data-demo>Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="cell-main">Mental &amp; Disiplin</div><div class="cell-sub">Sikap bertanding</div></td>
+                    <td><span class="badge badge-lime">0.8</span></td>
+                    <td>
+                      <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                        <span class="badge badge-outline">Fokus</span>
+                        <span class="badge badge-outline">Sportivitas</span>
+                        <span class="badge badge-outline">Kedisiplinan</span>
+                      </div>
+                    </td>
+                    <td><button class="btn btn-ghost btn-sm" data-demo>Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div data-panel="renang">
+            <div class="grid" style="grid-template-columns:repeat(3,1fr);">
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Pernapasan &amp; Floating</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.2 · 3 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Gaya Bebas</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.5 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Gaya Punggung</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.3 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Gaya Dada</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.2 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Gaya Kupu-kupu</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.2 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Turn, Start &amp; Ketahanan</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.0 · 3 skill</div>
+              </div>
+            </div>
+          </div>
+
+          <div data-panel="taekwondo">
+            <div class="grid" style="grid-template-columns:repeat(3,1fr);">
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Kuda-kuda &amp; Dasar</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.2 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Tendangan</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.5 · 5 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Poomsae</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.4 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Sparring</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.3 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Fisik</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 0.9 · 3 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Disiplin &amp; Etika</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 0.8 · 3 skill</div>
+              </div>
+            </div>
+          </div>
+
+          <div data-panel="sepakbola">
+            <div class="grid" style="grid-template-columns:repeat(3,1fr);">
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Kontrol &amp; Passing</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.5 · 5 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Dribbling</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.3 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Shooting &amp; Finishing</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.4 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Positioning</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.1 · 3 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Fisik</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.0 · 4 skill</div>
+              </div>
+              <div style="border:1px solid #eef1f6;border-radius:11px;padding:13px;">
+                <div style="font-size:12px;font-weight:700;">Kerja Sama Tim</div>
+                <div style="font-size:10.5px;color:#64748b;margin-top:2px;">Bobot 1.0 · 3 skill</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal buat akademi -->
+<div class="modal" id="modalAcademy" hidden>
+  <div class="modal-backdrop"></div>
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Buat akademi baru</div>
+        <div class="modal-sub">Akademi langsung aktif dan siap diisi member.</div>
+      </div>
+      <button class="modal-close" data-modal-close><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div>
+          <label class="label">Nama akademi <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="Contoh: Arenaku Badminton Club" />
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Cabang olahraga <span class="req">*</span></label>
+            <select class="select">
+              <option>Badminton</option>
+              <option>Renang</option>
+              <option>Taekwondo</option>
+              <option>Sepak Bola</option>
+              <option>Basket</option>
+              <option>Lainnya…</option>
+            </select>
+          </div>
+          <div>
+            <label class="label">Kota <span class="req">*</span></label>
+            <input class="input" type="text" placeholder="Jakarta Timur" />
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div>
+            <label class="label">Nama admin akademi</label>
+            <input class="input" type="text" placeholder="Rina Kartika" />
+          </div>
+          <div>
+            <label class="label">WhatsApp admin</label>
+            <input class="input" type="tel" placeholder="0812 3456 7890" />
+            <div class="hint">Admin menerima tautan aktivasi akun.</div>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns:2fr 1fr;">
+          <div>
+            <label class="label">Paket pertama</label>
+            <input class="input" type="text" value="Reguler · 8 sesi / bulan" />
+          </div>
+          <div>
+            <label class="label">Harga bulanan</label>
+            <input class="input" type="text" value="Rp 450.000" />
+          </div>
+        </div>
+        <div>
+          <label class="label">Warna brand</label>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="color" value="#0b1220" style="width:44px;height:38px;border:1px solid #e6eaf1;border-radius:10px;background:#fff;padding:3px;cursor:pointer;" />
+            <div style="display:flex;gap:5px;">
+              <span style="width:26px;height:26px;border-radius:8px;background:#0b1220;"></span>
+              <span style="width:26px;height:26px;border-radius:8px;background:#c9f24d;"></span>
+              <span style="width:26px;height:26px;border-radius:8px;background:#0ea5e9;"></span>
+              <span style="width:26px;height:26px;border-radius:8px;background:#10b981;"></span>
+              <span style="width:26px;height:26px;border-radius:8px;background:#7c5cfc;"></span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#f8fafc;border:1px solid #eef1f6;border-radius:11px;padding:12px;display:flex;flex-direction:column;gap:9px;">
+          <label class="check"><input type="checkbox" checked /> Terapkan template skill cabang olahraga</label>
+          <label class="check"><input type="checkbox" checked /> Aktifkan portal orang tua</label>
+          <label class="check"><input type="checkbox" /> Kirim pengingat tagihan otomatis ke antrian WA</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-white" data-modal-close>Batal</button>
+      <button class="btn btn-primary" data-modal-close onclick="toast('Akademi baru berhasil dibuat')">Simpan &amp; Buat Akademi</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+</script>
+</body>
+</html>

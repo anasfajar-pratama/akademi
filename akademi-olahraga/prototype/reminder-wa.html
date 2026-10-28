@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pengingat WhatsApp — Arenaku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="assets/ui.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span><span class="brand-name">Arenaku</span><span class="brand-tag">Sport Academy OS</span></span>
+    </a>
+    <div class="acad-switch">
+      <span class="acad-logo">BC</span>
+      <div style="min-width:0;">
+        <div class="acad-name">Arenaku Badminton</div>
+        <div class="acad-meta">4 akademi · Super Admin</div>
+      </div>
+      <i data-lucide="chevrons-up-down" style="width:14px;height:14px;margin-left:auto;color:#6c7e9c;"></i>
+    </div>
+    <div class="nav-group-label">Menu utama</div>
+    <a href="dashboard.html" class="nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+    <a href="akademi.html" class="nav-link"><i data-lucide="building-2"></i> Akademi &amp; Lokasi</a>
+    <a href="member.html" class="nav-link"><i data-lucide="users"></i> Member <span class="nav-count">248</span></a>
+    <a href="jadwal.html" class="nav-link"><i data-lucide="calendar-days"></i> Jadwal &amp; Sparring</a>
+    <a href="absensi.html" class="nav-link"><i data-lucide="clipboard-check"></i> Absensi</a>
+    <a href="member-detail.html" class="nav-link"><i data-lucide="activity"></i> Penilaian Skill</a>
+    <a href="pembayaran.html" class="nav-link"><i data-lucide="receipt-text"></i> Pembayaran</a>
+    <a href="reminder-wa.html" class="nav-link active"><i data-lucide="message-circle"></i> Pengingat WhatsApp <span class="nav-count">8</span></a>
+    <div class="nav-group-label">Lainnya</div>
+    <a href="portal-orangtua.html" class="nav-link"><i data-lucide="heart-handshake"></i> Portal Orang Tua</a>
+    <a href="akademi.html#skill" class="nav-link"><i data-lucide="list-checks"></i> Template Skill</a>
+    <a href="#" class="nav-link" data-demo><i data-lucide="settings"></i> Pengaturan</a>
+    <div class="sidebar-foot">
+      <div class="user-mini">
+        <span class="avatar avatar-violet">RK</span>
+        <div><div class="user-mini-name">Rina Kartika</div><div class="user-mini-role">Super Admin</div></div>
+        <i data-lucide="log-out"></i>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" data-sidebar-toggle style="display:none;"><i data-lucide="menu"></i></button>
+      <div>
+        <div class="topbar-title">Pengingat WhatsApp</div>
+        <div class="topbar-sub">Antrian pesan · 8 menunggu dikirim</div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="search"><i data-lucide="search"></i><input type="text" placeholder="Cari nama wali…" data-filter="#queueTable" /></div>
+      <button class="icon-btn"><i data-lucide="bell"></i><span class="dot"></span></button>
+      <span class="avatar avatar-violet">RK</span>
+    </header>
+
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Pusat pengingat</h1>
+          <p class="page-sub">Pesan dirender otomatis, lalu dikirim lewat WhatsApp sekali klik.</p>
+        </div>
+        <div class="page-actions">
+          <a href="pembayaran.html" class="btn btn-white"><i data-lucide="receipt-text"></i> Tagihan</a>
+          <button class="btn btn-primary" data-modal-open="modalSend"><i data-lucide="send"></i> Kirim Antrian</button>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="card card-pad">
+          <div class="stat-label">Menunggu dikirim</div>
+          <div class="stat-value" style="margin-top:6px;">8</div>
+          <div class="stat-delta muted" style="margin-top:6px;">3 tagihan · 3 jadwal · 2 konfirmasi</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Terkirim hari ini</div>
+          <div class="stat-value" style="margin-top:6px;color:#047857;">12</div>
+          <div class="stat-delta up" style="margin-top:6px;"><i data-lucide="arrow-up-right"></i> Semua berhasil</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Wali dengan opt-out</div>
+          <div class="stat-value" style="margin-top:6px;">2</div>
+          <div class="stat-delta muted" style="margin-top:6px;">Tidak dikirimi pengingat</div>
+        </div>
+        <div class="card card-pad">
+          <div class="stat-label">Kuota pesan</div>
+          <div class="stat-value" style="margin-top:6px;">Tanpa batas</div>
+          <div class="stat-delta up" style="margin-top:6px;">via wa.me · gratis</div>
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:2fr 1fr;margin-top:16px;align-items:start;">
+        <div class="card tabbed">
+          <div style="padding:0 20px;">
+            <div class="tabs" data-tabs>
+              <button class="tab is-active" data-tab="antrian">Antrian <span class="badge badge-ink" style="height:18px;font-size:9px;margin-left:4px;">8</span></button>
+              <button class="tab" data-tab="template">Template pesan</button>
+              <button class="tab" data-tab="riwayat">Riwayat</button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <!-- ANTRIAN -->
+            <div data-panel="antrian" class="is-active">
+              <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
+                <div class="search" style="width:200px;height:34px;background:#f8fafc;border-color:#e6eaf1;">
+                  <i data-lucide="search" style="width:14px;height:14px;"></i>
+                  <input type="text" placeholder="Cari wali…" data-filter="#queueTable" />
+                </div>
+                <select class="select" style="width:auto;height:34px;font-size:11.5px;"><option>Semua jenis</option><option>Tagihan</option><option>Jadwal latihan</option><option>Sparring</option><option>Konfirmasi</option></select>
+                <span style="font-size:11px;color:#64748b;margin-left:auto;">Jadwal kirim: hari ini 08.00–20.00</span>
+              </div>
+
+              <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+                <table class="table" id="queueTable">
+                  <thead>
+                    <tr>
+                      <th style="width:32px;"><input type="checkbox" data-check-all style="accent-color:#0b1220;" /></th>
+                      <th>Penerima</th>
+                      <th>Jenis</th>
+                      <th>Pratinjau pesan</th>
+                      <th>Jadwal</th>
+                      <th style="width:96px;">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="checkbox" checked style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Ibu Sari Dewi</div><div class="cell-sub">Wali Aisyah · 0812-3456-7890</div></td>
+                      <td><span class="badge badge-rose">Tagihan H-3</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Halo Ibu Sari, mengingatkan tagihan latihan Aisyah…</div></td>
+                      <td class="muted tiny">Hari ini<br />08.00</td>
+                      <td>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Ibu%20Sari%20Dewi%2C%20kami%20mengingatkan%20tagihan%20latihan%20Aisyah%20Azzahra%20di%20Arenaku%20Badminton%20Club%20untuk%20periode%20November%202026%20sebesar%20Rp%20450.000%2C%20jatuh%20tempo%2010%20November%202026.%20Terima%20kasih." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="send"></i> Kirim</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" checked style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Bapak Joko</div><div class="cell-sub">Wali Bima · 0821-3344-7788</div></td>
+                      <td><span class="badge badge-rose">Tagihan telat</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Tagihan Bima periode November sudah melewati jatuh tempo…</div></td>
+                      <td class="muted tiny">Hari ini<br />08.05</td>
+                      <td><a href="https://wa.me/6282133447788?text=Halo%20Bapak%20Joko%2C%20tagihan%20Bima%20Saputra%20periode%20November%202026%20sebesar%20Rp%20550.000%20telah%20melewati%20jatuh%20tempo.%20Mohon%20konfirmasi%20pembayaran." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="send"></i> Kirim</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" checked style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Ibu Lestari</div><div class="cell-sub">Wali Zahra · 0838-1122-3344</div></td>
+                      <td><span class="badge badge-amber">Tagihan H-1</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Pengingat terakhir: tagihan Zahra jatuh tempo besok…</div></td>
+                      <td class="muted tiny">Hari ini<br />08.10</td>
+                      <td><a href="https://wa.me/6283811223344?text=Halo%20Ibu%20Lestari%2C%20pengingat%20terakhir%20tagihan%20Zahra%20Aulia%20sebesar%20Rp%20450.000%20jatuh%20tempo%20besok%2010%20November%202026." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="send"></i> Kirim</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" checked style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Ibu Ratna</div><div class="cell-sub">Wali Naura · 0857-8899-1122</div></td>
+                      <td><span class="badge badge-sky">Jadwal H-1</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Jadwal latihan Naura besok 17.00 di GOR Ciracas…</div></td>
+                      <td class="muted tiny">Hari ini<br />08.15</td>
+                      <td><a href="https://wa.me/6285788991122?text=Halo%20Ibu%20Ratna%2C%20jadwal%20latihan%20Naura%20Rania%20besok%20Jumat%2013%20November%202026%20pukul%2017.00%20di%20GOR%20Ciracas.%20Mohon%20hadir%2010%20menit%20lebih%20awal." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="send"></i> Kirim</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" checked style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Bapak Andi</div><div class="cell-sub">Wali Fadel · 0813-2211-4455</div></td>
+                      <td><span class="badge badge-violet">Sparring H-1</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Sparring Arenaku BC vs PB Jaya Raya, Sabtu 14 Nov…</div></td>
+                      <td class="muted tiny">Hari ini<br />08.20</td>
+                      <td><a href="https://wa.me/6281322114455?text=Halo%20Bapak%20Andi%2C%20sparring%20Arenaku%20BC%20vs%20PB%20Jaya%20Raya%20Sabtu%2014%20November%202026%20pukul%2008.00%20di%20GOR%20Ciracas.%20Peta%3A%20https%3A%2F%2Fmaps.google.com%2F%3Fq%3D-6.3245%2C106.8765" target="_blank" class="btn btn-wa btn-sm"><i data-lucide="send"></i> Kirim</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Ibu Nuri</div><div class="cell-sub">Wali Syifa · 0812-3456-7892</div></td>
+                      <td><span class="badge badge-rose">Tagihan telat</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Tagihan Syifa Oktober masih tertunggak…</div></td>
+                      <td class="muted tiny">Hari ini<br />08.25</td>
+                      <td><a href="https://wa.me/6281234567892?text=Halo%20Ibu%20Nuri%2C%20tagihan%20Syifa%20Aulia%20periode%20Oktober%202026%20sebesar%20Rp%20450.000%20masih%20tertunggak.%20Mohon%20dilakukan%20pembayaran." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="send"></i> Kirim</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Bapak Yusuf</div><div class="cell-sub">Wali Daffa · 0812-3456-7891</div></td>
+                      <td><span class="badge badge-amber">Sisa bayar</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Terima kasih, sisa tagihan Daffa Rp 250.000…</div></td>
+                      <td class="muted tiny">Hari ini<br />08.30</td>
+                      <td><a href="https://wa.me/6281234567891?text=Halo%20Bapak%20Yusuf%2C%20terima%20kasih%20atas%20pembayaran%20Rp%20200.000.%20Sisa%20tagihan%20Daffa%20periode%20November%20adalah%20Rp%20250.000." target="_blank" class="btn btn-wa btn-sm"><i data-lucide="send"></i> Kirim</a></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" style="accent-color:#0b1220;" /></td>
+                      <td><div class="cell-main">Ibu Dewi</div><div class="cell-sub">Wali Azzahra · 0812-9988-7766</div></td>
+                      <td><span class="badge badge-green">Konfirmasi</span></td>
+                      <td><div style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#475569;">Pembayaran Azzahra sudah kami terima…</div></td>
+                      <td class="muted tiny">Terkirim<br />07.55</td>
+                      <td><span class="badge badge-green"><span class="dot"></span>Terkirim</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TEMPLATE -->
+            <div data-panel="template">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div>
+                  <div style="font-size:12.5px;font-weight:700;">Template pesan</div>
+                  <div style="font-size:10.5px;color:#64748b;">Variabel otomatis diisi dari data member &amp; tagihan.</div>
+                </div>
+                <button class="btn btn-primary btn-sm" data-demo><i data-lucide="plus"></i> Template Baru</button>
+              </div>
+
+              <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px;">
+                <div style="border:1px solid #eef1f6;border-radius:12px;overflow:hidden;">
+                  <div style="padding:10px 12px;border-bottom:1px solid #eef1f6;display:flex;align-items:center;justify-content:space-between;">
+                    <div>
+                      <div style="font-size:11.5px;font-weight:700;">Pengingat tagihan H-3</div>
+                      <div style="font-size:9.5px;color:#94a3b8;">invoice_reminder · aktif</div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm" data-demo>Edit</button>
+                  </div>
+                  <div style="padding:12px;background:#f4f7f2;">
+                    <div class="wa-bubble">Halo {{nama_wali}}, kami mengingatkan tagihan latihan {{nama_anak}} di {{akademi}} untuk periode {{periode}} sebesar {{jumlah}}, jatuh tempo {{jatuh_tempo}}.
+
+Pembayaran dapat dilakukan melalui transfer ke rekening akademi.
+Konfirmasi: {{link_portal}}
+
+Terima kasih.
+                      <div class="wa-time">08.00 ✓✓</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="border:1px solid #eef1f6;border-radius:12px;overflow:hidden;">
+                  <div style="padding:10px 12px;border-bottom:1px solid #eef1f6;display:flex;align-items:center;justify-content:space-between;">
+                    <div>
+                      <div style="font-size:11.5px;font-weight:700;">Pengingat jadwal H-1</div>
+                      <div style="font-size:9.5px;color:#94a3b8;">schedule_reminder · aktif</div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm" data-demo>Edit</button>
+                  </div>
+                  <div style="padding:12px;background:#f4f7f2;">
+                    <div class="wa-bubble">Halo {{nama_wali}}, jadwal latihan {{nama_anak}}:
+{{tanggal_latihan}} · {{jam}}
+{{lokasi}}
+Pelatih: {{pelatih}}
+
+Mohon hadir 10 menit lebih awal.
+                      <div class="wa-time">08.00 ✓✓</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="border:1px solid #eef1f6;border-radius:12px;overflow:hidden;">
+                  <div style="padding:10px 12px;border-bottom:1px solid #eef1f6;display:flex;align-items:center;justify-content:space-between;">
+                    <div>
+                      <div style="font-size:11.5px;font-weight:700;">Pengingat sparring</div>
+                      <div style="font-size:9.5px;color:#94a3b8;">sparring_reminder · aktif</div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm" data-demo>Edit</button>
+                  </div>
+                  <div style="padding:12px;background:#f4f7f2;">
+                    <div class="wa-bubble">Sparring {{akademi}} vs {{lawan}}
+{{tanggal_latihan}} · {{jam}}
+{{lokasi}}
+Peta: {{link_maps}}
+                      <div class="wa-time">08.00 ✓✓</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="border:1px solid #eef1f6;border-radius:12px;overflow:hidden;">
+                  <div style="padding:10px 12px;border-bottom:1px solid #eef1f6;display:flex;align-items:center;justify-content:space-between;">
+                    <div>
+                      <div style="font-size:11.5px;font-weight:700;">Konfirmasi pembayaran</div>
+                      <div style="font-size:9.5px;color:#94a3b8;">payment_received · aktif</div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm" data-demo>Edit</button>
+                  </div>
+                  <div style="padding:12px;background:#f4f7f2;">
+                    <div class="wa-bubble">Terima kasih {{nama_wali}}, pembayaran {{nama_anak}} periode {{periode}} sebesar {{jumlah}} telah kami terima.
+
+Kwitansi: {{link_kwitansi}}
+                      <div class="wa-time">08.00 ✓✓</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:12px;border:1px solid #eef1f6;border-radius:12px;padding:12px;">
+                <div style="font-size:10.5px;font-weight:700;color:#64748b;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:7px;">Variabel tersedia</div>
+                <div style="display:flex;gap:5px;flex-wrap:wrap;">
+                  <span class="badge badge-outline">{{nama_anak}}</span>
+                  <span class="badge badge-outline">{{nama_wali}}</span>
+                  <span class="badge badge-outline">{{akademi}}</span>
+                  <span class="badge badge-outline">{{periode}}</span>
+                  <span class="badge badge-outline">{{jumlah}}</span>
+                  <span class="badge badge-outline">{{jatuh_tempo}}</span>
+                  <span class="badge badge-outline">{{tanggal_latihan}}</span>
+                  <span class="badge badge-outline">{{jam}}</span>
+                  <span class="badge badge-outline">{{lokasi}}</span>
+                  <span class="badge badge-outline">{{pelatih}}</span>
+                  <span class="badge badge-outline">{{lawan}}</span>
+                  <span class="badge badge-outline">{{link_maps}}</span>
+                  <span class="badge badge-outline">{{link_portal}}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIWAYAT -->
+            <div data-panel="riwayat">
+              <div class="table-wrap" style="border:1px solid #eef1f6;border-radius:12px;">
+                <table class="table">
+                  <thead><tr><th>Waktu</th><th>Penerima</th><th>Jenis</th><th>Nomor</th><th>Status</th><th>Oleh</th></tr></thead>
+                  <tbody>
+                    <tr><td class="muted">Hari ini 07.55</td><td class="cell-main">Ibu Dewi</td><td>Konfirmasi pembayaran</td><td class="muted">0812-9988-7766</td><td><span class="badge badge-green"><span class="dot"></span>Terkirim</span></td><td>Rina K.</td></tr>
+                    <tr><td class="muted">Hari ini 07.50</td><td class="cell-main">Bapak Hendra</td><td>Konfirmasi pembayaran</td><td class="muted">0819-5566-7788</td><td><span class="badge badge-green"><span class="dot"></span>Terkirim</span></td><td>Rina K.</td></tr>
+                    <tr><td class="muted">Kemarin 08.10</td><td class="cell-main">Ibu Sari Dewi</td><td>Pengingat jadwal</td><td class="muted">0812-3456-7890</td><td><span class="badge badge-green"><span class="dot"></span>Terkirim</span></td><td>Sistem</td></tr>
+                    <tr><td class="muted">Kemarin 08.10</td><td class="cell-main">Bapak Andi</td><td>Pengingat jadwal</td><td class="muted">0813-2211-4455</td><td><span class="badge badge-green"><span class="dot"></span>Terkirim</span></td><td>Sistem</td></tr>
+                    <tr><td class="muted">10 Nov 08.00</td><td class="cell-main">Ibu Maya</td><td>Pengingat tagihan</td><td class="muted">0812-9090-1212</td><td><span class="badge badge-rose"><span class="dot"></span>Gagal</span></td><td>Sistem</td></tr>
+                    <tr><td class="muted">9 Nov 08.05</td><td class="cell-main">Ibu Lestari</td><td>Pengingat tagihan</td><td class="muted">0838-1122-3344</td><td><span class="badge badge-green"><span class="dot"></span>Terkirim</span></td><td>Rina K.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:9px;font-size:10.5px;color:#94a3b8;">
+                <i data-lucide="info" style="width:12px;height:12px;"></i>
+                Status "Terkirim" dicatat setelah admin menekan tombol kirim dan kembali ke aplikasi.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right settings -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Aturan pengingat</div>
+                <div class="card-sub">Berlaku untuk akademi ini</div>
+              </div>
+            </div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:10px;">
+              <label class="check"><input type="checkbox" checked /> Tagihan H-7 sebelum jatuh tempo</label>
+              <label class="check"><input type="checkbox" checked /> Tagihan H-3 sebelum jatuh tempo</label>
+              <label class="check"><input type="checkbox" checked /> Tagihan H-1 sebelum jatuh tempo</label>
+              <label class="check"><input type="checkbox" checked /> Tagihan H+1 setelah jatuh tempo</label>
+              <div class="divider"></div>
+              <label class="check"><input type="checkbox" checked /> Jadwal latihan H-1 (pukul 08.00)</label>
+              <label class="check"><input type="checkbox" checked /> Sparring H-1 + tautan peta</label>
+              <label class="check"><input type="checkbox" checked /> Konfirmasi pembayaran diterima</label>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Preferensi pengiriman</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="grid" style="grid-template-columns:1fr 1fr;gap:8px;">
+                <div>
+                  <label class="label">Jam mulai</label>
+                  <input class="input" type="time" value="08:00" />
+                </div>
+                <div>
+                  <label class="label">Jam berhenti</label>
+                  <input class="input" type="time" value="20:00" />
+                </div>
+              </div>
+              <div class="hint" style="margin-top:6px;">Di luar jam ini, pesan ditunda otomatis.</div>
+              <div style="margin-top:10px;">
+                <label class="label">Maksimal pesan per wali / hari</label>
+                <select class="select"><option>1 pesan</option><option>2 pesan</option><option>3 pesan</option></select>
+              </div>
+              <button class="btn btn-primary btn-sm btn-block" style="margin-top:10px;" data-demo>Simpan pengaturan</button>
+            </div>
+          </div>
+
+          <div class="card card-pad" style="background:#0b1220;color:#fff;">
+            <div style="display:flex;align-items:center;gap:7px;">
+              <i data-lucide="sparkles" style="width:15px;height:15px;color:#c9f24d;"></i>
+              <div style="font-size:12px;font-weight:700;">Mau kirim otomatis?</div>
+            </div>
+            <p style="font-size:10.5px;color:#9fb0c8;margin-top:5px;line-height:1.6;">
+              Versi ini memakai <strong style="color:#fff;">wa.me</strong> — gratis dan aman. Untuk pengiriman otomatis penuh, bisa ditingkatkan ke WhatsApp Cloud API tanpa mengubah alur.
+            </p>
+            <button class="btn btn-lime btn-sm btn-block" style="margin-top:10px;" data-demo>Pelajari opsi API</button>
+          </div>
+
+          <div class="card card-pad">
+            <div style="display:flex;align-items:center;gap:7px;margin-bottom:7px;">
+              <i data-lucide="shield-check" style="width:15px;height:15px;color:#047857;"></i>
+              <div style="font-size:11.5px;font-weight:700;">Anti-spam</div>
+            </div>
+            <div style="font-size:10.5px;color:#64748b;line-height:1.6;">
+              Pesan tidak dikirim ulang untuk invoice yang sama pada hari yang sama. Wali dengan opt-out otomatis dilewati.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal kirim -->
+<div class="modal" id="modalSend" hidden>
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" style="width:min(470px,100%);">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Kirim 8 antrian pesan</div>
+        <div class="modal-sub">WhatsApp akan dibuka satu per satu.</div>
+      </div>
+      <button class="modal-close" data-modal-close><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div style="display:flex;gap:10px;padding:12px;border-radius:11px;background:#f8fafc;border:1px solid #eef1f6;">
+        <i data-lucide="message-circle" style="width:18px;height:18px;color:#25d366;flex:0 0 auto;"></i>
+        <div style="font-size:11.5px;color:#475569;line-height:1.6;">
+          Arenaku membuka WhatsApp dengan pesan yang sudah terisi. Kamu hanya perlu menekan <strong>kirim</strong> di WhatsApp, lalu kembali untuk menandai pesan berikutnya.
+        </div>
+      </div>
+      <div style="margin-top:12px;">
+        <div class="kv"><span class="k">Tagihan</span><span class="v">3 pesan</span></div>
+        <div class="kv"><span class="k">Jadwal latihan</span><span class="v">1 pesan</span></div>
+        <div class="kv"><span class="k">Sparring</span><span class="v">1 pesan</span></div>
+        <div class="kv"><span class="k">Konfirmasi / sisa bayar</span><span class="v">2 pesan</span></div>
+        <div class="kv"><span class="k">Sudah terkirim</span><span class="v">1 pesan</span></div>
+      </div>
+      <label class="check" style="margin-top:12px;"><input type="checkbox" checked /> Tandai otomatis sebagai terkirim setelah WhatsApp dibuka</label>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-white" data-modal-close>Batal</button>
+      <button class="btn btn-wa" data-modal-close onclick="toast('Membuka WhatsApp untuk 8 pesan…')"><i data-lucide="send"></i> Mulai Kirim</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/ui.js"></script>
+<script>
+  if (window.innerWidth < 980) {
+    document.querySelector("[data-sidebar-toggle]").style.display = "grid";
+  }
+</script>
+</body>
+</html>

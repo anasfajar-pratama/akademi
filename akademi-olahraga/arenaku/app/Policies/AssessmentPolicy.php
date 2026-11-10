@@ -17,6 +17,10 @@ class AssessmentPolicy
         $current = app(CurrentAcademy::class);
 
         return $current->check()
-            && in_array($user->roleIn($current->get()), [AcademyRole::Admin, AcademyRole::Coach], true);
+            && in_array($user->roleIn($current->get()), [
+                AcademyRole::Admin,
+                AcademyRole::AdminCoach,
+                AcademyRole::Coach,
+            ], true);
     }
 }

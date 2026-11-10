@@ -70,6 +70,9 @@ export function StatusBadge({ status }: { status?: string | null }) {
         void: { label: 'Dibatalkan', tone: 'neutral' },
         completed: { label: 'Selesai', tone: 'sky' },
         cancelled: { label: 'Batal', tone: 'rose' },
+        pending: { label: 'Menunggu', tone: 'amber' },
+        approved: { label: 'Disetujui', tone: 'emerald' },
+        rejected: { label: 'Ditolak', tone: 'rose' },
     };
 
     const entry = status ? map[status] : undefined;

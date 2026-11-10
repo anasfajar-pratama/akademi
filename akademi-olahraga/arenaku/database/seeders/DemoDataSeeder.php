@@ -17,9 +17,9 @@ use App\Models\SessionAttendance;
 use App\Models\Skill;
 use App\Models\Sport;
 use App\Models\User;
-use App\Services\AccountService;
 use App\Services\AcademyProvisioningService;
 use App\Services\AcademyRoleProvisioner;
+use App\Services\AccountService;
 use App\Services\BillingService;
 use Illuminate\Database\Seeder;
 
@@ -36,14 +36,14 @@ class DemoDataSeeder extends Seeder
 
         $academy = Academy::create([
             'sport_id' => $sport->id,
-            'name' => 'Arena Badminton Club',
-            'slug' => 'arena-badminton',
+            'name' => 'PB Hamas - Cikampek',
+            'slug' => 'pbhamas-badminton',
             'owner_user_id' => $super?->id,
             'brand_color' => '#0B1220',
-            'city' => 'Bandung',
+            'city' => 'Cikampek',
             'address' => 'Jl. Merdeka No. 10',
             'phone' => '6281200000100',
-            'email' => 'hello@arenabadminton.test',
+            'email' => 'pbhamas@kebunkode.com',
             'status' => 'active',
         ]);
 
@@ -66,19 +66,31 @@ class DemoDataSeeder extends Seeder
             'password' => 'password',
         ], AcademyRole::Coach, $super, false)['user'];
 
+        $adminCoach = $accounts->provision($academy, [
+            'name' => 'Coach Iwan',
+            'email' => 'pbhamas@kebunkode.com',
+            'password' => 'pbhamas1234',
+        ], AcademyRole::AdminCoach, $super, false)['user'];
+
         $parent = $accounts->provision($academy, [
             'name' => 'Bunda Sari',
             'email' => 'ortu@arenaku.test',
             'password' => 'password',
         ], AcademyRole::Parent, $super, false)['user'];
 
-        User::whereIn('id', [$admin->id, $coach->id, $parent->id])
+        User::whereIn('id', [$admin->id, $coach->id, $adminCoach->id, $parent->id])
             ->update(['must_change_password' => false, 'email_verified_at' => now()]);
 
         CoachProfile::create([
             'academy_id' => $academy->id,
             'user_id' => $coach->id,
             'specialization' => 'Footwork & fisik',
+        ]);
+
+        CoachProfile::create([
+            'academy_id' => $academy->id,
+            'user_id' => $adminCoach->id,
+            'specialization' => 'Kepelatihan & operasional',
         ]);
 
         $gor = Branch::create([
@@ -192,6 +204,7 @@ class DemoDataSeeder extends Seeder
         for ($week = -2; $week <= 1; $week++) {
             foreach ([0, 1] as $dayOffset) {
                 $start = $saturday->copy()->addWeeks($week)->addDays($dayOffset)->setTime(16, 0);
+                $sessionCoach = $dayOffset === 1 ? $adminCoach->id : $coach->id;
 
                 $schedule = Schedule::create([
                     'academy_id' => $academy->id,
@@ -199,7 +212,7 @@ class DemoDataSeeder extends Seeder
                     'package_id' => $beginner->id,
                     'type' => 'training',
                     'title' => 'Latihan Rutin '.($dayOffset === 0 ? 'Sabtu' : 'Minggu'),
-                    'coach_id' => $coach->id,
+                    'coach_id' => $sessionCoach,
                     'starts_at' => $start,
                     'ends_at' => $start->copy()->addHours(4),
                     'location_name' => $gor->name,
@@ -216,7 +229,7 @@ class DemoDataSeeder extends Seeder
                         'academy_id' => $academy->id,
                         'schedule_id' => $schedule->id,
                         'branch_id' => $gor->id,
-                        'coach_id' => $coach->id,
+                        'coach_id' => $sessionCoach,
                         'title' => $schedule->title,
                         'session_date' => $start->toDateString(),
                         'started_at' => $start,
@@ -264,7 +277,7 @@ class DemoDataSeeder extends Seeder
                         'academy_id' => $academy->id,
                         'schedule_id' => $schedule->id,
                         'branch_id' => $gor->id,
-                        'coach_id' => $coach->id,
+                        'coach_id' => $sessionCoach,
                         'title' => $schedule->title,
                         'session_date' => $start->toDateString(),
                         'started_at' => now(),

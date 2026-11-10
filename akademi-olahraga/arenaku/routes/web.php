@@ -10,10 +10,13 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\MemberAssessmentController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ParentPortalController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PublicRegistrationController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SkillAssessmentController;
@@ -26,6 +29,14 @@ Route::middleware('guest')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
+
+// Registrasi member publik — tautan unik per akademi.
+Route::get('daftar/{token}', [PublicRegistrationController::class, 'show'])
+    ->name('registration.show')
+    ->middleware('throttle:60,1');
+Route::post('daftar/{token}', [PublicRegistrationController::class, 'store'])
+    ->name('registration.store')
+    ->middleware('throttle:6,1');
 
 Route::middleware(['auth', 'password.changed'])->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
@@ -52,9 +63,19 @@ Route::middleware(['auth', 'password.changed'])->group(function () {
         Route::delete('settings/branches/{branch}', [BranchController::class, 'destroy'])->name('branches.destroy');
         Route::post('settings/packages', [PackageController::class, 'store'])->name('packages.store');
         Route::delete('settings/packages/{package}', [PackageController::class, 'destroy'])->name('packages.destroy');
+        Route::post('settings/registration-link/toggle', [SettingController::class, 'toggleRegistration'])->name('settings.registration.toggle');
+        Route::post('settings/registration-link/regenerate', [SettingController::class, 'regenerateRegistration'])->name('settings.registration.regenerate');
+
+        // Pendaftaran member
+        Route::get('registrations', [RegistrationController::class, 'index'])->name('registrations.index');
+        Route::get('registrations/{registration}', [RegistrationController::class, 'show'])->name('registrations.show');
+        Route::put('registrations/{registration}', [RegistrationController::class, 'update'])->name('registrations.update');
+        Route::post('registrations/{registration}/approve', [RegistrationController::class, 'approve'])->name('registrations.approve');
+        Route::delete('registrations/{registration}', [RegistrationController::class, 'destroy'])->name('registrations.destroy');
 
         // Member
         Route::resource('members', MemberController::class);
+        Route::post('members/{member}/assessments', [MemberAssessmentController::class, 'store'])->name('members.assessments.store');
 
         // Jadwal & absensi
         Route::resource('schedules', ScheduleController::class)->except(['show']);

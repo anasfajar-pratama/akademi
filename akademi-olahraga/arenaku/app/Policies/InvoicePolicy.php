@@ -17,7 +17,8 @@ class InvoicePolicy
 
         $current = app(CurrentAcademy::class);
 
-        return $current->check() && $user->hasRoleIn($current->get(), AcademyRole::Admin);
+        return $current->check()
+            && $user->hasRoleIn($current->get(), AcademyRole::Admin, AcademyRole::AdminCoach);
     }
 
     public function viewAny(User $user): bool

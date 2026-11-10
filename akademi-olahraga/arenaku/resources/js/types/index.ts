@@ -59,7 +59,8 @@ export interface PageProps {
     };
     demoAccounts: DemoAccount[];
     academies: AcademyOption[];
+    pendingRegistrations: number;
     [key: string]: unknown;
 }
 
-export type Role = 'super_admin' | 'admin' | 'coach' | 'parent' | 'member';
+export type Role = 'super_admin' | 'admin' | 'admin_coach' | 'coach' | 'parent' | 'member';

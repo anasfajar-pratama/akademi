@@ -3,6 +3,7 @@ import {
     Building2,
     CalendarDays,
     ClipboardCheck,
+    ClipboardList,
     Layers,
     LayoutDashboard,
     LogOut,
@@ -21,6 +22,7 @@ interface NavItem {
     icon: ReactNode;
     show: boolean;
     mobile?: boolean;
+    badge?: number;
 }
 
 export default function AppLayout({
@@ -32,12 +34,13 @@ export default function AppLayout({
     children: ReactNode;
     actions?: ReactNode;
 }) {
-    const { auth, currentAcademy, flash, academies } = usePage<PageProps>().props;
+    const { auth, currentAcademy, flash, academies, pendingRegistrations } = usePage<PageProps>().props;
     const url = usePage().url;
     const role = auth.role;
     const isSuperAdmin = auth.user?.is_super_admin ?? false;
 
-    const isAdmin = isSuperAdmin || role === 'admin';
+    const isAdmin = isSuperAdmin || role === 'admin' || role === 'admin_coach';
+    const isCoach = role === 'coach' || role === 'admin_coach';
     const canSwitchAcademy = isSuperAdmin ? academies.length > 0 : auth.memberships.length > 1;
 
     const items: NavItem[] = [
@@ -52,8 +55,16 @@ export default function AppLayout({
             label: 'Member',
             href: '/members',
             icon: <Users className="h-5 w-5" />,
-            show: isAdmin || role === 'coach',
+            show: isAdmin || isCoach,
             mobile: true,
+        },
+        {
+            label: 'Pendaftaran',
+            href: '/registrations',
+            icon: <ClipboardList className="h-5 w-5" />,
+            show: isAdmin || isCoach,
+            mobile: true,
+            badge: pendingRegistrations,
         },
         {
             label: 'Keuangan',
@@ -73,14 +84,14 @@ export default function AppLayout({
             label: 'Penilaian',
             href: '/assessments',
             icon: <Sparkles className="h-5 w-5" />,
-            show: isAdmin || role === 'coach',
+            show: isAdmin || isCoach,
             mobile: true,
         },
         {
             label: 'Skill',
             href: '/skills',
             icon: <Layers className="h-5 w-5" />,
-            show: isAdmin || role === 'coach',
+            show: isAdmin || isCoach,
         },
         {
             label: 'Pengaturan',
@@ -99,8 +110,8 @@ export default function AppLayout({
             label: 'Jadwal Saya',
             href: '/coach',
             icon: <ClipboardCheck className="h-5 w-5" />,
-            show: role === 'coach',
-            mobile: role === 'coach',
+            show: isCoach,
+            mobile: isCoach,
         },
         {
             label: 'Anak Saya',
@@ -112,7 +123,7 @@ export default function AppLayout({
     ];
 
     const visible = items.filter((item) => item.show);
-    const mobileItems = visible.filter((item) => item.mobile).slice(0, 4);
+    const mobileItems = visible.filter((item) => item.mobile).slice(0, 5);
 
     const isActive = (href: string) => url === href || url.startsWith(href + '/');
 
@@ -162,7 +173,12 @@ export default function AppLayout({
                             )}
                         >
                             {item.icon}
-                            {item.label}
+                            <span className="flex-1">{item.label}</span>
+                            {item.badge ? (
+                                <span className="rounded-full bg-lime px-1.5 py-0.5 text-[10px] font-extrabold text-ink">
+                                    {item.badge}
+                                </span>
+                            ) : null}
                         </a>
                     ))}
                 </nav>
@@ -232,7 +248,14 @@ export default function AppLayout({
                                     isActive(item.href) ? 'text-ink' : 'text-slate',
                                 )}
                             >
-                                {item.icon}
+                                <span className="relative">
+                                    {item.icon}
+                                    {item.badge ? (
+                                        <span className="absolute -right-2 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-rose px-1 text-[9px] font-extrabold text-white">
+                                            {item.badge}
+                                        </span>
+                                    ) : null}
+                                </span>
                                 {item.label}
                             </a>
                         ))}

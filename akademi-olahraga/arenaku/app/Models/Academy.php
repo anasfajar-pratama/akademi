@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Academy extends Model
 {
@@ -28,11 +29,30 @@ class Academy extends Model
         'currency',
         'settings',
         'status',
+        'registration_token',
+        'registration_open',
     ];
 
     protected function casts(): array
     {
-        return ['settings' => 'array'];
+        return [
+            'settings' => 'array',
+            'registration_open' => 'boolean',
+        ];
+    }
+
+    public function ensureRegistrationToken(): string
+    {
+        if (! $this->registration_token) {
+            $this->forceFill(['registration_token' => Str::random(48)])->save();
+        }
+
+        return $this->registration_token;
+    }
+
+    public function registrationUrl(): string
+    {
+        return url('/daftar/'.$this->ensureRegistrationToken());
     }
 
     public function sport(): BelongsTo

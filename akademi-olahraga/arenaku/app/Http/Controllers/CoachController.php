@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Enums\AcademyRole;
 use App\Models\AttendanceSession;
-use App\Models\Member;
 use App\Models\Schedule;
 use App\Models\SessionAttendance;
 use App\Models\User;
@@ -113,7 +112,7 @@ class CoachController extends Controller
 
         $academy = app(CurrentAcademy::class)->get();
 
-        abort_unless($academy && $user->hasRoleIn($academy, AcademyRole::Admin), 403);
+        abort_unless($academy && $user->hasRoleIn($academy, AcademyRole::Admin, AcademyRole::AdminCoach), 403);
     }
 
     /**

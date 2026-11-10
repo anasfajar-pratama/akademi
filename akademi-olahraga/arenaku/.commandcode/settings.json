@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(netstat:*)",
+      "Shell(findstr:*)",
+      "Shell(curl -s -i http://127.0.0.1:8000/)",
+      "Shell(more:*)",
+      "Shell(curl -s http://127.0.0.1:8000/login)",
+      "Shell(curl -s -o NUL -w \"css:%{http_code} type:%{content_type}\\n\" http://127.0.0.1:5173/resources/css/app.css)",
+      "Shell(curl -s -H Accept: text/css,*/*;q=0.1 -o NUL -w css:%{http_code} type:%{content_type} size:%{size_download}\\n http://127.0.0.1:5173/resources/css/app.css)",
+      "Shell(curl -s -o NUL -w js:%{http_code} type:%{content_type} size:%{size_download}\\n http://127.0.0.1:5173/resources/js/app.tsx)",
+      "Shell(curl -s http://127.0.0.1:5173/resources/js/app.tsx)",
+      "Shell(curl -s -H Accept: text/css,*/*;q=0.1 -D - http://127.0.0.1:5173/resources/css/app.css -o css_out.txt)",
+      "Shell(Get-Item:*)",
+      "Shell(Select-Object:*)",
+      "Shell(Get-Content:*)",
+      "powershell",
+      "Shell(agent-browser:*)",
+      "Shell(node -e \"const p=require('./node_modules/@inertiajs/react/package.json'); console.log(JSON.stringify(p.exports,null,2)); console.log(p.main, p.module, p.types)\")",
+      "Shell(curl -s -o NUL -w \"%{http_code}\\n\" http://127.0.0.1:8000/login)",
+      "Shell(C:\\xampp\\mysql\\bin\\mysqld.exe:*)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

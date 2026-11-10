@@ -74,6 +74,7 @@ class AccountService
             ],
         );
 
+        $this->roles->ensureForAcademy($academy);
         $this->roles->assign($academy, $user, $role);
 
         if ($created && $sendCredentials && $email) {

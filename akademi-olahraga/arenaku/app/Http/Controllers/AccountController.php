@@ -22,7 +22,7 @@ class AccountController extends Controller
         $role = AcademyRole::from($request->input('role'));
         $result = $this->accounts->provision($academy, $request->validated(), $role, $request->user());
 
-        if ($role === AcademyRole::Coach) {
+        if ($role->isCoach()) {
             CoachProfile::updateOrCreate(
                 ['academy_id' => $academy->id, 'user_id' => $result['user']->id],
                 ['specialization' => $request->input('specialization')],
@@ -69,7 +69,7 @@ class AccountController extends Controller
     protected function authorizeManage(Academy $academy, User $user): void
     {
         abort_unless(
-            $user->is_super_admin || $user->hasRoleIn($academy, AcademyRole::Admin),
+            $user->is_super_admin || $user->hasRoleIn($academy, AcademyRole::Admin, AcademyRole::AdminCoach),
             403,
         );
     }

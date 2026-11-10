@@ -34,7 +34,7 @@ class BranchController extends Controller
         $academy = app(CurrentAcademy::class)->get();
 
         abort_unless(
-            $user->is_super_admin || ($academy && $user->hasRoleIn($academy, AcademyRole::Admin)),
+            $user->is_super_admin || ($academy && $user->hasRoleIn($academy, AcademyRole::Admin, AcademyRole::AdminCoach)),
             403,
         );
     }

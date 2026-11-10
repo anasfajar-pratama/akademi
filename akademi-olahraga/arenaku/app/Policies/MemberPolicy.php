@@ -17,7 +17,8 @@ class MemberPolicy
 
         $current = app(CurrentAcademy::class);
 
-        return $current->check() && $user->hasRoleIn($current->get(), AcademyRole::Admin);
+        return $current->check()
+            && $user->hasRoleIn($current->get(), AcademyRole::Admin, AcademyRole::AdminCoach);
     }
 
     public function viewAny(User $user): bool
@@ -29,7 +30,12 @@ class MemberPolicy
         $current = app(CurrentAcademy::class);
 
         return $current->check()
-            && $user->hasRoleIn($current->get(), AcademyRole::Admin, AcademyRole::Coach);
+            && $user->hasRoleIn(
+                $current->get(),
+                AcademyRole::Admin,
+                AcademyRole::AdminCoach,
+                AcademyRole::Coach,
+            );
     }
 
     public function create(User $user): bool
@@ -48,7 +54,7 @@ class MemberPolicy
         }
 
         return match ($user->roleIn($member->academy)) {
-            AcademyRole::Admin, AcademyRole::Coach => true,
+            AcademyRole::Admin, AcademyRole::AdminCoach, AcademyRole::Coach => true,
             AcademyRole::Parent => $member->guardians()
                 ->where('guardians.user_id', $user->id)
                 ->exists(),
@@ -64,5 +70,22 @@ class MemberPolicy
     public function delete(User $user, Member $member): bool
     {
         return $this->isAdmin($user);
+    }
+
+    public function assess(User $user, Member $member): bool
+    {
+        if ($user->is_super_admin) {
+            return true;
+        }
+
+        if ($member->academy_id !== app(CurrentAcademy::class)->id()) {
+            return false;
+        }
+
+        return in_array($user->roleIn($member->academy), [
+            AcademyRole::Admin,
+            AcademyRole::AdminCoach,
+            AcademyRole::Coach,
+        ], true);
     }
 }

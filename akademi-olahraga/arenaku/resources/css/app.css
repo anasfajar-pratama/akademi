@@ -35,3 +35,17 @@
 @utility tap-target {
     min-height: 44px;
 }
+
+.arenaku-swal {
+    font-family: var(--font-sans);
+    border-radius: 16px;
+}
+
+.arenaku-swal-list {
+    margin: 0.75rem 0 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}

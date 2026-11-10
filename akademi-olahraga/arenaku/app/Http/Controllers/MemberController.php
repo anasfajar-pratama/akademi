@@ -9,6 +9,7 @@ use App\Models\Invoice;
 use App\Models\Member;
 use App\Models\Package;
 use App\Models\SessionAttendance;
+use App\Models\SkillCategory;
 use App\Models\User;
 use App\Services\AcademyProvisioningService;
 use App\Services\MemberProgressService;
@@ -16,6 +17,7 @@ use App\Support\PhoneNumber;
 use App\Tenancy\CurrentAcademy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -52,6 +54,9 @@ class MemberController extends Controller
                 'level' => $member->level,
                 'status' => $member->status,
                 'age' => $member->age(),
+                'photo_url' => $member->photo_path
+                    ? Storage::disk('public')->url($member->photo_path)
+                    : null,
                 'package' => $member->package?->name,
                 'branch' => $member->branch?->name,
             ]);
@@ -88,11 +93,14 @@ class MemberController extends Controller
         return redirect()->route('members.show', $member)->with('success', 'Member ditambahkan.');
     }
 
-    public function show(Member $member): Response
+    public function show(Request $request, Member $member): Response
     {
         $this->authorize('view', $member);
 
         $member->load(['package:id,name', 'branch:id,name', 'primaryCoach:id,name', 'guardians']);
+
+        $canAssess = $request->user()->can('assess', $member);
+        $skillOptions = $canAssess ? $this->skillOptions($member) : [];
 
         $history = SessionAttendance::query()
             ->where('member_id', $member->id)
@@ -124,6 +132,9 @@ class MemberController extends Controller
                 'level' => $member->level,
                 'status' => $member->status,
                 'joined_at' => $member->joined_at?->toDateString(),
+                'photo_url' => $member->photo_path
+                    ? Storage::disk('public')->url($member->photo_path)
+                    : null,
                 'package' => $member->package?->name,
                 'branch' => $member->branch?->name,
                 'coach' => $member->primaryCoach?->name,
@@ -144,6 +155,8 @@ class MemberController extends Controller
             ]),
             'history' => $history,
             'skills' => $this->progress->summary($member),
+            'can_assess' => $canAssess,
+            'skill_options' => $skillOptions,
             'finance' => [
                 'outstanding' => (int) Invoice::query()
                     ->where('member_id', $member->id)
@@ -261,6 +274,34 @@ class MemberController extends Controller
     }
 
     /**
+     * @return array<int, array<string, mixed>>
+     */
+    protected function skillOptions(Member $member): array
+    {
+        return SkillCategory::query()
+            ->where('sport_id', $member->academy->sport_id)
+            ->with(['skills' => fn ($query) => $query
+                ->where('academy_id', $member->academy_id)
+                ->where('is_active', true)
+                ->orderBy('sort_order')
+                ->orderBy('name')])
+            ->orderBy('sort_order')
+            ->orderBy('name')
+            ->get()
+            ->map(fn (SkillCategory $category) => [
+                'id' => $category->id,
+                'name' => $category->name,
+                'skills' => $category->skills->map(fn ($skill) => [
+                    'id' => $skill->id,
+                    'name' => $skill->name,
+                ])->all(),
+            ])
+            ->filter(fn (array $category) => count($category['skills']) > 0)
+            ->values()
+            ->all();
+    }
+
+    /**
      * @return array<string, mixed>
      */
     protected function formOptions(): array
@@ -273,7 +314,7 @@ class MemberController extends Controller
             'coaches' => User::query()
                 ->whereHas('memberships', fn ($query) => $query
                     ->where('academy_id', $academyId)
-                    ->where('role', 'coach'))
+                    ->whereIn('role', ['coach', 'admin_coach']))
                 ->orderBy('name')
                 ->get(['id', 'name']),
         ];

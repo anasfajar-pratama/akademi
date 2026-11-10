@@ -34,7 +34,7 @@ class AttendanceSessionPolicy
             return false;
         }
 
-        if ($this->role($user) === AcademyRole::Admin) {
+        if ($this->role($user)?->isAdmin()) {
             return true;
         }
 

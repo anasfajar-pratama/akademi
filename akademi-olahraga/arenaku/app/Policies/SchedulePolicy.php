@@ -19,12 +19,16 @@ class SchedulePolicy
     public function viewAny(User $user): bool
     {
         return $user->is_super_admin
-            || in_array($this->roleIn($user), [AcademyRole::Admin, AcademyRole::Coach], true);
+            || in_array($this->roleIn($user), [
+                AcademyRole::Admin,
+                AcademyRole::AdminCoach,
+                AcademyRole::Coach,
+            ], true);
     }
 
     public function create(User $user): bool
     {
-        return $user->is_super_admin || $this->roleIn($user) === AcademyRole::Admin;
+        return $user->is_super_admin || (bool) $this->roleIn($user)?->isAdmin();
     }
 
     public function update(User $user, Schedule $schedule): bool
@@ -34,7 +38,7 @@ class SchedulePolicy
         }
 
         return $schedule->academy_id === app(CurrentAcademy::class)->id()
-            && $this->roleIn($user) === AcademyRole::Admin;
+            && (bool) $this->roleIn($user)?->isAdmin();
     }
 
     public function delete(User $user, Schedule $schedule): bool

@@ -7,9 +7,11 @@ use App\Models\Academy;
 use App\Models\AttendanceSession;
 use App\Models\Invoice;
 use App\Models\Member;
+use App\Models\MemberRegistration;
 use App\Models\Payment;
 use App\Models\Schedule;
 use App\Models\SessionAttendance;
+use App\Models\User;
 use App\Tenancy\CurrentAcademy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -37,6 +39,7 @@ class DashboardController extends Controller
 
         return match ($role) {
             AcademyRole::Coach => $this->coachDashboard($academy, $user),
+            AcademyRole::AdminCoach => $this->adminDashboard($academy, 'Admin & Pelatih'),
             AcademyRole::Parent, AcademyRole::Member => redirect()->route('portal.index'),
             default => $this->adminDashboard($academy, $user->is_super_admin ? 'Super Admin' : 'Admin Akademi'),
         };
@@ -122,6 +125,9 @@ class DashboardController extends Controller
             ->count();
 
         $lowAttendance = $this->lowAttendanceCount($academy, $monthStart, now());
+        $pendingRegistrations = MemberRegistration::query()
+            ->where('status', MemberRegistration::STATUS_PENDING)
+            ->count();
 
         $todaySchedules = Schedule::with('branch:id,name')
             ->whereDate('starts_at', today())
@@ -160,6 +166,12 @@ class DashboardController extends Controller
             ],
             'actions' => [
                 [
+                    'label' => 'Pendaftaran menunggu persetujuan',
+                    'count' => $pendingRegistrations,
+                    'href' => '/registrations',
+                    'tone' => 'sky',
+                ],
+                [
                     'label' => 'Tagihan lewat jatuh tempo',
                     'count' => $overdue,
                     'href' => '/invoices?status=unpaid',
@@ -182,7 +194,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    protected function coachDashboard(Academy $academy, \App\Models\User $user): Response
+    protected function coachDashboard(Academy $academy, User $user): Response
     {
         $monthStart = now()->startOfMonth();
 
@@ -212,6 +224,9 @@ class DashboardController extends Controller
             ->count();
 
         $lowAttendance = $this->lowAttendanceCount($academy, $monthStart, now());
+        $pendingRegistrations = MemberRegistration::query()
+            ->where('status', MemberRegistration::STATUS_PENDING)
+            ->count();
 
         return Inertia::render('Dashboard', [
             'scope' => 'coach',
@@ -228,6 +243,7 @@ class DashboardController extends Controller
                 ['label' => 'Member kehadiran < 70%', 'value' => $lowAttendance, 'type' => 'number'],
             ],
             'actions' => [
+                ['label' => 'Pendaftaran menunggu persetujuan', 'count' => $pendingRegistrations, 'href' => '/registrations', 'tone' => 'sky'],
                 ['label' => 'Isi absensi', 'count' => $pendingAttendance, 'href' => '/coach', 'tone' => 'amber'],
                 ['label' => 'Isi penilaian skill', 'count' => $pendingAssessment, 'href' => '/assessments', 'tone' => 'sky'],
             ],

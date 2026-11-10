@@ -170,6 +170,7 @@ export default function AcademyShow({
                                 <label className={label}>Peran</label>
                                 <select className={input} value={accountForm.data.role} onChange={(e) => accountForm.setData('role', e.target.value)}>
                                     <option value="admin">Admin Akademi</option>
+                                    <option value="admin_coach">Admin & Pelatih</option>
                                     <option value="coach">Pelatih</option>
                                     <option value="parent">Orang Tua</option>
                                     <option value="member">Member</option>

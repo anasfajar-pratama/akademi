@@ -26,7 +26,7 @@ class AcademyPolicy
     public function update(User $user, Academy $academy): bool
     {
         return $user->is_super_admin
-            || $user->hasRoleIn($academy, AcademyRole::Admin);
+            || $user->hasRoleIn($academy, AcademyRole::Admin, AcademyRole::AdminCoach);
     }
 
     public function delete(User $user, Academy $academy): bool

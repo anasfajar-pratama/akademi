@@ -26,6 +26,12 @@ return [
             'description' => 'Operasional akademi (member, jadwal, tagihan)',
         ],
         [
+            'role' => 'Admin & Pelatih',
+            'login' => 'pbhamas@kebunkode.com',
+            'password' => 'pbhamas1234',
+            'description' => 'Operasional admin sekaligus absensi & penilaian',
+        ],
+        [
             'role' => 'Pelatih',
             'login' => 'coach@arenaku.test',
             'password' => 'password',

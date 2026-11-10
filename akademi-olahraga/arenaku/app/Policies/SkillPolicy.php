@@ -19,7 +19,11 @@ class SkillPolicy
     public function viewAny(User $user): bool
     {
         return $user->is_super_admin
-            || in_array($this->role($user), [AcademyRole::Admin, AcademyRole::Coach], true);
+            || in_array($this->role($user), [
+                AcademyRole::Admin,
+                AcademyRole::AdminCoach,
+                AcademyRole::Coach,
+            ], true);
     }
 
     public function create(User $user): bool
@@ -31,6 +35,10 @@ class SkillPolicy
     {
         return $user->is_super_admin
             || ($skill->academy_id === app(CurrentAcademy::class)->id()
-                && in_array($this->role($user), [AcademyRole::Admin, AcademyRole::Coach], true));
+                && in_array($this->role($user), [
+                    AcademyRole::Admin,
+                    AcademyRole::AdminCoach,
+                    AcademyRole::Coach,
+                ], true));
     }
 }

@@ -123,7 +123,7 @@ class ScheduleController extends Controller
             'coaches' => User::query()
                 ->whereHas('memberships', fn ($query) => $query
                     ->where('academy_id', $academyId)
-                    ->where('role', 'coach'))
+                    ->whereIn('role', ['coach', 'admin_coach']))
                 ->orderBy('name')
                 ->get(['id', 'name']),
         ];

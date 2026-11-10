@@ -6,3 +6,4 @@
 
 ## UI / Design
 - Expects UI work to be grounded in the project's existing reference designs (e.g. the `prototype/` folder) rather than invented from written design rules alone, and asks whether the prototype was used as the visual source of truth. Confidence: 0.45
+- Prefers styled SweetAlert (sweetalert2) modals over browser-native `confirm()`/`alert()` for confirmations and notifications — calls native prompts "kurang pantas". Confidence: 0.55

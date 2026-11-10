@@ -157,7 +157,10 @@ class AcademyController extends Controller
         return [
             'members_total' => $academy->members()->withoutGlobalScope('academy')->count(),
             'members_active' => $academy->members()->withoutGlobalScope('academy')->where('status', 'active')->count(),
-            'coaches' => $academy->memberships()->where('role', AcademyRole::Coach->value)->where('is_active', true)->count(),
+            'coaches' => $academy->memberships()
+                ->whereIn('role', [AcademyRole::Coach->value, AcademyRole::AdminCoach->value])
+                ->where('is_active', true)
+                ->count(),
             'revenue_month' => $revenue,
             'outstanding' => $outstanding,
             'attendance_rate' => $total > 0 ? (int) round(((int) $attendance->present) / $total * 100) : 0,

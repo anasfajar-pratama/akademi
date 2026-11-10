@@ -43,6 +43,8 @@ class AcademyProvisioningService
                 'email' => $data['email'] ?? null,
                 'timezone' => $data['timezone'] ?? 'Asia/Jakarta',
                 'status' => 'active',
+                'registration_token' => Str::random(48),
+                'registration_open' => true,
             ]);
 
             $this->roles->ensureForAcademy($academy);

@@ -63,6 +63,6 @@ class AttendanceController extends Controller
 
         $academy = app(CurrentAcademy::class)->get();
 
-        abort_unless($academy && $user->hasRoleIn($academy, AcademyRole::Admin), 403);
+        abort_unless($academy && $user->hasRoleIn($academy, AcademyRole::Admin, AcademyRole::AdminCoach), 403);
     }
 }

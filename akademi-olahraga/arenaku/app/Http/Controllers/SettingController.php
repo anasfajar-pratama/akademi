@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Enums\AcademyRole;
-use App\Models\Academy;
 use App\Models\Branch;
 use App\Models\CoachProfile;
+use App\Models\MemberRegistration;
 use App\Models\Package;
-use App\Models\User;
 use App\Tenancy\CurrentAcademy;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -28,6 +29,14 @@ class SettingController extends Controller
                 'city' => $academy->city,
                 'timezone' => $academy->timezone,
             ],
+            'registration' => [
+                'token' => $academy->ensureRegistrationToken(),
+                'url' => $academy->registrationUrl(),
+                'open' => (bool) $academy->registration_open,
+                'pending' => MemberRegistration::query()
+                    ->where('status', MemberRegistration::STATUS_PENDING)
+                    ->count(),
+            ],
             'branches' => Branch::orderBy('name')->get(['id', 'name', 'address', 'city', 'is_active']),
             'packages' => Package::with('branch:id,name')->orderBy('name')->get()->map(fn (Package $package) => [
                 'id' => $package->id,
@@ -40,6 +49,29 @@ class SettingController extends Controller
             ]),
             'coaches' => $this->coaches(),
         ]);
+    }
+
+    public function toggleRegistration(): RedirectResponse
+    {
+        $this->authorizeAdmin();
+
+        $academy = app(CurrentAcademy::class)->get();
+        $academy->forceFill(['registration_open' => ! $academy->registration_open])->save();
+
+        return back()->with(
+            'success',
+            $academy->registration_open ? 'Pendaftaran online dibuka.' : 'Pendaftaran online ditutup.',
+        );
+    }
+
+    public function regenerateRegistration(): RedirectResponse
+    {
+        $this->authorizeAdmin();
+
+        $academy = app(CurrentAcademy::class)->get();
+        $academy->forceFill(['registration_token' => Str::random(48)])->save();
+
+        return back()->with('success', 'Link pendaftaran baru dibuat. Link lama sudah tidak berlaku.');
     }
 
     /**
@@ -64,7 +96,7 @@ class SettingController extends Controller
 
         abort_unless(
             $user->is_super_admin
-                || ($academy && $user->hasRoleIn($academy, AcademyRole::Admin)),
+                || ($academy && $user->hasRoleIn($academy, AcademyRole::Admin, AcademyRole::AdminCoach)),
             403,
         );
     }

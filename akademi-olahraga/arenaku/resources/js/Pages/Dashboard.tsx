@@ -118,7 +118,11 @@ export default function Dashboard({ scope, role_label, kpis, actions, today, aca
                                         <span
                                             className={cn(
                                                 'grid h-9 w-9 shrink-0 place-items-center rounded-xl',
-                                                action.tone === 'rose' ? 'bg-rose-50 text-rose' : 'bg-amber-50 text-amber',
+                                                action.tone === 'rose'
+                                                    ? 'bg-rose-50 text-rose'
+                                                    : action.tone === 'sky'
+                                                      ? 'bg-sky-50 text-sky'
+                                                      : 'bg-amber-50 text-amber',
                                             )}
                                         >
                                             <AlertTriangle className="h-4 w-4" />

@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\AcademyRole;
 use App\Models\Academy;
+use App\Models\MemberRegistration;
 use App\Tenancy\CurrentAcademy;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -23,6 +25,12 @@ class HandleInertiaRequests extends Middleware
     {
         $user = $request->user();
         $current = app(CurrentAcademy::class);
+        $role = $user && $current->check() ? $user->roleIn($current->get()) : null;
+        $isStaff = $role && in_array($role, [
+            AcademyRole::Admin,
+            AcademyRole::AdminCoach,
+            AcademyRole::Coach,
+        ], true);
 
         return [
             ...parent::share($request),
@@ -63,6 +71,11 @@ class HandleInertiaRequests extends Middleware
                 'error' => fn () => $request->session()->get('error'),
                 'credentials' => fn () => $request->session()->get('credentials'),
             ],
+            'pendingRegistrations' => $isStaff
+                ? MemberRegistration::query()
+                    ->where('status', MemberRegistration::STATUS_PENDING)
+                    ->count()
+                : 0,
             'demoAccounts' => config('demo.enabled') ? config('demo.accounts') : [],
             'academies' => $user && $user->is_super_admin
                 ? Academy::orderBy('name')->get(['id', 'name'])

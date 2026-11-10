@@ -1,5 +1,6 @@
-import { Head, router, useForm } from '@inertiajs/react';
-import { MapPin, Package as PackageIcon, Plus, Trash2 } from 'lucide-react';
+import { Head, Link, router, useForm } from '@inertiajs/react';
+import { Check, Copy, Link2, MapPin, Package as PackageIcon, Plus, RefreshCw, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 import AppLayout from '@/Layouts/AppLayout';
 import { Badge, Card, EmptyState, SectionTitle, buttonClass } from '@/Components/ui';
 import { formatRupiah, levelLabel } from '@/lib/utils';
@@ -29,6 +30,13 @@ interface AcademyInfo {
     timezone: string;
 }
 
+interface RegistrationInfo {
+    token: string;
+    url: string;
+    open: boolean;
+    pending: number;
+}
+
 const input = 'w-full rounded-xl border border-line px-3 py-2.5 text-base outline-none focus:border-ink';
 const label = 'mb-1 block text-sm font-semibold text-ink';
 
@@ -36,12 +44,15 @@ export default function SettingsIndex({
     academy,
     branches,
     packages,
+    registration,
 }: {
     academy: AcademyInfo;
     branches: BranchRow[];
     packages: PackageRow[];
+    registration: RegistrationInfo;
     coaches: { id: number; name: string | null; specialization: string | null }[];
 }) {
+    const [copied, setCopied] = useState(false);
     const branchForm = useForm({ name: '', address: '', city: '' });
     const packageForm = useForm({
         name: '',
@@ -52,6 +63,22 @@ export default function SettingsIndex({
         duration_minutes: 60,
         quota: 0,
     });
+
+    const copyLink = async () => {
+        try {
+            await navigator.clipboard.writeText(registration.url);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch {
+            setCopied(false);
+        }
+    };
+
+    const regenerate = () => {
+        if (confirm('Buat link baru? Link lama tidak akan bisa dipakai lagi.')) {
+            router.post('/settings/registration-link/regenerate', {}, { preserveScroll: true });
+        }
+    };
 
     return (
         <AppLayout title="Pengaturan Akademi">
@@ -64,6 +91,50 @@ export default function SettingsIndex({
                     <p className="text-slate">Cabang: <span className="font-semibold text-ink">{academy.sport ?? '-'}</span></p>
                     <p className="text-slate">Kota: <span className="font-semibold text-ink">{academy.city ?? '-'}</span></p>
                     <p className="text-slate">Zona waktu: <span className="font-semibold text-ink">{academy.timezone}</span></p>
+                </div>
+            </Card>
+
+            <Card className="mb-4">
+                <SectionTitle
+                    action={
+                        <Badge tone={registration.open ? 'emerald' : 'rose'}>
+                            {registration.open ? 'Dibuka' : 'Ditutup'}
+                        </Badge>
+                    }
+                >
+                    Link pendaftaran member
+                </SectionTitle>
+                <p className="mb-3 text-sm text-slate">
+                    Bagikan tautan ini kepada orang tua calon member. Formulir berisi data anak, data orang tua, dan
+                    foto member. Pendaftaran masuk ke menu Pendaftaran untuk disetujui.
+                </p>
+
+                <div className="flex flex-col gap-2 sm:flex-row">
+                    <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-line bg-surface px-3 py-2.5">
+                        <Link2 className="h-4 w-4 shrink-0 text-slate" />
+                        <span className="min-w-0 flex-1 truncate font-mono text-xs text-ink">{registration.url}</span>
+                    </div>
+                    <button type="button" className={buttonClass('primary', 'shrink-0 px-3 py-2')} onClick={copyLink}>
+                        {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                        {copied ? 'Tersalin' : 'Salin'}
+                    </button>
+                </div>
+
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <button
+                        type="button"
+                        className={buttonClass(registration.open ? 'ghost' : 'secondary', 'px-3 py-2')}
+                        onClick={() => router.post('/settings/registration-link/toggle', {}, { preserveScroll: true })}
+                    >
+                        {registration.open ? 'Tutup pendaftaran' : 'Buka pendaftaran'}
+                    </button>
+                    <button type="button" className={buttonClass('ghost', 'px-3 py-2')} onClick={regenerate}>
+                        <RefreshCw className="h-4 w-4" /> Buat link baru
+                    </button>
+                    <Link href="/registrations" className={buttonClass('ghost', 'px-3 py-2')}>
+                        Kelola pendaftaran
+                        {registration.pending > 0 ? <Badge tone="amber">{registration.pending} menunggu</Badge> : null}
+                    </Link>
                 </div>
             </Card>
 

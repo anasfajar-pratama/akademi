@@ -1,8 +1,9 @@
-import { Head, Link, router } from '@inertiajs/react';
-import { ArrowLeft, Pencil, Trash2 } from 'lucide-react';
+import { Head, Link, router, useForm, usePage } from '@inertiajs/react';
+import { ArrowLeft, KeyRound, MessageCircle, Pencil, Sparkles, Trash2 } from 'lucide-react';
 import AppLayout from '@/Layouts/AppLayout';
 import { Badge, Card, SectionTitle, StatusBadge, buttonClass } from '@/Components/ui';
 import { attendanceLabel, formatDate, formatRupiah, levelLabel } from '@/lib/utils';
+import type { Credential, PageProps } from '@/types';
 
 interface MemberInfo {
     id: number;
@@ -20,6 +21,7 @@ interface MemberInfo {
     level: string;
     status: string;
     joined_at: string | null;
+    photo_url: string | null;
     package: string | null;
     branch: string | null;
     coach: string | null;
@@ -70,6 +72,12 @@ interface Finance {
     invoices: FinanceInvoice[];
 }
 
+interface SkillOptionGroup {
+    id: number;
+    name: string;
+    skills: { id: number; name: string }[];
+}
+
 const relationLabel: Record<string, string> = { father: 'Ayah', mother: 'Ibu', guardian: 'Wali' };
 
 function Row({ label, value }: { label: string; value: string | null | undefined }) {
@@ -87,17 +95,63 @@ export default function MembersShow({
     history,
     skills,
     finance,
+    can_assess,
+    skill_options,
 }: {
     member: MemberInfo;
     guardians: GuardianInfo[];
     history: HistoryRow[];
     skills: SkillSummary;
     finance: Finance;
+    can_assess: boolean;
+    skill_options: SkillOptionGroup[];
 }) {
+    const { flash, currentAcademy } = usePage<PageProps>().props;
+    const credentials: Credential[] = flash.credentials ?? [];
+    const loginUrl = `${window.location.origin}/login`;
+    const assessForm = useForm({
+        skill_id: '',
+        score: '3',
+        note: '',
+        note_visibility: 'parent',
+    });
+
     const remove = () => {
         if (confirm(`Hapus member ${member.full_name}?`)) {
             router.delete(`/members/${member.id}`);
         }
+    };
+
+    const submitAssessment = () => {
+        assessForm.post(`/members/${member.id}/assessments`, {
+            preserveScroll: true,
+            onSuccess: () => assessForm.reset('skill_id', 'note'),
+        });
+    };
+
+    const whatsappLink = (row: Credential): string | null => {
+        const phone = row.phone?.replace(/\D/g, '');
+
+        if (!phone) {
+            return null;
+        }
+
+        const message = [
+            `Halo ${row.name},`,
+            '',
+            `Pendaftaran ${member.full_name} di ${currentAcademy?.name ?? 'akademi'} telah disetujui.`,
+            row.created && row.password
+                ? 'Akun portal orang tua sudah dibuat.'
+                : 'Akun portal orang tua Anda sudah aktif.',
+            '',
+            `Login: ${loginUrl}`,
+            `Email/No. HP: ${row.email ?? row.phone ?? '-'}`,
+            row.password ? `Kata sandi sementara: ${row.password}` : null,
+            '',
+            'Demi keamanan, segera ganti kata sandi setelah login.',
+        ].filter((line): line is string => line !== null);
+
+        return `https://wa.me/${phone}?text=${encodeURIComponent(message.join('\n'))}`;
     };
 
     return (
@@ -107,18 +161,84 @@ export default function MembersShow({
                 <ArrowLeft className="h-4 w-4" /> Member
             </Link>
 
+            {credentials.length > 0 ? (
+                <Card className="mb-4 border-lime/60 bg-lime/10">
+                    <SectionTitle>Kredensial akun orang tua</SectionTitle>
+                    <p className="mb-3 text-sm text-slate">
+                        Salin dan bagikan sekarang — kata sandi hanya ditampilkan sekali. Tombol WhatsApp berisi
+                        link login dan kredensial akun orang tua.
+                    </p>
+                    <div className="space-y-2">
+                        {credentials.map((row, index) => {
+                            const waLink = whatsappLink(row);
+
+                            return (
+                                <div
+                                    key={index}
+                                    className="flex flex-wrap items-center justify-between gap-2 rounded-xl bg-white p-3 text-sm"
+                                >
+                                    <div className="min-w-0">
+                                        <p className="font-semibold text-ink">
+                                            {row.name} {row.role_label ? `· ${row.role_label}` : ''}
+                                        </p>
+                                        <p className="truncate text-xs text-slate">
+                                            {[row.email, row.phone].filter(Boolean).join(' · ') || '-'}
+                                        </p>
+                                    </div>
+                                    <div className="flex shrink-0 flex-wrap items-center gap-2">
+                                        {row.created && row.password ? (
+                                            <Badge tone="ink">
+                                                <KeyRound className="h-3 w-3" /> {row.password}
+                                            </Badge>
+                                        ) : (
+                                            <Badge tone="sky">Akun dipakai ulang</Badge>
+                                        )}
+                                        {row.created && row.password && waLink ? (
+                                            <a
+                                                href={waLink}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className={buttonClass(
+                                                    'primary',
+                                                    'bg-emerald px-3 py-2 text-xs hover:brightness-95',
+                                                )}
+                                            >
+                                                <MessageCircle className="h-4 w-4" /> Kirim via WhatsApp
+                                            </a>
+                                        ) : null}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </Card>
+            ) : null}
+
             <Card className="mb-4">
                 <div className="flex items-start justify-between gap-3">
-                    <div>
-                        <h2 className="text-lg font-extrabold text-ink">{member.full_name}</h2>
-                        <p className="text-sm text-slate">
-                            {member.nickname ? `${member.nickname} · ` : ''}
-                            {member.member_code ?? '-'}
-                        </p>
-                        <div className="mt-2 flex flex-wrap gap-2">
-                            <Badge tone="lime">{levelLabel[member.level] ?? member.level}</Badge>
-                            <StatusBadge status={member.status} />
-                            {member.age ? <Badge>{member.age} th</Badge> : null}
+                    <div className="flex min-w-0 items-start gap-3">
+                        {member.photo_url ? (
+                            <img
+                                src={member.photo_url}
+                                alt={member.full_name}
+                                className="h-16 w-16 shrink-0 rounded-xl border border-line object-cover"
+                            />
+                        ) : (
+                            <span className="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-lime/30 text-xl font-extrabold text-ink">
+                                {member.full_name.charAt(0).toUpperCase()}
+                            </span>
+                        )}
+                        <div className="min-w-0">
+                            <h2 className="text-lg font-extrabold text-ink">{member.full_name}</h2>
+                            <p className="text-sm text-slate">
+                                {member.nickname ? `${member.nickname} · ` : ''}
+                                {member.member_code ?? '-'}
+                            </p>
+                            <div className="mt-2 flex flex-wrap gap-2">
+                                <Badge tone="lime">{levelLabel[member.level] ?? member.level}</Badge>
+                                <StatusBadge status={member.status} />
+                                {member.age ? <Badge>{member.age} th</Badge> : null}
+                            </div>
                         </div>
                     </div>
                     <div className="flex shrink-0 gap-2">
@@ -194,6 +314,79 @@ export default function MembersShow({
                             </div>
                         )}
                     </Card>
+
+                    {can_assess && skill_options.length > 0 ? (
+                        <Card>
+                            <SectionTitle>Beri penilaian skill</SectionTitle>
+                            <div className="grid gap-3 sm:grid-cols-2">
+                                <div className="sm:col-span-2">
+                                    <label className="mb-1 block text-sm font-semibold text-ink">Skill</label>
+                                    <select
+                                        className="w-full rounded-xl border border-line px-3 py-2.5 text-base outline-none focus:border-ink"
+                                        value={assessForm.data.skill_id}
+                                        onChange={(event) => assessForm.setData('skill_id', event.target.value)}
+                                    >
+                                        <option value="">Pilih skill…</option>
+                                        {skill_options.map((group) => (
+                                            <optgroup key={group.id} label={group.name}>
+                                                {group.skills.map((skill) => (
+                                                    <option key={skill.id} value={skill.id}>
+                                                        {skill.name}
+                                                    </option>
+                                                ))}
+                                            </optgroup>
+                                        ))}
+                                    </select>
+                                    {assessForm.errors.skill_id ? (
+                                        <p className="mt-1 text-sm text-rose">{assessForm.errors.skill_id}</p>
+                                    ) : null}
+                                </div>
+                                <div>
+                                    <label className="mb-1 block text-sm font-semibold text-ink">Nilai (1–5)</label>
+                                    <select
+                                        className="w-full rounded-xl border border-line px-3 py-2.5 text-base outline-none focus:border-ink"
+                                        value={assessForm.data.score}
+                                        onChange={(event) => assessForm.setData('score', event.target.value)}
+                                    >
+                                        <option value="1">1 · Perlu bimbingan</option>
+                                        <option value="2">2 · Berkembang</option>
+                                        <option value="3">3 · Cukup</option>
+                                        <option value="4">4 · Baik</option>
+                                        <option value="5">5 · Sangat baik</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="mb-1 block text-sm font-semibold text-ink">Catatan terlihat</label>
+                                    <select
+                                        className="w-full rounded-xl border border-line px-3 py-2.5 text-base outline-none focus:border-ink"
+                                        value={assessForm.data.note_visibility}
+                                        onChange={(event) => assessForm.setData('note_visibility', event.target.value)}
+                                    >
+                                        <option value="parent">Orang tua & pelatih</option>
+                                        <option value="internal">Internal pelatih</option>
+                                    </select>
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label className="mb-1 block text-sm font-semibold text-ink">Catatan (opsional)</label>
+                                    <input
+                                        className="w-full rounded-xl border border-line px-3 py-2.5 text-base outline-none focus:border-ink"
+                                        value={assessForm.data.note}
+                                        onChange={(event) => assessForm.setData('note', event.target.value)}
+                                        placeholder="mis. servis makin konsisten"
+                                    />
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                className={buttonClass('primary', 'mt-3 w-full')}
+                                disabled={assessForm.processing}
+                                onClick={submitAssessment}
+                            >
+                                <Sparkles className="h-4 w-4" />
+                                {assessForm.processing ? 'Menyimpan…' : 'Simpan penilaian'}
+                            </button>
+                        </Card>
+                    ) : null}
 
                     <Card>
                         <SectionTitle>Progres skill</SectionTitle>

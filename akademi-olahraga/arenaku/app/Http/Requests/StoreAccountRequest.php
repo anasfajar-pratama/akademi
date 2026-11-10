@@ -18,7 +18,7 @@ class StoreAccountRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:120'],
-            'role' => ['required', 'in:admin,coach,parent,member'],
+            'role' => ['required', 'in:admin,admin_coach,coach,parent,member'],
             'email' => ['nullable', 'email', 'max:120'],
             'phone' => ['nullable', 'string', 'max:20'],
             'password' => ['nullable', 'string', 'min:8'],
